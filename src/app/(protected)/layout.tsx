@@ -8,9 +8,9 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-      <div className="flex flex-col ">
+      <div className="flex flex-col">
         <HeaderView/>
-        <main className="flex-1 border-[#CBD4E1] bg-[#F9F9FB] flex flex-col overflow-hidden">
+        <main className="flex flex-1 flex-col border-[#CBD4E1] bg-[#F9F9FB] px-3 pt-4 md:px-5 md:pt-6 lg:px-6">
           {children}
         </main>
         <FooterView/>
