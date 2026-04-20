@@ -10,7 +10,7 @@ export default function Layout({
   return (
       <div className="flex flex-col">
         <HeaderView/>
-        <main className="flex flex-1 flex-col border-[#CBD4E1] bg-[#F9F9FB] px-3 pt-4 md:px-5 md:pt-6 lg:px-6">
+        <main className="flex flex-1 flex-col border-[#CBD4E1] bg-[#F9F9FB] px-4 pb-10 pt-5 md:px-8 md:pb-12 md:pt-7">
           {children}
         </main>
         <FooterView/>

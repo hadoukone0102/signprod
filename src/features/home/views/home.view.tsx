@@ -1,4 +1,5 @@
 import BannierView from "@/shared/components/bannier.component";
+import ScrollReveal from "@/shared/components/scroll-reveal";
 import {
   Lightbulb,
   Hammer,
@@ -84,17 +85,17 @@ export default function HomeView() {
   ];
 
   return (
-    <div className="flex flex-col gap-4 bg-[#F5F8FC] md:gap-6">
+    <div className="flex flex-col gap-6 bg-[#F5F8FC] md:gap-10">
       <BannierView />
 
       {/* QUI SOMMES NOUS */}
-      <section className="relative overflow-hidden bg-white py-14 md:py-20">
+      <section className="relative overflow-x-hidden bg-white py-16 md:py-24">
         {/* decorative backdrop */}
         <div className="pointer-events-none absolute -left-24 top-20 h-64 w-64 rounded-full bg-[#0097B2]/5 blur-3xl" />
         <div className="pointer-events-none absolute right-0 bottom-0 h-72 w-72 rounded-full bg-[#FF7A00]/5 blur-3xl" />
 
         <div className="container relative">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
             {/* TEXT */}
             <div>
               <div className="inline-flex items-center gap-2">
@@ -104,7 +105,7 @@ export default function HomeView() {
                 </p>
               </div>
 
-              <h2 className="mt-5 text-[1.75rem] font-semibold leading-[1.2] tracking-tight text-[#0F2235] md:text-[2.25rem] lg:text-[2.5rem]">
+              <h2 className="mt-6 text-[1.75rem] font-semibold leading-[1.2] tracking-tight text-[#0F2235] md:mt-7 md:text-[2.25rem] lg:text-[2.5rem]">
                 Fabricant de supports visuels pour{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10 text-[#0097B2]">stand, boutique</span>
@@ -113,12 +114,12 @@ export default function HomeView() {
                 et espace professionnel.
               </h2>
 
-              <p className="mt-6 max-w-xl text-[0.95rem] leading-[1.85] text-[#556984]">
+              <p className="mt-7 max-w-xl text-[0.95rem] leading-[1.85] text-[#556984] md:mt-8">
                 Nous concevons et realisons vos enseignes, solutions de signaletique et supports
                 d&apos;impression grand format, pour toutes les exigences d&apos;exposition et de visibilite.
               </p>
 
-              <ul className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <ul className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4">
                 {[
                   { icon: ShieldCheck, label: "Materiaux premium" },
                   { icon: Sparkles, label: "Finition soignee" },
@@ -140,7 +141,7 @@ export default function HomeView() {
                 })}
               </ul>
 
-              <div className="mt-9 flex flex-wrap items-center gap-4">
+              <div className="mt-10 flex flex-wrap items-center gap-4 md:mt-12">
                 <Link href="/devis" className="btn btn-primary">
                   Demander un devis
                   <ArrowRight className="h-4 w-4" />
@@ -157,8 +158,8 @@ export default function HomeView() {
               </div>
             </div>
 
-            {/* IMAGE */}
-            <div className="relative">
+            {/* IMAGE + badge — animation à l’entrée dans le viewport au scroll */}
+            <ScrollReveal className="relative">
               <div className="relative overflow-hidden rounded-[28px] shadow-[0_30px_60px_-20px_rgba(15,34,53,0.25)]">
                 <img
                   src="/slide/slider03.jpg"
@@ -166,47 +167,50 @@ export default function HomeView() {
                   className="h-[340px] w-full object-cover md:h-[460px] lg:h-[520px]"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(6,16,26,0.35)_100%)]" />
-              </div>
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgba(6,16,26,0.5)_100%)]" />
 
-              {/* Floating experience badge */}
-              <div className="absolute -bottom-6 -left-4 hidden items-center gap-4 rounded-2xl border border-[#E3EAF2] bg-white p-4 shadow-[0_18px_40px_rgba(15,34,53,0.14)] md:flex">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#0F2235] text-xl font-bold text-white">
-                  10+
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-[#0F2235]">Annees d&apos;experience</p>
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-[#5A6B82]">
-                    Enseignes & signaletique
-                  </p>
+                <div className="absolute inset-x-4 bottom-4 z-10 flex items-center justify-center md:inset-x-auto md:bottom-6 md:left-1/2 md:w-max md:max-w-[calc(100%-2rem)] md:-translate-x-1/2">
+                  <div className="flex w-full max-w-md items-center gap-3 rounded-2xl border border-white/20 bg-white/95 px-4 py-3 shadow-[0_12px_32px_rgba(15,34,53,0.2)] backdrop-blur-sm sm:gap-4 sm:px-5 sm:py-3.5">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0F2235] text-lg font-bold text-white sm:h-14 sm:w-14 sm:text-xl">
+                      10+
+                    </div>
+                    <div className="min-w-0 text-left">
+                      <p className="text-sm font-semibold text-[#0F2235] sm:text-[0.95rem]">
+                        Annees d&apos;experience
+                      </p>
+                      <p className="text-[10px] uppercase tracking-[0.14em] text-[#5A6B82] sm:text-[11px]">
+                        Enseignes & signaletique
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className="bg-[#F5F8FC] py-14 md:py-20">
+      <section className="bg-[#F5F8FC] py-16 md:py-24">
         <div className="container">
-          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          <div className="sp-section-head">
             <div className="inline-flex items-center gap-3">
-              <span className="h-px w-8 bg-[#0097B2]" />
+              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
               <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#0097B2]">
                 Nos expertises
               </p>
-              <span className="h-px w-8 bg-[#0097B2]" />
+              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
             </div>
-            <h2 className="mt-4 text-2xl font-semibold leading-tight text-[#1A2B3C] md:text-[2rem]">
+            <h2 className="sp-section-head__title text-2xl md:text-[2rem]">
               Une offre complete pour votre image de marque.
             </h2>
-            <p className="mt-4 text-[0.95rem] leading-[1.8] text-[#5A6B82]">
+            <p className="sp-section-head__lead">
               De la conception a la pose, nous gerons l&apos;ensemble de la chaine de production
               pour vous garantir un resultat homogene et professionnel.
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-6 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => {
               const Icon = service.icon;
               return (
@@ -233,30 +237,43 @@ export default function HomeView() {
         </div>
       </section>
 
-      {/* CHIFFRES CLES */}
-      <section className="relative overflow-hidden bg-[#0F2235] py-14 md:py-16">
+      {/* CHIFFRES CLES — même structure que « Nos expertises » (centrage + rythme) */}
+      <section className="relative overflow-x-hidden bg-[#0B1829] py-16 md:py-24">
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.10]"
+          className="pointer-events-none absolute inset-0 opacity-[0.12]"
           style={{
             backgroundImage:
               "radial-gradient(circle at 20% 20%, #38d5e9 0px, transparent 40%), radial-gradient(circle at 80% 80%, #0097B2 0px, transparent 45%)",
           }}
         />
         <div className="container relative">
-          <div className="mb-10 max-w-2xl">
-            <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#38d5e9]">Indicateurs cles</p>
-            <h2 className="mt-3 text-2xl font-semibold leading-tight text-white md:text-[2rem]">
+          <div className="sp-section-head sp-section-head--kpi">
+            <div className="inline-flex items-center gap-3">
+              <span className="h-px w-8 bg-[#7dd3fc]" aria-hidden />
+              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#7dd3fc]">
+                Indicateurs cles
+              </p>
+              <span className="h-px w-8 bg-[#7dd3fc]" aria-hidden />
+            </div>
+            <h2 className="sp-section-head__title text-2xl md:text-[2rem]">
               Une execution fiable, mesurable et orientee resultat.
             </h2>
+            <p className="sp-section-head__lead">
+              Des reperes concrets sur notre capacite a repondre vite, livrer en qualite et
+              accompagner votre projet de bout en bout.
+            </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+
+          <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-5 md:mt-20 md:grid-cols-4 md:gap-6">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm md:p-7"
+                className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/[0.07] px-4 py-9 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-sm sm:px-5 sm:py-10 md:gap-4 md:px-6 md:py-11"
               >
-                <p className="text-3xl font-bold tracking-tight text-white md:text-[2.75rem]">{stat.value}</p>
-                <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.16em] text-white/70 md:text-xs">
+                <p className="text-3xl font-bold tabular-nums tracking-tight text-white md:text-[2.35rem]">
+                  {stat.value}
+                </p>
+                <p className="max-w-[14ch] text-[0.8125rem] font-medium uppercase leading-snug tracking-[0.12em] text-white/92 md:max-w-none md:text-sm">
                   {stat.label}
                 </p>
               </div>
@@ -266,12 +283,12 @@ export default function HomeView() {
       </section>
 
       {/* REALISATIONS */}
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-white py-16 md:py-24">
         <div className="container">
-          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
+          <div className="mb-12 flex flex-col gap-5 md:mb-16 md:flex-row md:items-end md:justify-between md:gap-8">
+            <div className="max-w-2xl">
               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#0097B2]">Nos realisations</p>
-              <h2 className="mt-2 text-2xl font-semibold leading-tight text-[#1A2B3C] md:text-[2rem]">
+              <h2 className="mt-3 text-2xl font-semibold leading-tight text-[#1A2B3C] md:text-[2rem]">
                 Des projets concrets qui valorisent votre image.
               </h2>
             </div>
@@ -311,9 +328,9 @@ export default function HomeView() {
       </section>
 
       {/* POURQUOI SIGNPROD */}
-      <section className="bg-[#F5F8FC] py-14 md:py-20">
+      <section className="bg-[#F5F8FC] py-16 md:py-24">
         <div className="container">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="relative overflow-hidden rounded-2xl">
               <img
                 src="/slide/slider04.jpg"
@@ -359,26 +376,26 @@ export default function HomeView() {
       </section>
 
       {/* PROCESSUS */}
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-white py-16 md:py-24">
         <div className="container">
-          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          <div className="sp-section-head">
             <div className="inline-flex items-center gap-3">
-              <span className="h-px w-8 bg-[#0097B2]" />
+              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
               <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#0097B2]">
                 Notre methode
               </p>
-              <span className="h-px w-8 bg-[#0097B2]" />
+              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
             </div>
-            <h2 className="mt-4 text-2xl font-semibold leading-tight text-[#1A2B3C] md:text-[2rem]">
+            <h2 className="sp-section-head__title text-2xl md:text-[2rem]">
               Un accompagnement simple, rapide et fiable.
             </h2>
-            <p className="mt-4 text-[0.95rem] leading-[1.8] text-[#5A6B82]">
+            <p className="sp-section-head__lead">
               Du brief a la pose finale, nous suivons une methode claire pour garantir
               qualite, delais et coherence visuelle sur chaque projet.
             </p>
           </div>
 
-          <div className="relative mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="relative mt-14 grid grid-cols-1 gap-6 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
             {process.map((item, index) => (
               <article
                 key={item.step}
@@ -402,21 +419,21 @@ export default function HomeView() {
       </section>
 
       {/* SECTEURS */}
-      <section className="bg-[#F5F8FC] py-14 md:py-16">
+      <section className="bg-[#F5F8FC] py-16 md:py-20">
         <div className="container">
-          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          <div className="sp-section-head">
             <div className="inline-flex items-center gap-3">
-              <span className="h-px w-8 bg-[#0097B2]" />
+              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
               <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#0097B2]">
                 Secteurs accompagnes
               </p>
-              <span className="h-px w-8 bg-[#0097B2]" />
+              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
             </div>
-            <h2 className="mt-4 text-2xl font-semibold leading-tight text-[#1A2B3C] md:text-[2rem]">
+            <h2 className="sp-section-head__title text-2xl md:text-[2rem]">
               Nous adaptons chaque design a votre activite.
             </h2>
           </div>
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
             {sectors.map((item) => (
               <div
                 key={item}
@@ -430,16 +447,16 @@ export default function HomeView() {
       </section>
 
       {/* TEMOIGNAGE */}
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-white py-16 md:py-24">
         <div className="container">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-[#DCE6F0] bg-[#F8FBFF] p-8 text-center md:p-12">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-[#DCE6F0] bg-[#F8FBFF] px-6 py-10 text-center md:px-12 md:py-14">
             <Quote className="mx-auto h-9 w-9 text-[#0097B2]" />
-            <p className="mt-6 text-base font-light leading-[1.85] text-[#1A2B3C] md:text-lg md:leading-[1.8]">
+            <p className="mx-auto mt-8 max-w-[min(52ch,100%)] text-base font-light leading-[1.85] text-[#1A2B3C] md:mt-10 md:text-lg md:leading-[1.8]">
               &laquo; Signprod a su comprendre notre identite et la traduire visuellement avec
               une qualite d&apos;execution remarquable. Equipe reactive, conseils pertinents
               et finitions impeccables. &raquo;
             </p>
-            <div className="mt-6">
+            <div className="mt-8 md:mt-10">
               <p className="text-sm font-semibold text-[#1A2B3C]">Direction Marketing</p>
               <p className="text-[11px] uppercase tracking-[0.18em] text-[#5A6B82]">Client retail - Abidjan</p>
             </div>

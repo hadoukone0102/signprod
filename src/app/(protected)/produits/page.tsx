@@ -54,7 +54,7 @@ const PRODUITS = [
 export default function ProduitsPage() {
   return (
     <div className="bg-[#F6F9FC]">
-      <section className="sp-page-hero">
+      <section className="sp-page-hero sp-page-hero--center">
         <div className="container sp-page-hero__inner">
           <p className="sp-kicker">Nos Produits</p>
           <h1 className="sp-title max-w-4xl">Faites votre choix parmi nos solutions de communication visuelle.</h1>
@@ -62,7 +62,7 @@ export default function ProduitsPage() {
             Nous concevons et fabriquons des produits durables et adaptes a votre image de marque,
             de l&apos;enseigne lumineuse au stand evenementiel.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
             {["Enseignes", "Signaletique", "Impression", "Totems", "Display", "Habillage"].map((chip) => (
               <span key={chip} className="rounded-full border border-[#D9E4EF] bg-white px-4 py-2 text-sm text-[#334B61]">
                 {chip}

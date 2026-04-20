@@ -14,7 +14,7 @@ export default async function SavoirFaireDetailPage({ params }: { params: Promis
 
   return (
     <div className="bg-[#F6F9FC]">
-      <section className="sp-page-hero">
+      <section className="sp-page-hero sp-page-hero--center">
         <div className="container sp-page-hero__inner">
           <p className="sp-kicker">Notre expertise</p>
           <h1 className="sp-title">{title}</h1>

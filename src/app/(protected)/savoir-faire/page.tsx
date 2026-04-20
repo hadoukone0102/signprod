@@ -15,7 +15,7 @@ const SAVOIR_FAIRE_IMAGES = [
 export default function SavoirFairePage() {
   return (
     <div className="bg-[#F6F9FC]">
-      <section className="sp-page-hero">
+      <section className="sp-page-hero sp-page-hero--center">
         <div className="container sp-page-hero__inner">
           <p className="sp-kicker">Notre Savoir-Faire</p>
           <h1 className="sp-title max-w-4xl">Des solutions pensees pour rendre votre marque visible.</h1>

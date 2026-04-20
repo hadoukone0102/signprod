@@ -1,7 +1,7 @@
 export default function DevisPage() {
   return (
     <div className="bg-[#F6F9FC]">
-      <section className="sp-page-hero">
+      <section className="sp-page-hero sp-page-hero--center">
         <div className="container sp-page-hero__inner">
           <p className="sp-kicker">Demande De Devis</p>
           <h1 className="sp-title max-w-3xl">Obtenez une proposition claire sous 24h.</h1>

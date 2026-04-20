@@ -69,7 +69,7 @@ export default function RealisationsPage() {
 
   return (
     <div className="bg-[#F6F9FC]">
-      <section className="sp-page-hero">
+      <section className="sp-page-hero sp-page-hero--center">
         <div className="container sp-page-hero__inner">
           <p className="sp-kicker">Nos Realisations</p>
           <h1 className="sp-title">Des projets concrets qui valorisent votre image.</h1>
