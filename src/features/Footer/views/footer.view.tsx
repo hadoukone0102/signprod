@@ -1,5 +1,7 @@
 import { FOOTER_LINKS } from "@/shared/constants/footer.link";
+import { CONTACT } from "@/shared/constants/contact.info";
 import Link from "next/link";
+import Image from "next/image";
 import { SOCIALS } from "../components/social-component";
 import FooterStyle from "../components/footer.style";
 
@@ -17,7 +19,7 @@ export default function FooterView() {
           </div>
           <div className="sp-footer__cta-actions">
             <a href="/devis" className="btn btn-primary">Demander un devis</a>
-            <a href="tel:+2250000000000" className="btn btn-outline">📞 Nous appeler</a>
+            <a href={CONTACT.phone.href} className="btn btn-outline">📞 Nous appeler</a>
           </div>
         </div>
       </div>
@@ -28,12 +30,15 @@ export default function FooterView() {
 
           {/* Brand column */}
           <div className="sp-footer__brand">
-            <div className="sp-footer__logo">
-              <span className="sp-footer__logo-s">S</span>
-              <span className="sp-footer__logo-word">
-                <span>ign</span><span className="sp-footer__logo-dot">.</span><span className="sp-footer__logo-prod">Prod</span>
-              </span>
-            </div>
+            <Link href="/" aria-label="SignProd — Accueil" className="inline-flex items-center">
+              <Image
+                src="/asset/SignProd-logo.png"
+                alt="SignProd"
+                width={300}
+                height={100}
+                className="h-12 w-auto"
+              />
+            </Link>
             <p className="sp-footer__tagline">
               Enseigne • Signalétique<br />Impression Grand Format • Concept Façade
             </p>
@@ -108,15 +113,15 @@ export default function FooterView() {
             <div className="sp-footer__contact-bloc">
               <div className="sp-footer__contact-item">
                 <span>📍</span>
-                <span>Abidjan, Côte d&apos;Ivoire</span>
+                <span>{CONTACT.address.short}</span>
               </div>
               <div className="sp-footer__contact-item">
                 <span>📞</span>
-                <a href="tel:+2250000000000">+225 00 00 00 00</a>
+                <a href={CONTACT.phone.href}>{CONTACT.phone.label}</a>
               </div>
               <div className="sp-footer__contact-item">
                 <span>✉</span>
-                <a href="mailto:contact@signprod.com">contact@signprod.com</a>
+                <a href={CONTACT.email.href}>{CONTACT.email.label}</a>
               </div>
             </div>
           </div>
