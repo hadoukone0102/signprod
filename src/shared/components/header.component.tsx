@@ -49,8 +49,11 @@ export default function HeaderView() {
 
   /* Fermer au changement de route */
   useEffect(() => {
-    setMobileOpen(false);
-    setOpenDropdown(null);
+    // microtask → évite le setState sync direct
+    queueMicrotask(() => {
+      setMobileOpen(false);
+      setOpenDropdown(null);
+    });
   }, [pathname]);
 
   /* Scroll lock quand drawer mobile ouvert */
