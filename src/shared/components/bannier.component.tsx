@@ -121,8 +121,16 @@ export default function BannierView() {
   /* Respect des préférences utilisateur (motion sickness) */
   useEffect(() => {
     if (typeof window === "undefined") return;
+
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) setUserPaused(true);
+
+    const handler = (e: MediaQueryListEvent) => {
+      setUserPaused(e.matches);
+    };
+
+    mq.addEventListener("change", handler);
+
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
   /* Navigation clavier — ← / → quand le hero est dans le viewport */
