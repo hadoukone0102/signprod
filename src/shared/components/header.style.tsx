@@ -63,8 +63,8 @@ export default function HeaderStyle() {
       .sp-header__inner {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 1.5rem;
+        justify-content: center;
+        gap: 2rem;
         padding: 14px 0;
       }
       .sp-header--scrolled .sp-header__inner {
@@ -72,14 +72,12 @@ export default function HeaderStyle() {
       }
 
       /* ─────────────────────────────────────────
-         NAVIGATION DESKTOP
+         NAVIGATION DESKTOP — resserrée
       ───────────────────────────────────────── */
       .sp-nav {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
-        flex: 1;
-        justify-content: center;
+        gap: 0;
       }
       .sp-nav__item {
         position: relative;
@@ -88,11 +86,11 @@ export default function HeaderStyle() {
         display: inline-flex;
         align-items: center;
         gap: 4px;
-        padding: 12px 16px;
+        padding: 10px 12px;
         font-size: 12px;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 1.5px;
+        letter-spacing: 1.3px;
         color: rgba(255, 255, 255, 0.85);
         text-decoration: none;
         position: relative;
@@ -116,9 +114,9 @@ export default function HeaderStyle() {
       .sp-nav__link::after {
         content: "";
         position: absolute;
-        left: 16px;
-        right: 16px;
-        bottom: 6px;
+        left: 12px;
+        right: 12px;
+        bottom: 4px;
         height: 2px;
         background: #1abcbc;
         transform: scaleX(0);
@@ -217,13 +215,13 @@ export default function HeaderStyle() {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 12px 22px;
+        padding: 11px 18px;
         background: #0097B2;
         color: #ffffff !important;
         font-size: 11px;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 1.5px;
+        letter-spacing: 1.3px;
         text-decoration: none;
         border-radius: 0;
         transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
