@@ -106,7 +106,7 @@ export default function HomeView() {
             className="grid grid-cols-2 divide-x divide-slate-200 md:grid-cols-4"
           >
             {STATS.map((s) => (
-              <div key={s.label} className="px-6 py-9 text-center md:py-11">
+              <div key={s.label} className="px-6 py-6 text-center md:py-9">
                 <p className="text-3xl font-bold tracking-tight text-[#0097B2] md:text-4xl lg:text-5xl">
                   {s.num}
                 </p>
@@ -122,9 +122,9 @@ export default function HomeView() {
       {/* ─────────────────────────────────────────
           PRÉSENTATION — split image + texte
       ───────────────────────────────────────── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-10 md:py-16">
         <div className="container">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             {/* ─── Image avec effets décoratifs ─── */}
             <ScrollReveal variant="fade-right" className="relative lg:col-span-6">
               <div className="group relative">
@@ -201,7 +201,7 @@ export default function HomeView() {
                 </p>
               </div>
 
-              <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-4">
+              <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-3">
                 {WHY_US.slice(0, 4).map((w) => {
                   const Icon = w.icon;
                   return (
@@ -220,7 +220,7 @@ export default function HomeView() {
 
               <Link
                 href="/savoir-faire"
-                className="mt-10 inline-flex items-center gap-2 bg-[#0097B2] px-8 py-4 text-xs font-bold uppercase tracking-[2px] text-white transition hover:bg-[#006F85] hover:gap-3"
+                className="mt-8 inline-flex items-center gap-2 bg-[#0097B2] px-7 py-3.5 text-xs font-bold uppercase tracking-[2px] text-white transition hover:bg-[#006F85] hover:gap-3"
               >
                 Notre savoir-faire
                 <ArrowRight className="h-4 w-4" />
@@ -233,7 +233,7 @@ export default function HomeView() {
       {/* ─────────────────────────────────────────
           NOS SERVICES — grille images
       ───────────────────────────────────────── */}
-      <section className="bg-[#F4F7FA] py-16 md:py-24">
+      <section className="bg-[#F4F7FA] py-10 md:py-16">
         <div className="container">
           <ScrollReveal className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
             <div className="max-w-2xl">
@@ -256,7 +256,7 @@ export default function HomeView() {
             </Link>
           </ScrollReveal>
 
-          <ScrollReveal stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ScrollReveal stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
               <Link
                 key={s.title}
@@ -273,7 +273,7 @@ export default function HomeView() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A24]/95 via-[#0F1A24]/50 to-transparent" />
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-7">
+                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
                   <h3 className="text-xl font-bold uppercase tracking-tight text-white md:text-2xl">
                     {s.title}
                   </h3>
@@ -294,7 +294,7 @@ export default function HomeView() {
       {/* ─────────────────────────────────────────
           NOTRE PROCESSUS — 4 étapes visuelles
       ───────────────────────────────────────── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-10 md:py-16">
         <div className="container">
           <ScrollReveal className="mx-auto max-w-3xl text-center">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[3px] text-[#0097B2]">
@@ -312,11 +312,11 @@ export default function HomeView() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal stagger className="mt-12 grid gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
+          <ScrollReveal stagger className="mt-8 grid gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s, i) => (
               <div
                 key={s.n}
-                className="group relative bg-white p-8 transition-colors hover:bg-[#F4F7FA] md:p-10"
+                className="group relative bg-white p-6 transition-colors hover:bg-[#F4F7FA] md:p-8"
               >
                 <div className="flex items-baseline justify-between">
                   <span className="text-5xl font-bold leading-none text-[#0097B2]/15 transition-colors group-hover:text-[#0097B2]/30 md:text-6xl">
@@ -326,7 +326,7 @@ export default function HomeView() {
                     Étape {i + 1}
                   </span>
                 </div>
-                <h3 className="mt-8 text-xl font-bold leading-tight tracking-tight text-[#14202C] md:text-2xl">
+                <h3 className="mt-6 text-xl font-bold leading-tight tracking-tight text-[#14202C] md:text-2xl">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-[15px]">
@@ -345,15 +345,15 @@ export default function HomeView() {
       {/* ─────────────────────────────────────────
           RÉALISATION À LA UNE — BBR
       ───────────────────────────────────────── */}
-      <section className="bg-[#0F1A24] py-16 text-white md:py-24">
+      <section className="bg-[#0F1A24] py-10 text-white md:py-16">
         <div className="container">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <ScrollReveal variant="fade-right" className="lg:col-span-5">
               <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[3px] text-[#1abcbc]">
                 <span className="h-px w-8 bg-[#1abcbc]" aria-hidden />
                 Réalisation à la une
               </p>
-              <h2 className="mt-6 text-3xl font-bold leading-[1.1] tracking-tight md:text-4xl lg:text-[2.6rem]">
+              <h2 className="mt-6 text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-4xl lg:text-[2.6rem]">
                 BBR,
                 <br />
                 <span className="text-[#1abcbc]">l&apos;authenticité ivoirienne</span>.
@@ -365,7 +365,7 @@ export default function HomeView() {
                 livrées sur deux ans.
               </p>
 
-              <div className="mt-10 grid grid-cols-3 gap-4 border-y border-white/10 py-7">
+              <div className="mt-8 grid grid-cols-3 gap-4 border-y border-white/10 py-5">
                 <div>
                   <p className="text-2xl font-bold text-[#1abcbc]">2024</p>
                   <p className="mt-1 text-[10px] font-semibold uppercase tracking-[2px] text-white/50">
@@ -386,17 +386,17 @@ export default function HomeView() {
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/realisations"
-                  className="inline-flex items-center gap-2 bg-[#1abcbc] px-8 py-4 text-xs font-bold uppercase tracking-[2px] text-[#0F1A24] transition hover:gap-3 hover:bg-[#22d8d8]"
+                  className="inline-flex items-center gap-2 bg-[#1abcbc] px-7 py-3.5 text-xs font-bold uppercase tracking-[2px] text-[#0F1A24] transition hover:gap-3 hover:bg-[#22d8d8]"
                 >
                   Voir toutes les réalisations
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/devis"
-                  className="inline-flex items-center gap-2 border border-white/30 px-8 py-4 text-xs font-bold uppercase tracking-[2px] text-white transition hover:border-white hover:bg-white/10"
+                  className="inline-flex items-center gap-2 border border-white/30 px-7 py-3.5 text-xs font-bold uppercase tracking-[2px] text-white transition hover:border-white hover:bg-white/10"
                 >
                   Démarrer mon projet
                 </Link>
@@ -441,7 +441,7 @@ export default function HomeView() {
       {/* ─────────────────────────────────────────
           POURQUOI NOUS — bandeau de garanties
       ───────────────────────────────────────── */}
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="container">
           <ScrollReveal stagger className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6 lg:gap-6">
             {WHY_US.map((w) => {
@@ -449,7 +449,7 @@ export default function HomeView() {
               return (
                 <div
                   key={w.label}
-                  className="group flex flex-col items-center gap-4 border border-slate-200 bg-white p-6 text-center transition-all hover:-translate-y-1 hover:border-[#0097B2] hover:shadow-md"
+                  className="group flex flex-col items-center gap-3 border border-slate-200 bg-white p-4 text-center transition-all hover:-translate-y-1 hover:border-[#0097B2] hover:shadow-md md:p-5"
                 >
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0097B2]/10 text-[#0097B2] transition-colors group-hover:bg-[#0097B2] group-hover:text-white">
                     <Icon className="h-5 w-5" strokeWidth={1.8} />
@@ -467,7 +467,7 @@ export default function HomeView() {
       {/* ─────────────────────────────────────────
           CTA FINAL — image background
       ───────────────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-[#0F1A24] py-20 text-white md:py-28">
+      <section className="relative isolate overflow-hidden bg-[#0F1A24] py-14 text-white md:py-20">
         <div className="absolute inset-0">
           <Image
             src="/asset/slide/slider04.jpg"
@@ -485,19 +485,19 @@ export default function HomeView() {
               <span className="h-px w-8 bg-[#1abcbc]" aria-hidden />
               Démarrons votre projet
             </p>
-            <h2 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+            <h2 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-6xl">
               Votre visibilité,
               <br />
               <span className="text-[#1abcbc]">notre signature</span>.
             </h2>
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
               Recevez une étude personnalisée et un devis sous 24h. Aucune obligation,
               juste l&apos;avis d&apos;experts qui font ce métier depuis plus de 10 ans.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 href="/devis"
-                className="inline-flex items-center gap-2 bg-[#0097B2] px-8 py-4 text-xs font-bold uppercase tracking-[2px] text-white shadow-lg transition hover:bg-[#00BCD4] hover:shadow-xl"
+                className="inline-flex items-center gap-2 bg-[#0097B2] px-7 py-3.5 text-xs font-bold uppercase tracking-[2px] text-white shadow-lg transition hover:bg-[#00BCD4] hover:shadow-xl"
               >
                 Demander un devis gratuit
                 <ArrowRight className="h-4 w-4" />

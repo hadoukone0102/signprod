@@ -237,14 +237,16 @@
 
 /* Headings (Poppins, refined)
    Encapsulé dans @layer base pour que les utilities Tailwind
-   (text-white, text-cyan-500, etc.) puissent surcharger la couleur. */
+   puissent surcharger sans avoir à utiliser !important.
+   `color: inherit` permet aussi aux titres d'hériter naturellement
+   d'un parent <section className="text-white"> par exemple. */
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 600;
     line-height: 1.18;
     letter-spacing: -0.01em;
-    color: var(--color-secondary);
+    color: inherit;
   }
 }
 
