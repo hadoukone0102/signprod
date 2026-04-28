@@ -9,6 +9,7 @@ import {
   Send,
 } from "lucide-react";
 import PageHero from "@/shared/components/page-hero.component";
+import ScrollReveal from "@/shared/components/scroll-reveal";
 import { CONTACT } from "@/shared/constants/contact.info";
 
 const SERVICES = [
@@ -53,10 +54,10 @@ export default function DevisView() {
         ]}
       />
 
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-14 md:py-20">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-12">
-            <aside className="lg:col-span-4">
+            <ScrollReveal variant="fade-right" as="aside" className="lg:col-span-4">
               <h2
                 className="text-2xl font-black uppercase tracking-tight text-[#0a1628] md:text-3xl"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -103,9 +104,9 @@ export default function DevisView() {
                   {CONTACT.hours.compact[0]}
                 </p>
               </div>
-            </aside>
+            </ScrollReveal>
 
-            <div className="lg:col-span-8">
+            <ScrollReveal variant="fade-left" delay={150} className="lg:col-span-8">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center border border-[#0097B2] bg-gradient-to-br from-[#F8FAFC] to-white p-12 text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0097B2] text-white">
@@ -216,7 +217,7 @@ export default function DevisView() {
                   </button>
                 </form>
               )}
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

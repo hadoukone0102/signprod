@@ -17,6 +17,8 @@ export interface ProduitItem {
   shortDesc: string;
   longDesc: string;
   highlights: string[];
+  /** Image principale utilisée en cards et bandeaux */
+  image: string;
 }
 
 export const PRODUITS: ProduitItem[] = [
@@ -35,6 +37,7 @@ export const PRODUITS: ProduitItem[] = [
       "Personnalisation totale (forme, couleur, taille)",
       "Garantie 2 ans pièces et main-d'œuvre",
     ],
+    image: "/asset/produit/enseigne.png",
   },
   {
     slug: "totems",
@@ -51,6 +54,7 @@ export const PRODUITS: ProduitItem[] = [
       "Structures acier galvanisé anti-corrosion",
       "Étude technique d'implantation incluse",
     ],
+    image: "/asset/produit/totem.png",
   },
   {
     slug: "vitrines",
@@ -67,6 +71,7 @@ export const PRODUITS: ProduitItem[] = [
       "Lettres prédécoupées ou impression haute définition",
       "Pose intérieure ou extérieure",
     ],
+    image: "/asset/produit/agence et decorations.png",
   },
   {
     slug: "kakemono",
@@ -83,6 +88,7 @@ export const PRODUITS: ProduitItem[] = [
       "Structure aluminium légère",
       "Housse de transport incluse",
     ],
+    image: "/asset/produit/standplv.png",
   },
   {
     slug: "baches",
@@ -99,6 +105,7 @@ export const PRODUITS: ProduitItem[] = [
       "Bâches micro-perforées (anti-vent, transparence)",
       "Encres résistantes UV",
     ],
+    image: "/asset/produit/impressiongrandformat.jpg",
   },
   {
     slug: "signaletique-routiere",
@@ -115,5 +122,6 @@ export const PRODUITS: ProduitItem[] = [
       "Supports galvanisés anti-corrosion",
       "Pose et maintenance assurées",
     ],
+    image: "/asset/produit/signaletique.jpg",
   },
 ];

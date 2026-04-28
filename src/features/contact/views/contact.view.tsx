@@ -10,6 +10,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import PageHero from "@/shared/components/page-hero.component";
+import ScrollReveal from "@/shared/components/scroll-reveal";
 import { CONTACT } from "@/shared/constants/contact.info";
 
 const COORDONNEES = [
@@ -58,9 +59,9 @@ export default function ContactView() {
         ]}
       />
 
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-14 md:py-20">
         <div className="container">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ScrollReveal stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {COORDONNEES.map((c) => {
               const Icon = c.icon;
               const Inner = (
@@ -95,14 +96,14 @@ export default function ContactView() {
                 </div>
               );
             })}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      <section className="bg-[#F4F7FA] py-16 md:py-20">
+      <section className="bg-[#F4F7FA] py-14 md:py-20">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-5">
+            <ScrollReveal variant="fade-right" className="lg:col-span-5">
               <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[3px] text-[#0097B2]">
                 <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
                 Nous écrire
@@ -127,9 +128,9 @@ export default function ContactView() {
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="lg:col-span-7">
+            <ScrollReveal variant="fade-left" delay={150} className="lg:col-span-7">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center border border-[#0097B2] bg-white p-12 text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0097B2] text-white">
@@ -211,7 +212,7 @@ export default function ContactView() {
                   </button>
                 </form>
               )}
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

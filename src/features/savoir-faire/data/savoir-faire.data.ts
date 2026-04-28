@@ -16,6 +16,8 @@ export interface SavoirFaireItem {
   longDesc: string;
   features: string[];
   applications: string[];
+  /** Image principale utilisée en cards et bandeaux */
+  image: string;
 }
 
 export const SAVOIR_FAIRE: SavoirFaireItem[] = [
@@ -36,6 +38,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
       "Garantie pièces et main-d'œuvre",
     ],
     applications: ["Commerces", "Restaurants", "Hôtels", "Pharmacies", "Stations-service"],
+    image: "/asset/produit/enseigne.png",
   },
   {
     slug: "signaletique-interieure",
@@ -54,6 +57,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
       "Pictogrammes et marquage au sol",
     ],
     applications: ["Bureaux", "Hôtels", "Cliniques", "Centres commerciaux", "Administrations"],
+    image: "/asset/produit/signaletique.jpg",
   },
   {
     slug: "signaletique-exterieure",
@@ -72,6 +76,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
       "Matériaux résistants UV et corrosion",
     ],
     applications: ["Sites industriels", "Centres commerciaux", "Stations-service", "Lotissements", "Collectivités"],
+    image: "/asset/produit/stationservice.png",
   },
   {
     slug: "impression",
@@ -90,6 +95,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
       "Délais courts pour vos urgences",
     ],
     applications: ["Affichage urbain", "Événementiel", "Salons & stands", "Habillage véhicules", "Décoration murale"],
+    image: "/asset/produit/impressiongrandformat.jpg",
   },
   {
     slug: "facades",
@@ -108,6 +114,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
       "Pose en hauteur sécurisée (nacelles, échafaudages)",
     ],
     applications: ["Sièges sociaux", "Centres commerciaux", "Banques", "Concessions automobiles", "Hôtels"],
+    image: "/asset/produit/revetement1.jpg",
   },
 ];
 

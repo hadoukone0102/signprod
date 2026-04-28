@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { CONTACT } from "@/shared/constants/contact.info";
 
 /* ─────────────────────────────────────────
@@ -23,44 +24,65 @@ interface HeroSlide {
 }
 
 const SLIDES: HeroSlide[] = [
+  /* ── 1 · PITCH PRINCIPAL — promesse de marque ── */
   {
-    eyebrow: "Expert en communication visuelle",
-    title: "Votre enseigne,",
-    highlight: "notre signature.",
+    eyebrow: "Communication visuelle • Abidjan",
+    title: "Votre marque mérite",
+    highlight: "d'être vue.",
     description:
-      "Conception, fabrication et pose de solutions d'enseigne et de signalétique sur mesure à Abidjan.",
+      "Enseignes lumineuses, signalétique et façades sur mesure — conçues, fabriquées et posées par nos équipes en Côte d'Ivoire.",
     primaryCta: { label: "Demander un devis gratuit", href: "/devis" },
     secondaryCta: { label: "Nous appeler", href: CONTACT.phone.href },
     stats: [
-      { num: "+500", label: "Projets réalisés" },
-      { num: "24h", label: "Délai de devis" },
+      { num: "+100", label: "Projets livrés" },
       { num: "10+", label: "Années d'expertise" },
+      { num: "24h", label: "Devis garanti" },
     ],
   },
+
+  /* ── 2 · INTÉGRATION VERTICALE — différenciation ── */
   {
-    eyebrow: "Nos savoir-faire",
-    title: "5 expertises,",
-    highlight: "1 seul interlocuteur.",
+    eyebrow: "5 métiers, 1 atelier intégré",
+    title: "De l'idée graphique",
+    highlight: "à la pose finale.",
     description:
-      "Enseignes lumineuses, signalétique, façades, impression grand format et habillage véhicule — tout est intégré dans nos ateliers à Abidjan.",
+      "Étude graphique, fabrication LED, impression grand format, habillage façade : un seul partenaire pilote votre projet de A à Z, sans sous-traitance.",
     primaryCta: { label: "Voir nos savoir-faire", href: "/savoir-faire" },
-    secondaryCta: { label: "Nos produits", href: "/produits" },
+    secondaryCta: { label: "Découvrir nos produits", href: "/produits" },
     stats: [
-      { num: "5", label: "Domaines clés" },
+      { num: "5", label: "Métiers internes" },
       { num: "100%", label: "Sur mesure" },
-      { num: "24h", label: "Délai de devis" },
+      { num: "0", label: "Sous-traitance" },
     ],
   },
+
+  /* ── 3 · ARGUMENT TECHNIQUE LED — économie d'énergie ── */
   {
-    eyebrow: "Réalisation à la une",
-    title: "BBR,",
-    highlight: "l'authenticité ivoirienne.",
+    eyebrow: "Enseignes LED nouvelle génération",
+    title: "Visibilité 24/7,",
+    highlight: "consommation maîtrisée.",
     description:
-      "Programme complet de communication visuelle pour le siège et les sites de production : enseignes lumineuses, signalétique de sécurité et habillage de façades.",
-    primaryCta: { label: "Voir les réalisations", href: "/realisations" },
-    secondaryCta: { label: "Démarrer un projet", href: "/devis" },
+      "Nos enseignes LED durent plus de 50 000 heures et consomment jusqu'à 80 % de moins que le néon traditionnel. Un retour sur investissement en moins de 18 mois.",
+    primaryCta: { label: "Découvrir les enseignes LED", href: "/produits/enseignes-led" },
+    secondaryCta: { label: "Étudier mon projet", href: "/devis" },
     stats: [
-      { num: "5+", label: "Prestations livrées" },
+      { num: "−80%", label: "Consommation" },
+      { num: "50 000h", label: "Durée de vie" },
+      { num: "2 ans", label: "Garantie" },
+    ],
+  },
+
+  /* ── 4 · ÉTUDE DE CAS BBR — preuve sociale ── */
+  {
+    eyebrow: "Étude de cas — BBR",
+    title: "5 sites,",
+    highlight: "une identité partagée.",
+    description:
+      "Programme complet pour Brassivoire : enseignes du siège, signalétique de sécurité et habillage de façade — déployé sur 24 mois avec un seul interlocuteur.",
+    primaryCta: { label: "Voir nos réalisations", href: "/realisations" },
+    secondaryCta: { label: "Démarrer mon projet", href: "/devis" },
+    stats: [
+      { num: "5+", label: "Prestations" },
       { num: "24m", label: "De façade" },
       { num: "2024", label: "Démarrage" },
     ],
@@ -72,34 +94,83 @@ const SLIDE_INTERVAL_MS = 7000;
 export default function BannierView() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false); // pause manuelle (bouton)
   const total = SLIDES.length;
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const heroRef = useRef<HTMLDivElement | null>(null);
 
-  /* Auto-rotation, pause au hover */
+  /* Helpers navigation manuelle */
+  const goTo = useCallback(
+    (i: number) => setActive(((i % total) + total) % total),
+    [total],
+  );
+  const goPrev = useCallback(() => goTo(active - 1), [active, goTo]);
+  const goNext = useCallback(() => goTo(active + 1), [active, goTo]);
+
+  /* Auto-rotation, pause au hover ou pause manuelle */
   useEffect(() => {
-    if (paused || total <= 1) return;
+    if (paused || userPaused || total <= 1) return;
     intervalRef.current = setInterval(() => {
       setActive((i) => (i + 1) % total);
     }, SLIDE_INTERVAL_MS);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [paused, total]);
+  }, [paused, userPaused, total]);
 
   /* Respect des préférences utilisateur (motion sickness) */
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) setPaused(true);
+    if (mq.matches) setUserPaused(true);
   }, []);
+
+  /* Navigation clavier — ← / → quand le hero est dans le viewport */
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      const el = heroRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const visible = rect.bottom > 100 && rect.top < window.innerHeight - 100;
+      if (!visible) return;
+      // Évite d'interférer avec un input/textarea focus
+      const activeEl = document.activeElement;
+      const tag = activeEl?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      e.preventDefault();
+      if (e.key === "ArrowLeft") goPrev();
+      else goNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [goPrev, goNext]);
+
+  /* Swipe tactile (mobile) */
+  const touchStart = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStart.current;
+    if (Math.abs(delta) > 50) {
+      if (delta > 0) goPrev();
+      else goNext();
+    }
+    touchStart.current = null;
+  };
 
   return (
     <section className="w-full overflow-hidden bg-[#0a1628]">
       {/* ── HERO (slider sur fond statique) ── */}
       <div
-        className="relative flex min-h-[560px] flex-col justify-end"
+        ref={heroRef}
+        className="relative flex min-h-[440px] flex-col justify-end md:min-h-[480px]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
         {/* Background pattern (statique) */}
         <div
@@ -123,7 +194,7 @@ export default function BannierView() {
 
         {/* ── SLIDES (texte gauche) ── */}
         <div
-          className="relative z-10 max-w-4xl px-8 pb-12 pt-20 md:px-12"
+          className="relative z-10 max-w-4xl px-8 pb-10 pt-14 md:px-12 md:pt-16"
           aria-roledescription="carousel"
           aria-label="Présentation SignProd"
         >
@@ -144,17 +215,17 @@ export default function BannierView() {
                   } transition-all duration-700 ease-out`}
                 >
                   {/* Eyebrow */}
-                  <div className="mb-6 inline-flex items-center gap-2 rounded-[2px] border border-[rgba(26,188,188,0.4)] bg-[rgba(26,188,188,0.15)] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[2px] text-[#1abcbc]">
+                  <div className="mb-5 inline-flex items-center gap-2 rounded-[2px] border border-[rgba(26,188,188,0.4)] bg-[rgba(26,188,188,0.15)] px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[2px] text-[#1abcbc]">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#1abcbc]" />
                     {slide.eyebrow}
                   </div>
 
                   {/* Title */}
                   <h1
-                    className="mb-4 font-black uppercase leading-none tracking-tight text-white"
+                    className="mb-3 font-black uppercase leading-[0.95] tracking-tight text-white"
                     style={{
                       fontFamily: "'Barlow Condensed', sans-serif",
-                      fontSize: "clamp(42px, 6vw, 72px)",
+                      fontSize: "clamp(34px, 4.6vw, 56px)",
                     }}
                   >
                     {slide.title}
@@ -163,7 +234,7 @@ export default function BannierView() {
                   </h1>
 
                   {/* Description */}
-                  <p className="mb-9 max-w-xl text-[17px] leading-relaxed text-white/65">
+                  <p className="mb-7 max-w-xl text-[15px] leading-relaxed text-white/65 md:text-base">
                     {slide.description}
                   </p>
 
@@ -198,58 +269,105 @@ export default function BannierView() {
             })}
           </div>
 
-          {/* ── Dots de navigation ── */}
-          <div
-            className="mt-10 flex items-center gap-3"
-            role="tablist"
-            aria-label="Sélection du slide"
-          >
-            {SLIDES.map((_, i) => {
-              const isActive = i === active;
-              return (
-                <button
-                  key={i}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-label={`Aller au slide ${i + 1}`}
-                  onClick={() => setActive(i)}
-                  className={`relative h-[2px] overflow-hidden rounded-full transition-all duration-300 ${
-                    isActive
-                      ? "w-12 bg-white/15"
-                      : "w-6 bg-white/15 hover:bg-white/30"
-                  }`}
-                >
-                  {isActive && (
-                    <span
-                      key={`fill-${active}-${paused}`}
-                      className="absolute inset-0 origin-left bg-[#1abcbc]"
-                      style={{
-                        animation: paused
-                          ? "none"
-                          : `sp-hero-progress ${SLIDE_INTERVAL_MS}ms linear forwards`,
-                      }}
-                    />
-                  )}
-                </button>
-              );
-            })}
-            <span className="ml-2 font-mono text-[11px] tabular-nums text-white/40">
-              {String(active + 1).padStart(2, "0")} /{" "}
-              {String(total).padStart(2, "0")}
-            </span>
+          {/* ── Barre de navigation (dots + play/pause + précédent/suivant mobile) ── */}
+          <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
+            {/* Dots */}
+            <div
+              className="flex items-center gap-3"
+              role="tablist"
+              aria-label="Sélection du slide"
+            >
+              {SLIDES.map((_, i) => {
+                const isActive = i === active;
+                return (
+                  <button
+                    key={i}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-label={`Aller au slide ${i + 1}`}
+                    onClick={() => goTo(i)}
+                    className={`relative h-[2px] overflow-hidden rounded-full transition-all duration-300 ${
+                      isActive
+                        ? "w-12 bg-white/15"
+                        : "w-6 bg-white/15 hover:bg-white/30"
+                    }`}
+                  >
+                    {isActive && (
+                      <span
+                        key={`fill-${active}-${paused || userPaused}`}
+                        className="absolute inset-0 origin-left bg-[#1abcbc]"
+                        style={{
+                          animation:
+                            paused || userPaused
+                              ? "none"
+                              : `sp-hero-progress ${SLIDE_INTERVAL_MS}ms linear forwards`,
+                        }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+              <span className="ml-2 font-mono text-[11px] tabular-nums text-white/40">
+                {String(active + 1).padStart(2, "0")} /{" "}
+                {String(total).padStart(2, "0")}
+              </span>
+            </div>
+
+            {/* Séparateur */}
+            <span className="hidden h-3 w-px bg-white/15 md:inline-block" aria-hidden />
+
+            {/* Pause / Play */}
+            <button
+              type="button"
+              onClick={() => setUserPaused((v) => !v)}
+              aria-label={
+                userPaused ? "Reprendre la rotation" : "Mettre en pause la rotation"
+              }
+              aria-pressed={userPaused}
+              className="group inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[2px] text-white/55 transition-colors hover:text-[#1abcbc]"
+            >
+              {userPaused ? (
+                <Play className="h-3 w-3 fill-current" strokeWidth={2.2} />
+              ) : (
+                <Pause className="h-3 w-3 fill-current" strokeWidth={2.2} />
+              )}
+              <span className="hidden sm:inline">
+                {userPaused ? "Lecture" : "Pause"}
+              </span>
+            </button>
+
+            {/* Précédent / Suivant — toujours visibles, alignés à droite */}
+            <div className="ml-auto flex items-center gap-2">
+              <button
+                type="button"
+                onClick={goPrev}
+                aria-label="Slide précédent"
+                className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/85 backdrop-blur-sm transition-all hover:border-[#1abcbc] hover:bg-[#1abcbc] hover:text-[#0a1628]"
+              >
+                <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" strokeWidth={2.2} />
+              </button>
+              <button
+                type="button"
+                onClick={goNext}
+                aria-label="Slide suivant"
+                className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/85 backdrop-blur-sm transition-all hover:border-[#1abcbc] hover:bg-[#1abcbc] hover:text-[#0a1628]"
+              >
+                <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2.2} />
+              </button>
+            </div>
           </div>
         </div>
 
         {/* ── Stats — desktop only, change aussi avec le slide ── */}
         <div
-          className="absolute bottom-12 right-12 z-10 hidden flex-col items-end gap-5 lg:flex"
+          className="absolute bottom-10 right-10 z-10 hidden flex-col items-end gap-4 lg:flex"
           aria-live="polite"
         >
           {SLIDES[active].stats.map((s, i) => (
             <div key={`${active}-${i}`} className="text-right sp-hero-stat">
               <div
-                className="text-[40px] font-black leading-none text-[#1abcbc]"
+                className="text-[32px] font-black leading-none text-[#1abcbc]"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
                 {s.num}

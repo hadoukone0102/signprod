@@ -53,7 +53,7 @@ const SERVICES = [
 ];
 
 const STATS = [
-  { num: "500+", label: "Projets livrés" },
+  { num: "00+", label: "Projets livrés" },
   { num: "10+", label: "Ans d'expertise" },
   { num: "24h", label: "Délai de devis" },
   { num: "100%", label: "Sur mesure" },
