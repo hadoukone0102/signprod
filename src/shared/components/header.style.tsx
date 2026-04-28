@@ -1,312 +1,363 @@
 export default function HeaderStyle() {
   return (
-   <style>{`
-        /* ── Top bar ─────────────────────── */
-        .sp-topbar {
-          background: var(--color-secondary);
-          color: rgba(255,255,255,0.65);
-          font-size: 0.75rem;
-          font-family: var(--font-poppins, sans-serif);
-        }
-        .sp-topbar__inner {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          padding-top: 0.4rem;
-          padding-bottom: 0.4rem;
-        }
-        .sp-topbar a { color: rgba(255,255,255,0.65); transition: color 0.2s; }
-        .sp-topbar a:hover { color: var(--color-primary); }
-        .sp-topbar__divider {
-          width: 1px; height: 14px;
-          background: rgba(255,255,255,0.2);
-        }
+    <style>{`
+      /* ─────────────────────────────────────────
+         PALETTE — alignée sur le fond du logo
+         #14202C = navy logo SignProd
+         #0F1A24 = navy plus profond (top bar)
+         #1abcbc = cyan brillant (accent visible sur sombre)
+      ───────────────────────────────────────── */
 
-        /* ── Header ─────────────────────── */
-        .sp-header {
-          position: sticky;
-          top: 0;
-          z-index: var(--z-header, 100);
-          background: rgba(20, 34, 48, 0.94);
-          backdrop-filter: blur(8px);
-          border-bottom: 1px solid rgba(255,255,255,0.08);
-          font-family: var(--font-poppins, sans-serif);
-          transition: box-shadow 0.3s, background 0.3s, border-color 0.3s;
-        }
-        .sp-header--scrolled {
-          box-shadow: 0 10px 26px rgba(0,0,0,0.22);
-          border-color: rgba(255,255,255,0.12);
-        }
-        .sp-header__inner {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-          padding-top: 0.75rem;
-          padding-bottom: 0.75rem;
-        }
+      /* ─────────────────────────────────────────
+         TOP BAR — barre fine sombre supérieure
+      ───────────────────────────────────────── */
+      .sp-topbar {
+        background: #0F1A24;
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 12px;
+        line-height: 1;
+      }
+      .sp-topbar__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.5rem;
+        padding: 10px 0;
+      }
+      .sp-topbar__inner a {
+        color: rgba(255, 255, 255, 0.65);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      .sp-topbar__inner a:hover {
+        color: #1abcbc;
+      }
+      .sp-topbar__divider {
+        width: 1px;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+      @media (max-width: 640px) {
+        .sp-topbar { font-size: 11px; }
+        .sp-topbar__divider { display: none; }
+      }
 
-        /* ── Logo ─────────────────────── */
-        .sp-logo {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          flex-shrink: 0;
-        }
-        .sp-logo__image {
-          width: auto;
-          height: 52px;
-          object-fit: contain;
-        }
-        .sp-logo__s {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 44px; height: 44px;
-          background: var(--color-primary);
-          color: white;
-          font-family: var(--font-montserrat, sans-serif);
-          font-size: 1.6rem;
-          font-weight: 900;
-          border-radius: 8px;
-          box-shadow: 0 0 16px rgba(0,151,178,0.4);
-          letter-spacing: -0.02em;
-          transition: box-shadow 0.25s;
-        }
-        .sp-logo:hover .sp-logo__s { box-shadow: 0 0 28px rgba(0,151,178,0.7); }
-        .sp-logo__wordmark {
-          display: flex;
-          align-items: baseline;
-          gap: 0;
-          font-family: var(--font-montserrat, sans-serif);
-          font-weight: 800;
-          font-size: 1.35rem;
-          letter-spacing: -0.01em;
-        }
-        .sp-logo__sign { color: #fff; }
-        .sp-logo__dot { color: var(--color-primary); }
-        .sp-logo__prod { color: var(--color-primary); }
+      /* ─────────────────────────────────────────
+         HEADER PRINCIPAL — sticky, fond NAVY (= logo)
+      ───────────────────────────────────────── */
+      .sp-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #14202C;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: box-shadow 0.3s ease, padding 0.3s ease, background 0.3s ease;
+      }
+      .sp-header--scrolled {
+        background: rgba(20, 32, 44, 0.96);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 8px 24px -16px rgba(0, 0, 0, 0.6);
+      }
+      .sp-header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding: 14px 0;
+      }
+      .sp-header--scrolled .sp-header__inner {
+        padding: 10px 0;
+      }
 
-        /* ── Desktop nav ─────────────── */
-        .sp-nav {
-          display: flex;
-          align-items: center;
-          gap: 0.25rem;
-          flex: 1;
-          justify-content: center;
-        }
-        .sp-nav__item { position: relative; }
-        .sp-nav__link-wrap {
-          display: flex;
-          align-items: center;
-          gap: 0.2rem;
-        }
-        .sp-nav__link {
-          display: flex;
-          align-items: center;
-          gap: 0.3rem;
-          padding: 0.6rem 0.8rem;
-          color: rgba(255,255,255,0.80);
-          font-size: 0.82rem;
-          font-weight: 600;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          border-radius: 999px;
-          transition: color 0.2s, background 0.2s, transform 0.2s;
-          white-space: nowrap;
-        }
-        .sp-nav__toggle {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 1.9rem;
-          height: 1.9rem;
-          border: none;
-          border-radius: 999px;
-          background: transparent;
-          color: rgba(255,255,255,0.8);
-          cursor: pointer;
-          transition: background 0.2s, color 0.2s;
-        }
-        .sp-nav__toggle:hover,
-        .sp-nav__toggle:focus-visible {
-          color: #fff;
-          background: rgba(255,255,255,0.10);
-        }
-        .sp-nav__toggle--open .sp-chevron { transform: rotate(180deg); }
-        .sp-nav__link:hover,
-        .sp-nav__link:focus-visible {
-          color: #fff;
-          background: rgba(255,255,255,0.10);
-        }
-        .sp-nav__link--cta {
-          color: var(--color-primary) !important;
-          font-weight: 700;
-        }
+      /* ─────────────────────────────────────────
+         NAVIGATION DESKTOP — resserrée
+      ───────────────────────────────────────── */
+      .sp-nav {
+        display: flex;
+        align-items: center;
+        gap: 0;
+      }
+      .sp-nav__item {
+        position: relative;
+      }
+      .sp-nav__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 10px 12px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.3px;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s ease;
+        cursor: pointer;
+      }
+      .sp-nav__link svg {
+        width: 14px;
+        height: 14px;
+        stroke-width: 2.2;
+        transition: transform 0.25s ease;
+      }
+      .sp-nav__link:hover,
+      .sp-nav__link[aria-current="page"] {
+        color: #1abcbc;
+      }
+      .sp-nav__link:hover svg {
+        transform: rotate(180deg);
+      }
+      /* Soulignement animé sous le lien hover/actif */
+      .sp-nav__link::after {
+        content: "";
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 4px;
+        height: 2px;
+        background: #1abcbc;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      .sp-nav__link:hover::after,
+      .sp-nav__link[aria-current="page"]::after {
+        transform: scaleX(1);
+      }
 
-        /* ── Chevron ─────────────────── */
-        .sp-chevron {
-          width: 10px; height: 10px;
-          transition: transform 0.2s;
-        }
-        .sp-nav__item:hover .sp-chevron { transform: rotate(180deg); }
+      /* CTA dans la nav (variante) — masqué en desktop, on a déjà sp-header__cta-btn */
+      .sp-nav__link--cta {
+        display: none;
+      }
 
-        /* ── Dropdown ────────────────── */
-        .sp-dropdown {
-          position: absolute;
-          top: calc(100% + 12px);
-          left: 50%;
-          transform: translateX(-50%) translateY(8px);
-          min-width: 340px;
-          background: rgba(36, 52, 72, 0.97);
-          border: 1px solid rgba(255,255,255,0.10);
-          border-radius: 14px;
-          box-shadow: 0 14px 34px rgba(0,0,0,0.24);
-          backdrop-filter: blur(6px);
-          opacity: 0;
-          pointer-events: none;
-          transition: opacity 0.2s, transform 0.2s;
-          z-index: var(--z-dropdown, 200);
-        }
-        .sp-dropdown--open {
-          opacity: 1;
-          pointer-events: all;
-          transform: translateX(-50%) translateY(0);
-        }
-        .sp-dropdown__grid {
-          display: flex;
-          flex-direction: column;
-          padding: 0.75rem;
-          gap: 0.25rem;
-        }
-        .sp-dropdown__link {
-          display: flex;
-          align-items: flex-start;
-          gap: 0.75rem;
-          padding: 0.65rem 0.75rem;
-          border-radius: 8px;
-          color: rgba(255,255,255,0.75);
-          font-size: 0.85rem;
-          transition: background 0.15s, color 0.15s;
-          text-decoration: none;
-        }
-        .sp-dropdown__link:hover {
-          background: rgba(255,255,255,0.08);
-          color: #fff;
-        }
-        .sp-dropdown__link strong { display: block; font-weight: 600; color: #fff; }
-        .sp-dropdown__link em { display: block; font-size: 0.75rem; font-style: normal; color: rgba(255,255,255,0.45); margin-top: 1px; }
-        .sp-dropdown__arrow {
-          color: var(--color-primary);
-          font-size: 0.9rem;
-          margin-top: 1px;
-          flex-shrink: 0;
-          transition: transform 0.15s;
-        }
-        .sp-dropdown__link:hover .sp-dropdown__arrow { transform: translateX(3px); }
+      /* ─────────────────────────────────────────
+         DROPDOWN — menu déroulant au hover
+         (reste clair pour rester lisible)
+      ───────────────────────────────────────── */
+      .sp-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-8px);
+        min-width: 320px;
+        background: #ffffff;
+        border-top: 3px solid #1abcbc;
+        box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.25s ease;
+        z-index: 60;
+      }
+      .sp-dropdown::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        right: 0;
+        height: 10px;
+      }
+      .sp-dropdown--open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+      .sp-dropdown__grid {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+      }
+      .sp-dropdown__link {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 16px;
+        text-decoration: none;
+        color: #14202C;
+        transition: background 0.2s ease;
+        border-radius: 2px;
+      }
+      .sp-dropdown__link:hover {
+        background: #F4F7FA;
+      }
+      .sp-dropdown__arrow {
+        color: #0097B2;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.5;
+        transition: transform 0.25s ease;
+        flex-shrink: 0;
+      }
+      .sp-dropdown__link:hover .sp-dropdown__arrow {
+        transform: translateX(4px);
+      }
+      .sp-dropdown__link strong {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #14202C;
+        margin-bottom: 2px;
+      }
+      .sp-dropdown__link em {
+        display: block;
+        font-style: normal;
+        font-size: 11px;
+        color: rgba(20, 32, 44, 0.55);
+        line-height: 1.4;
+      }
 
-        /* ── Header CTA btn ──────────── */
+      /* ─────────────────────────────────────────
+         CTA HEADER — bouton "Devis Gratuit"
+      ───────────────────────────────────────── */
+      .sp-header__cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 11px 18px;
+        background: #0097B2;
+        color: #ffffff !important;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.3px;
+        text-decoration: none;
+        border-radius: 0;
+        transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .sp-header__cta-btn:hover {
+        background: #1abcbc;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px -6px rgba(26, 188, 188, 0.55);
+      }
+
+      /* ─────────────────────────────────────────
+         BURGER MOBILE — barres blanches
+      ───────────────────────────────────────── */
+      .sp-burger {
+        display: none;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        padding: 0;
+      }
+      .sp-burger span {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        height: 2px;
+        background: #ffffff;
+        transition: all 0.3s ease;
+      }
+      .sp-burger span:nth-child(1) { top: 12px; }
+      .sp-burger span:nth-child(2) { top: 19px; }
+      .sp-burger span:nth-child(3) { top: 26px; }
+      .sp-burger--open span:nth-child(1) {
+        top: 19px;
+        transform: rotate(45deg);
+      }
+      .sp-burger--open span:nth-child(2) {
+        opacity: 0;
+      }
+      .sp-burger--open span:nth-child(3) {
+        top: 19px;
+        transform: rotate(-45deg);
+      }
+
+      /* ─────────────────────────────────────────
+         NAV MOBILE — drawer slide (fond navy)
+      ───────────────────────────────────────── */
+      .sp-mobile-nav {
+        display: none;
+      }
+
+      /* ─────────────────────────────────────────
+         RESPONSIVE — passage mobile sous 1024px
+      ───────────────────────────────────────── */
+      @media (max-width: 1023px) {
+        .sp-nav,
         .sp-header__cta-btn {
-          flex-shrink: 0;
-          font-size: 0.8rem;
-          padding: 0.6rem 1.25rem;
-          border-radius: 999px;
+          display: none;
         }
-
-        /* ── Burger ──────────────────── */
         .sp-burger {
-          display: none;
-          flex-direction: column;
-          justify-content: center;
-          gap: 5px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 0.5rem;
-          margin-left: auto;
-        }
-        .sp-burger span {
           display: block;
-          width: 24px; height: 2px;
-          background: #fff;
-          border-radius: 2px;
-          transition: transform 0.25s, opacity 0.25s;
-          transform-origin: center;
         }
-        .sp-burger--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .sp-burger--open span:nth-child(2) { opacity: 0; }
-        .sp-burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-        /* ── Mobile nav ──────────────── */
         .sp-mobile-nav {
-          display: none;
-          flex-direction: column;
-          background: rgba(36, 52, 72, 0.98);
-          border-top: 1px solid rgba(0,151,178,0.2);
-          overflow: hidden;
-          max-height: 0;
-          transition: max-height 0.4s ease;
+          display: block;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: min(360px, 88vw);
+          height: 100vh;
+          background: #14202C;
+          box-shadow: -24px 0 48px -16px rgba(0, 0, 0, 0.55);
+          padding: 80px 0 24px;
+          transform: translateX(100%);
+          transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+          overflow-y: auto;
+          z-index: 40;
         }
-        .sp-mobile-nav--open { max-height: 100vh; }
-        .sp-mobile-nav__group { border-bottom: 1px solid rgba(255,255,255,0.07); }
-        .sp-mobile-nav__row {
-          display: flex;
-          align-items: center;
+        .sp-mobile-nav--open {
+          transform: translateX(0);
+        }
+        .sp-mobile-nav__group {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
         .sp-mobile-nav__link {
           display: block;
-          padding: 0.85rem 1.5rem;
-          color: rgba(255,255,255,0.85);
+          padding: 18px 24px;
+          font-size: 13px;
           font-weight: 600;
-          font-size: 0.9rem;
-          letter-spacing: 0.04em;
           text-transform: uppercase;
-          flex: 1;
+          letter-spacing: 1.5px;
+          color: rgba(255, 255, 255, 0.9);
+          text-decoration: none;
+          transition: background 0.2s ease, color 0.2s ease;
         }
-        .sp-mobile-nav__toggle {
-          width: 44px;
-          height: 44px;
-          margin-right: 0.65rem;
-          border: none;
-          border-radius: 999px;
-          background: transparent;
-          color: rgba(255,255,255,0.8);
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
+        .sp-mobile-nav__link:hover,
+        .sp-mobile-nav__link[aria-current="page"] {
+          background: rgba(255, 255, 255, 0.04);
+          color: #1abcbc;
         }
-        .sp-mobile-nav__toggle-icon {
-          width: 16px;
-          height: 16px;
-          transition: transform 0.2s;
-        }
-        .sp-mobile-nav__toggle--open .sp-mobile-nav__toggle-icon { transform: rotate(180deg); }
-        .sp-mobile-nav__link:hover { color: var(--color-primary); }
         .sp-mobile-nav__children {
-          padding-bottom: 0;
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.25s ease;
+          padding: 0 24px 16px;
+          background: rgba(0, 0, 0, 0.2);
         }
-        .sp-mobile-nav__children--open { max-height: 280px; padding-bottom: 0.5rem; }
         .sp-mobile-nav__child {
           display: block;
-          padding: 0.45rem 2rem;
-          color: rgba(255,255,255,0.55);
-          font-size: 0.85rem;
+          padding: 10px 12px;
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.65);
+          text-decoration: none;
+          transition: color 0.2s ease;
+          position: relative;
+          padding-left: 18px;
         }
-        .sp-mobile-nav__child:hover { color: var(--color-primary); }
+        .sp-mobile-nav__child::before {
+          content: "→";
+          position: absolute;
+          left: 0;
+          color: #1abcbc;
+          font-weight: 700;
+          opacity: 0.7;
+        }
+        .sp-mobile-nav__child:hover {
+          color: #1abcbc;
+        }
+      }
 
-        /* ── Responsive ──────────────── */
-        @media (max-width: 1024px) {
-          .sp-nav, .sp-header__cta-btn { display: none; }
-          .sp-burger { display: flex; }
-          .sp-mobile-nav { display: flex; }
-          .sp-logo__image { height: 46px; }
+      @media (min-width: 1024px) {
+        .sp-mobile-nav {
+          display: none !important;
         }
-        @media (max-width: 640px) {
-          .sp-topbar { display: none; }
-          .sp-logo__image { height: 40px; }
-        }
-      `}</style>
+      }
+    `}</style>
   );
 }

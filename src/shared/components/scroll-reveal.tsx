@@ -1,65 +1,88 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  type CSSProperties,
+  type ElementType,
+  type ReactNode,
+} from "react";
 
-type ScrollRevealProps = {
+export type ScrollRevealVariant =
+  | "fade-up"
+  | "fade-in"
+  | "fade-left"
+  | "fade-right"
+  | "zoom-in";
+
+export interface ScrollRevealProps {
   children: ReactNode;
+  /** Type d'animation. Défaut : "fade-up" */
+  variant?: ScrollRevealVariant;
+  /** Délai en ms avant déclenchement de l'animation */
+  delay?: number;
+  /** Active l'animation en cascade sur les enfants directs (overrides variant) */
+  stagger?: boolean;
+  /** Re-déclenche l'animation à chaque entrée dans le viewport (défaut : false) */
+  repeat?: boolean;
+  /** Élément HTML rendu (div par défaut) */
+  as?: ElementType;
+  /** Classes Tailwind/CSS additionnelles */
   className?: string;
-  /** Marge avant déclenchement (élément un peu plus bas dans le viewport) */
-  rootMargin?: string;
-};
+  /** Seuil de visibilité (0-1) avant déclenchement. Défaut : 0.15 */
+  threshold?: number;
+  style?: CSSProperties;
+}
 
-/**
- * Révèle le contenu au scroll : léger fade + translation (respecte prefers-reduced-motion).
- */
 export default function ScrollReveal({
   children,
+  variant = "fade-up",
+  delay = 0,
+  stagger = false,
+  repeat = false,
+  as,
   className = "",
-  rootMargin = "0px 0px -10% 0px",
+  threshold = 0.15,
+  style,
 }: ScrollRevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
-      return;
-    }
-
     const el = ref.current;
-    if (!el) return;
+    if (!el || typeof IntersectionObserver === "undefined") return;
 
-    const obs = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
+          el.setAttribute("data-visible", "true");
+          if (!repeat) observer.unobserve(el);
+        } else if (repeat) {
+          el.setAttribute("data-visible", "false");
         }
       },
-      { root: null, rootMargin, threshold: 0.12 }
+      { threshold, rootMargin: "0px 0px -60px 0px" },
     );
 
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [rootMargin]);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [repeat, threshold]);
+
+  const Component: ElementType = as ?? "div";
+  const baseClass = stagger ? "sp-reveal-stagger" : "sp-reveal";
 
   return (
-    <div
+    <Component
       ref={ref}
-      className={[
-        "will-change-transform",
-        "transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-        "motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:scale-100",
-        visible
-          ? "translate-y-0 opacity-100 scale-100"
-          : "translate-y-10 opacity-0 scale-[0.97]",
-        className,
-      ]
-        .filter(Boolean)
-        .join(" ")}
+      data-visible="false"
+      data-variant={stagger ? undefined : variant}
+      className={`${baseClass} ${className}`.trim()}
+      style={
+        delay
+          ? { animationDelay: `${delay}ms`, ...style }
+          : style
+      }
     >
       {children}
-    </div>
+    </Component>
   );
 }

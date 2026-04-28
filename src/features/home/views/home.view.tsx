@@ -1,188 +1,436 @@
-import BannierView from "@/shared/components/bannier.component";
-import ScrollReveal from "@/shared/components/scroll-reveal";
+import Image from "next/image";
+import Link from "next/link";
 import {
-  Lightbulb,
-  Hammer,
-  PenTool,
-  Truck,
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  Clock,
   ShieldCheck,
   Sparkles,
-  Quote,
-  ArrowRight,
-  CheckCircle2,
-  Building2,
+  Award,
+  Users,
 } from "lucide-react";
-import Link from "next/link";
+import BannierView from "@/shared/components/bannier.component";
+import ScrollReveal from "@/shared/components/scroll-reveal";
+
+const SERVICES = [
+  {
+    title: "Enseignes lumineuses",
+    desc: "LED, néon, caissons rétroéclairés et lettres relief.",
+    image: "/asset/produit/enseigne.png",
+    href: "/savoir-faire/enseignes",
+  },
+  {
+    title: "Signalétique",
+    desc: "Intérieure, extérieure, totems et orientation.",
+    image: "/asset/produit/signaletique.jpg",
+    href: "/savoir-faire/signaletique-interieure",
+  },
+  {
+    title: "Habillage de façade",
+    desc: "Concept façade, bardage et lettres relief.",
+    image: "/asset/produit/revetement1.jpg",
+    href: "/savoir-faire/facades",
+  },
+  {
+    title: "Impression grand format",
+    desc: "Bâches, vinyles, adhésifs haute définition.",
+    image: "/asset/produit/impressiongrandformat.jpg",
+    href: "/savoir-faire/impression",
+  },
+  {
+    title: "Habillage véhicule",
+    desc: "Covering, marquage et flotte d'entreprise.",
+    image: "/asset/produit/brandingvehicule.jpg",
+    href: "/produits",
+  },
+  {
+    title: "Stands & PLV",
+    desc: "Stands sur mesure, displays et signalétique événementielle.",
+    image: "/asset/produit/standplv.png",
+    href: "/produits",
+  },
+];
+
+const STATS = [
+  { num: "00+", label: "Projets livrés" },
+  { num: "10+", label: "Ans d'expertise" },
+  { num: "24h", label: "Délai de devis" },
+  { num: "100%", label: "Sur mesure" },
+];
+
+const STEPS = [
+  {
+    n: "01",
+    title: "Étude & conception",
+    desc: "Brief, direction artistique, maquettes 2D/3D et bon à tirer.",
+  },
+  {
+    n: "02",
+    title: "Fabrication",
+    desc: "Production sur mesure dans nos ateliers à Abidjan.",
+  },
+  {
+    n: "03",
+    title: "Pose & livraison",
+    desc: "Installation soignée par nos équipes qualifiées.",
+  },
+  {
+    n: "04",
+    title: "SAV & maintenance",
+    desc: "Suivi long terme et maintenance sur site.",
+  },
+];
+
+const WHY_US = [
+  { icon: Sparkles, label: "100% sur mesure" },
+  { icon: Award, label: "Finition premium" },
+  { icon: Clock, label: "Délais respectés" },
+  { icon: Users, label: "Suivi dédié" },
+  { icon: ShieldCheck, label: "Garantie produit" },
+  { icon: CheckCircle2, label: "Pose certifiée" },
+];
 
 export default function HomeView() {
-  const stats = [
-    { value: "10+", label: "Annees d'experience" },
-    { value: "500+", label: "Projets realises" },
-    { value: "24h", label: "Reponse devis" },
-    { value: "100%", label: "Sur mesure" },
-  ];
-
-  const services = [
-    {
-      icon: Lightbulb,
-      title: "Enseignes lumineuses",
-      desc: "Enseignes LED, lettres boitiers, caissons retro-eclaires pour une visibilite jour et nuit.",
-    },
-    {
-      icon: PenTool,
-      title: "Signaletique",
-      desc: "Signaletique interieure et exterieure, totems, plaques professionnelles et orientation.",
-    },
-    {
-      icon: Sparkles,
-      title: "Impression grand format",
-      desc: "Banderoles, kakemonos, vitrophanie, habillage vehicule et stand evenementiel.",
-    },
-    {
-      icon: Hammer,
-      title: "Habillage facade",
-      desc: "Bardage, panneaux composites et concept facade pour donner une identite forte a votre point de vente.",
-    },
-    {
-      icon: Building2,
-      title: "Stands & expositions",
-      desc: "Conception et fabrication de stands, supports retail et amenagement evenementiel.",
-    },
-    {
-      icon: Truck,
-      title: "Pose & maintenance",
-      desc: "Installation professionnelle, entretien et maintenance preventive de vos supports.",
-    },
-  ];
-
-  const realisations = [
-    { title: "Projet BBR", image: "/realisation/bbr/BBR0.jpeg", tag: "Habillage & signaletique" },
-    { title: "Signaletique corporate", image: "/slide/slider05.jpg", tag: "Tertiaire" },
-    { title: "Habillage vitrine", image: "/slide/slider06.jpg", tag: "Retail" },
-  ];
-
-  const reasons = [
-    { title: "Materiaux premium", desc: "Selection rigoureuse pour des realisations durables et esthetiques." },
-    { title: "Equipe experte", desc: "Designers, techniciens et poseurs reunis sous un meme toit." },
-    { title: "Delais maitrises", desc: "Une production en atelier avec un suivi clair a chaque etape." },
-    { title: "Service complet", desc: "Du conseil a la pose, un interlocuteur unique pour votre projet." },
-  ];
-
-  const process = [
-    { step: "01", title: "Brief", desc: "Analyse de vos besoins, de votre emplacement et de vos objectifs." },
-    { step: "02", title: "Conception", desc: "Proposition graphique et technique adaptee a votre activite." },
-    { step: "03", title: "Fabrication", desc: "Production en atelier avec controle qualite sur chaque element." },
-    { step: "04", title: "Pose", desc: "Installation professionnelle et verification finale sur site." },
-  ];
-
-  const sectors = [
-    "Retail et boutiques",
-    "Banques et assurances",
-    "Hotels et restauration",
-    "Immobilier et BTP",
-    "Sante et education",
-    "Industrie et logistique",
-  ];
-
   return (
-    <div className="flex flex-col gap-6 bg-[#F5F8FC] md:gap-10">
+    <div className="flex flex-col">
       <BannierView />
 
-      {/* QUI SOMMES NOUS */}
-      <section className="relative overflow-x-hidden bg-white py-16 md:py-24">
-        {/* decorative backdrop */}
-        <div className="pointer-events-none absolute -left-24 top-20 h-64 w-64 rounded-full bg-[#0097B2]/5 blur-3xl" />
-        <div className="pointer-events-none absolute right-0 bottom-0 h-72 w-72 rounded-full bg-[#FF7A00]/5 blur-3xl" />
+      {/* ─────────────────────────────────────────
+          BANDEAU CHIFFRES — séparateur visuel
+      ───────────────────────────────────────── */}
+      <section className="border-y border-slate-200 bg-white">
+        <div className="container">
+          <ScrollReveal
+            stagger
+            className="grid grid-cols-2 divide-x divide-slate-200 md:grid-cols-4"
+          >
+            {STATS.map((s) => (
+              <div key={s.label} className="px-6 py-9 text-center md:py-11">
+                <p className="text-3xl font-bold tracking-tight text-[#0097B2] md:text-4xl lg:text-5xl">
+                  {s.num}
+                </p>
+                <p className="mt-3 text-[10px] font-semibold uppercase tracking-[2px] text-slate-500">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
 
-        <div className="container relative">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
-            {/* TEXT */}
-            <div>
-              <div className="inline-flex items-center gap-2">
-                <span className="h-px w-8 bg-[#0097B2]" />
-                <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#0097B2]">
-                  Qui sommes-nous
+      {/* ─────────────────────────────────────────
+          PRÉSENTATION — split image + texte
+      ───────────────────────────────────────── */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="container">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            {/* ─── Image avec effets décoratifs ─── */}
+            <ScrollReveal variant="fade-right" className="relative lg:col-span-6">
+              <div className="group relative">
+                {/* Cadre cyan décoratif décalé en arrière-plan */}
+                <div
+                  className="pointer-events-none absolute -left-4 -top-4 h-full w-full border-2 border-[#0097B2] transition-all duration-500 ease-out group-hover:-left-6 group-hover:-top-6 md:-left-6 md:-top-6 md:group-hover:-left-8 md:group-hover:-top-8"
+                  aria-hidden
+                />
+                {/* Bloc cyan plein en arrière, en bas à droite */}
+                <div
+                  className="pointer-events-none absolute -bottom-5 -right-5 h-32 w-32 bg-[#0097B2]/15 transition-all duration-500 ease-out group-hover:-bottom-7 group-hover:-right-7 md:-bottom-6 md:-right-6 md:h-40 md:w-40"
+                  aria-hidden
+                />
+
+                {/* Image principale */}
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 shadow-2xl">
+                  <Image
+                    src="/asset/slide/slider02.jpg"
+                    alt="Atelier SignProd — fabrication d'enseignes et signalétique sur mesure"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover grayscale-[35%] transition-all duration-[900ms] ease-out group-hover:scale-[1.04] group-hover:grayscale-0"
+                  />
+
+                  {/* Overlay dégradé subtil pour la profondeur */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[#0F1A24]/30 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-0" />
+
+                  {/* Badge "DEPUIS 2014" flottant en haut-gauche */}
+                  <div className="absolute left-5 top-5 inline-flex items-center gap-2 bg-white/95 px-3.5 py-2 backdrop-blur md:left-6 md:top-6">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#0097B2]" aria-hidden />
+                    <span className="text-[10px] font-bold uppercase tracking-[2px] text-[#14202C]">
+                      Depuis 2014
+                    </span>
+                  </div>
+                </div>
+
+                {/* Pastille cyan "10+ ans" en bas à droite, par-dessus l'image */}
+                <div className="absolute -bottom-6 right-6 z-10 bg-[#0097B2] p-5 text-white shadow-xl transition-transform duration-500 group-hover:scale-105 md:-bottom-8 md:right-8 md:p-6 lg:p-7">
+                  <p className="text-3xl font-bold leading-none md:text-4xl lg:text-5xl">
+                    10
+                    <span className="text-[#1abcbc]">+</span>
+                  </p>
+                  <p className="mt-2 text-[10px] font-semibold uppercase tracking-[2px] text-white/85">
+                    Années d&apos;expertise
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* ─── Bloc texte ─── */}
+            <ScrollReveal
+              variant="fade-left"
+              delay={150}
+              className="lg:col-span-6 lg:pl-6"
+            >
+              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[3px] text-[#0097B2]">
+                <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
+                Qui sommes-nous
+              </p>
+              <h2 className="mt-6 text-3xl font-bold leading-[1.1] tracking-tight text-[#14202C] md:text-4xl lg:text-[2.75rem]">
+                Une entreprise spécialisée en{" "}
+                <span className="text-[#0097B2]">communication visuelle</span>.
+              </h2>
+              <div className="mt-8 space-y-5 text-base leading-relaxed text-slate-600 md:text-[17px]">
+                <p>
+                  SignProd conçoit, fabrique, installe et pose des supports de
+                  communication visuelle pour les entreprises, commerces, institutions
+                  et marques.
+                </p>
+                <p>
+                  De la conception graphique à la pose finale, nous accompagnons
+                  nos clients avec des solutions modernes, durables et sur mesure
+                  qui transforment leurs idées en réalisations concrètes et impactantes.
                 </p>
               </div>
 
-              <h2 className="mt-6 text-[1.75rem] font-semibold leading-[1.2] tracking-tight text-[#0F2235] md:mt-7 md:text-[2.25rem] lg:text-[2.5rem]">
-                Fabricant de supports visuels pour{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10 text-[#0097B2]">stand, boutique</span>
-                  <span className="absolute inset-x-0 bottom-1 -z-0 h-2 bg-[#0097B2]/10" />
-                </span>{" "}
-                et espace professionnel.
-              </h2>
-
-              <p className="mt-7 max-w-xl text-[0.95rem] leading-[1.85] text-[#556984] md:mt-8">
-                Nous concevons et realisons vos enseignes, solutions de signaletique et supports
-                d&apos;impression grand format, pour toutes les exigences d&apos;exposition et de visibilite.
-              </p>
-
-              <ul className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4">
-                {[
-                  { icon: ShieldCheck, label: "Materiaux premium" },
-                  { icon: Sparkles, label: "Finition soignee" },
-                  { icon: PenTool, label: "Conception sur mesure" },
-                  { icon: Truck, label: "Pose & maintenance" },
-                ].map((item) => {
-                  const Icon = item.icon;
+              <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-4">
+                {WHY_US.slice(0, 4).map((w) => {
+                  const Icon = w.icon;
                   return (
                     <li
-                      key={item.label}
-                      className="flex items-center gap-3 text-[0.9rem] font-medium text-[#1A2B3C]"
+                      key={w.label}
+                      className="flex items-center gap-3 text-sm font-medium text-[#14202C]"
                     >
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#E6F6FA] text-[#0097B2]">
-                        <Icon className="h-4 w-4" />
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0097B2]/10 text-[#0097B2]">
+                        <Icon className="h-4 w-4" strokeWidth={2.2} />
                       </span>
-                      {item.label}
+                      {w.label}
                     </li>
                   );
                 })}
               </ul>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4 md:mt-12">
-                <Link href="/devis" className="btn btn-primary">
-                  Demander un devis
+              <Link
+                href="/savoir-faire"
+                className="mt-10 inline-flex items-center gap-2 bg-[#0097B2] px-8 py-4 text-xs font-bold uppercase tracking-[2px] text-white transition hover:bg-[#006F85] hover:gap-3"
+              >
+                Notre savoir-faire
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────
+          NOS SERVICES — grille images
+      ───────────────────────────────────────── */}
+      <section className="bg-[#F4F7FA] py-16 md:py-24">
+        <div className="container">
+          <ScrollReveal className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[3px] text-[#0097B2]">
+                <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
+                Nos expertises
+              </p>
+              <h2 className="mt-6 text-3xl font-bold leading-[1.1] tracking-tight text-[#14202C] md:text-4xl lg:text-[2.75rem]">
+                Une expertise complète,
+                <br />
+                <span className="text-[#0097B2]">de la conception à la pose</span>.
+              </h2>
+            </div>
+            <Link
+              href="/savoir-faire"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[2px] text-[#14202C] transition hover:gap-3 hover:text-[#0097B2]"
+            >
+              Voir tout le savoir-faire
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </ScrollReveal>
+
+          <ScrollReveal stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((s) => (
+              <Link
+                key={s.title}
+                href={s.href}
+                className="group relative block overflow-hidden bg-[#0F1A24] shadow-sm transition-all hover:-translate-y-1.5 hover:shadow-xl"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A24]/95 via-[#0F1A24]/50 to-transparent" />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <h3 className="text-xl font-bold uppercase tracking-tight text-white md:text-2xl">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/80">
+                    {s.desc}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[2px] text-[#1abcbc] transition-all group-hover:gap-3">
+                    Découvrir
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────
+          NOTRE PROCESSUS — 4 étapes visuelles
+      ───────────────────────────────────────── */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="container">
+          <ScrollReveal className="mx-auto max-w-3xl text-center">
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[3px] text-[#0097B2]">
+              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
+              Notre processus
+              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
+            </p>
+            <h2 className="mt-6 text-3xl font-bold leading-[1.1] tracking-tight text-[#14202C] md:text-4xl lg:text-[2.75rem]">
+              Un accompagnement{" "}
+              <span className="text-[#0097B2]">de bout en bout</span>.
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-slate-600 md:text-lg">
+              Quatre étapes claires, un seul interlocuteur. De votre brief à la maintenance,
+              SignProd vous garantit qualité, transparence et délais maîtrisés.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal stagger className="mt-12 grid gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map((s, i) => (
+              <div
+                key={s.n}
+                className="group relative bg-white p-8 transition-colors hover:bg-[#F4F7FA] md:p-10"
+              >
+                <div className="flex items-baseline justify-between">
+                  <span className="text-5xl font-bold leading-none text-[#0097B2]/15 transition-colors group-hover:text-[#0097B2]/30 md:text-6xl">
+                    {s.n}
+                  </span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[2px] text-slate-400">
+                    Étape {i + 1}
+                  </span>
+                </div>
+                <h3 className="mt-8 text-xl font-bold leading-tight tracking-tight text-[#14202C] md:text-2xl">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                  {s.desc}
+                </p>
+                {/* Liaison entre étapes */}
+                {i < STEPS.length - 1 && (
+                  <span className="absolute right-0 top-1/2 hidden h-px w-4 -translate-y-1/2 translate-x-1/2 bg-[#0097B2]/30 lg:block" />
+                )}
+              </div>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────
+          RÉALISATION À LA UNE — BBR
+      ───────────────────────────────────────── */}
+      <section className="bg-[#0F1A24] py-16 text-white md:py-24">
+        <div className="container">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <ScrollReveal variant="fade-right" className="lg:col-span-5">
+              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[3px] text-[#1abcbc]">
+                <span className="h-px w-8 bg-[#1abcbc]" aria-hidden />
+                Réalisation à la une
+              </p>
+              <h2 className="mt-6 text-3xl font-bold leading-[1.1] tracking-tight md:text-4xl lg:text-[2.6rem]">
+                BBR,
+                <br />
+                <span className="text-[#1abcbc]">l&apos;authenticité ivoirienne</span>.
+              </h2>
+              <p className="mt-8 text-base leading-relaxed text-white/75 md:text-[17px]">
+                Programme complet de communication visuelle pour le siège et les sites de
+                production : enseignes lumineuses, signalétique de sécurité et habillage
+                de façades. Plus de <strong className="text-white">5 prestations</strong>{" "}
+                livrées sur deux ans.
+              </p>
+
+              <div className="mt-10 grid grid-cols-3 gap-4 border-y border-white/10 py-7">
+                <div>
+                  <p className="text-2xl font-bold text-[#1abcbc]">2024</p>
+                  <p className="mt-1 text-[10px] font-semibold uppercase tracking-[2px] text-white/50">
+                    Démarrage
+                  </p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-[#1abcbc]">5+</p>
+                  <p className="mt-1 text-[10px] font-semibold uppercase tracking-[2px] text-white/50">
+                    Prestations
+                  </p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-[#1abcbc]">24m</p>
+                  <p className="mt-1 text-[10px] font-semibold uppercase tracking-[2px] text-white/50">
+                    De façade
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link
+                  href="/realisations"
+                  className="inline-flex items-center gap-2 bg-[#1abcbc] px-8 py-4 text-xs font-bold uppercase tracking-[2px] text-[#0F1A24] transition hover:gap-3 hover:bg-[#22d8d8]"
+                >
+                  Voir toutes les réalisations
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  href="/realisations"
-                  className="group inline-flex items-center gap-2 text-sm font-medium text-[#0F2235] hover:text-[#0097B2]"
+                  href="/devis"
+                  className="inline-flex items-center gap-2 border border-white/30 px-8 py-4 text-xs font-bold uppercase tracking-[2px] text-white transition hover:border-white hover:bg-white/10"
                 >
-                  Voir nos realisations
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#D8E4F1] text-[#0F2235] transition-all group-hover:border-[#0097B2] group-hover:bg-[#0097B2] group-hover:text-white">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
+                  Démarrer mon projet
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* IMAGE + badge — animation à l’entrée dans le viewport au scroll */}
-            <ScrollReveal className="relative">
-              <div className="relative overflow-hidden rounded-[28px] shadow-[0_30px_60px_-20px_rgba(15,34,53,0.25)]">
-                <img
-                  src="/slide/slider03.jpg"
-                  alt="Atelier Signprod"
-                  className="h-[340px] w-full object-cover md:h-[460px] lg:h-[520px]"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgba(6,16,26,0.5)_100%)]" />
-
-                <div className="absolute inset-x-4 bottom-4 z-10 flex items-center justify-center md:inset-x-auto md:bottom-6 md:left-1/2 md:w-max md:max-w-[calc(100%-2rem)] md:-translate-x-1/2">
-                  <div className="flex w-full max-w-md items-center gap-3 rounded-2xl border border-white/20 bg-white/95 px-4 py-3 shadow-[0_12px_32px_rgba(15,34,53,0.2)] backdrop-blur-sm sm:gap-4 sm:px-5 sm:py-3.5">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0F2235] text-lg font-bold text-white sm:h-14 sm:w-14 sm:text-xl">
-                      10+
-                    </div>
-                    <div className="min-w-0 text-left">
-                      <p className="text-sm font-semibold text-[#0F2235] sm:text-[0.95rem]">
-                        Annees d&apos;experience
-                      </p>
-                      <p className="text-[10px] uppercase tracking-[0.14em] text-[#5A6B82] sm:text-[11px]">
-                        Enseignes & signaletique
-                      </p>
-                    </div>
-                  </div>
+            <ScrollReveal variant="fade-left" delay={150} className="lg:col-span-7">
+              <div className="grid grid-cols-12 gap-4">
+                <div className="relative col-span-12 aspect-[4/3] overflow-hidden md:col-span-8 md:row-span-2 md:aspect-auto">
+                  <Image
+                    src="/asset/realisation/BBR/BBR1.JPG"
+                    alt="Réalisation BBR — façade"
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative col-span-6 aspect-square overflow-hidden md:col-span-4">
+                  <Image
+                    src="/asset/realisation/BBR/BBR2.JPG"
+                    alt="Réalisation BBR — détail"
+                    fill
+                    sizes="(min-width: 1024px) 20vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative col-span-6 aspect-square overflow-hidden md:col-span-4">
+                  <Image
+                    src="/asset/realisation/BBR/BBR3.JPG"
+                    alt="Réalisation BBR — détail"
+                    fill
+                    sizes="(min-width: 1024px) 20vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </ScrollReveal>
@@ -190,280 +438,81 @@ export default function HomeView() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="bg-[#F5F8FC] py-16 md:py-24">
+      {/* ─────────────────────────────────────────
+          POURQUOI NOUS — bandeau de garanties
+      ───────────────────────────────────────── */}
+      <section className="bg-white py-14 md:py-20">
         <div className="container">
-          <div className="sp-section-head">
-            <div className="inline-flex items-center gap-3">
-              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#0097B2]">
-                Nos expertises
-              </p>
-              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
-            </div>
-            <h2 className="sp-section-head__title text-2xl md:text-[2rem]">
-              Une offre complete pour votre image de marque.
-            </h2>
-            <p className="sp-section-head__lead">
-              De la conception a la pose, nous gerons l&apos;ensemble de la chaine de production
-              pour vous garantir un resultat homogene et professionnel.
-            </p>
-          </div>
-
-          <div className="mt-14 grid grid-cols-1 gap-6 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => {
-              const Icon = service.icon;
+          <ScrollReveal stagger className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6 lg:gap-6">
+            {WHY_US.map((w) => {
+              const Icon = w.icon;
               return (
-                <article
-                  key={service.title}
-                  className="group flex flex-col gap-4 rounded-2xl border border-[#DCE6F0] bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#0097B2]/40 hover:shadow-[0_18px_36px_rgba(13,24,33,0.10)]"
+                <div
+                  key={w.label}
+                  className="group flex flex-col items-center gap-4 border border-slate-200 bg-white p-6 text-center transition-all hover:-translate-y-1 hover:border-[#0097B2] hover:shadow-md"
                 >
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#E6F6FA] text-[#0097B2] transition-colors group-hover:bg-[#0097B2] group-hover:text-white">
-                    <Icon className="h-6 w-6" />
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0097B2]/10 text-[#0097B2] transition-colors group-hover:bg-[#0097B2] group-hover:text-white">
+                    <Icon className="h-5 w-5" strokeWidth={1.8} />
                   </span>
-                  <h3 className="text-base font-semibold text-[#1A2B3C]">{service.title}</h3>
-                  <p className="text-[0.9rem] leading-[1.75] text-[#5A6B82]">{service.desc}</p>
-                  <Link
-                    href="/produits"
-                    className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-[#0097B2] hover:text-[#006F85]"
-                  >
-                    En savoir plus
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </article>
+                  <span className="text-xs font-semibold uppercase tracking-[1.5px] text-[#14202C]">
+                    {w.label}
+                  </span>
+                </div>
               );
             })}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* CHIFFRES CLES — même structure que « Nos expertises » (centrage + rythme) */}
-      <section className="relative overflow-x-hidden bg-[#0B1829] py-16 md:py-24">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.12]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, #38d5e9 0px, transparent 40%), radial-gradient(circle at 80% 80%, #0097B2 0px, transparent 45%)",
-          }}
-        />
-        <div className="container relative">
-          <div className="sp-section-head sp-section-head--kpi">
-            <div className="inline-flex items-center gap-3">
-              <span className="h-px w-8 bg-[#7dd3fc]" aria-hidden />
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#7dd3fc]">
-                Indicateurs cles
-              </p>
-              <span className="h-px w-8 bg-[#7dd3fc]" aria-hidden />
-            </div>
-            <h2 className="sp-section-head__title text-2xl md:text-[2rem]">
-              Une execution fiable, mesurable et orientee resultat.
-            </h2>
-            <p className="sp-section-head__lead">
-              Des reperes concrets sur notre capacite a repondre vite, livrer en qualite et
-              accompagner votre projet de bout en bout.
+      {/* ─────────────────────────────────────────
+          CTA FINAL — image background
+      ───────────────────────────────────────── */}
+      <section className="relative isolate overflow-hidden bg-[#0F1A24] py-20 text-white md:py-28">
+        <div className="absolute inset-0">
+          <Image
+            src="/asset/slide/slider04.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F1A24] via-[#0F1A24]/85 to-[#0F1A24]/40" />
+        </div>
+
+        <div className="container relative z-10">
+          <ScrollReveal variant="zoom-in" className="max-w-3xl">
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[3px] text-[#1abcbc]">
+              <span className="h-px w-8 bg-[#1abcbc]" aria-hidden />
+              Démarrons votre projet
             </p>
-          </div>
-
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-5 md:mt-20 md:grid-cols-4 md:gap-6">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/[0.07] px-4 py-9 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-sm sm:px-5 sm:py-10 md:gap-4 md:px-6 md:py-11"
-              >
-                <p className="text-3xl font-bold tabular-nums tracking-tight text-white md:text-[2.35rem]">
-                  {stat.value}
-                </p>
-                <p className="max-w-[14ch] text-[0.8125rem] font-medium uppercase leading-snug tracking-[0.12em] text-white/92 md:max-w-none md:text-sm">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* REALISATIONS */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="container">
-          <div className="mb-12 flex flex-col gap-5 md:mb-16 md:flex-row md:items-end md:justify-between md:gap-8">
-            <div className="max-w-2xl">
-              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#0097B2]">Nos realisations</p>
-              <h2 className="mt-3 text-2xl font-semibold leading-tight text-[#1A2B3C] md:text-[2rem]">
-                Des projets concrets qui valorisent votre image.
-              </h2>
-            </div>
-            <Link
-              href="/realisations"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#0097B2] hover:text-[#006F85]"
-            >
-              Voir toutes nos realisations
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {realisations.map((item) => (
+            <h2 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+              Votre visibilité,
+              <br />
+              <span className="text-[#1abcbc]">notre signature</span>.
+            </h2>
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
+              Recevez une étude personnalisée et un devis sous 24h. Aucune obligation,
+              juste l&apos;avis d&apos;experts qui font ce métier depuis plus de 10 ans.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
-                key={item.title}
-                href="/realisations"
-                className="group relative block aspect-square overflow-hidden rounded-2xl"
+                href="/devis"
+                className="inline-flex items-center gap-2 bg-[#0097B2] px-8 py-4 text-xs font-bold uppercase tracking-[2px] text-white shadow-lg transition hover:bg-[#00BCD4] hover:shadow-xl"
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,16,26,0.05)_30%,rgba(6,16,26,0.78)_100%)]" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#38d5e9]">
-                    {item.tag}
-                  </p>
-                  <h3 className="mt-1 text-base font-semibold text-white md:text-lg">{item.title}</h3>
-                </div>
+                Demander un devis gratuit
+                <ArrowRight className="h-4 w-4" />
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* POURQUOI SIGNPROD */}
-      <section className="bg-[#F5F8FC] py-16 md:py-24">
-        <div className="container">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="relative overflow-hidden rounded-2xl">
-              <img
-                src="/slide/slider04.jpg"
-                alt="Atelier Signprod"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,34,53,0.10)_0%,rgba(15,34,53,0.45)_100%)]" />
-              <div className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#0F2235] shadow">
-                <ShieldCheck className="h-4 w-4 text-[#0097B2]" />
-                Atelier integre
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#0097B2]">Pourquoi Signprod</p>
-              <h2 className="mt-3 text-2xl font-semibold leading-tight text-[#1A2B3C] md:text-[2rem]">
-                Un partenaire fiable pour votre communication visuelle.
-              </h2>
-              <p className="mt-4 text-[0.95rem] leading-[1.8] text-[#5A6B82]">
-                Notre equipe internalise toutes les etapes du projet : conception, fabrication, pose
-                et maintenance. Vous beneficiez d&apos;un seul interlocuteur, d&apos;une qualite constante
-                et d&apos;un service reactif.
-              </p>
-
-              <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {reasons.map((reason) => (
-                  <li
-                    key={reason.title}
-                    className="flex gap-3 rounded-xl border border-[#DCE6F0] bg-white p-4"
-                  >
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0097B2]" />
-                    <div>
-                      <p className="text-sm font-semibold text-[#1A2B3C]">{reason.title}</p>
-                      <p className="mt-1 text-[0.8rem] leading-[1.7] text-[#5A6B82]">{reason.desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROCESSUS */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="container">
-          <div className="sp-section-head">
-            <div className="inline-flex items-center gap-3">
-              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#0097B2]">
-                Notre methode
-              </p>
-              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
-            </div>
-            <h2 className="sp-section-head__title text-2xl md:text-[2rem]">
-              Un accompagnement simple, rapide et fiable.
-            </h2>
-            <p className="sp-section-head__lead">
-              Du brief a la pose finale, nous suivons une methode claire pour garantir
-              qualite, delais et coherence visuelle sur chaque projet.
-            </p>
-          </div>
-
-          <div className="relative mt-14 grid grid-cols-1 gap-6 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
-            {process.map((item, index) => (
-              <article
-                key={item.step}
-                className="relative rounded-2xl border border-[#DCE6F0] bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(13,24,33,0.08)]"
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[2px] text-white/80 transition hover:text-white"
               >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0F2235] text-sm font-semibold text-white">
-                    {item.step}
-                  </span>
-                  <span className="hidden h-px flex-1 bg-[#E3EAF2] lg:block" />
-                </div>
-                <h3 className="mt-5 text-lg font-semibold text-[#1A2B3C]">{item.title}</h3>
-                <p className="mt-2 text-[0.9rem] leading-[1.75] text-[#5A6B82]">{item.desc}</p>
-                {index < process.length - 1 && (
-                  <span className="absolute right-[-10px] top-1/2 hidden h-px w-5 -translate-y-1/2 bg-[#0097B2]/30 lg:block" />
-                )}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTEURS */}
-      <section className="bg-[#F5F8FC] py-16 md:py-20">
-        <div className="container">
-          <div className="sp-section-head">
-            <div className="inline-flex items-center gap-3">
-              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#0097B2]">
-                Secteurs accompagnes
-              </p>
-              <span className="h-px w-8 bg-[#0097B2]" aria-hidden />
+                ou nous contacter
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
-            <h2 className="sp-section-head__title text-2xl md:text-[2rem]">
-              Nous adaptons chaque design a votre activite.
-            </h2>
-          </div>
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
-            {sectors.map((item) => (
-              <div
-                key={item}
-                className="rounded-xl border border-[#DCE6F0] bg-white px-4 py-5 text-center text-[0.85rem] font-medium text-[#21354B] transition-colors hover:border-[#0097B2] hover:text-[#0097B2]"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
-
-      {/* TEMOIGNAGE */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="container">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-[#DCE6F0] bg-[#F8FBFF] px-6 py-10 text-center md:px-12 md:py-14">
-            <Quote className="mx-auto h-9 w-9 text-[#0097B2]" />
-            <p className="mx-auto mt-8 max-w-[min(52ch,100%)] text-base font-light leading-[1.85] text-[#1A2B3C] md:mt-10 md:text-lg md:leading-[1.8]">
-              &laquo; Signprod a su comprendre notre identite et la traduire visuellement avec
-              une qualite d&apos;execution remarquable. Equipe reactive, conseils pertinents
-              et finitions impeccables. &raquo;
-            </p>
-            <div className="mt-8 md:mt-10">
-              <p className="text-sm font-semibold text-[#1A2B3C]">Direction Marketing</p>
-              <p className="text-[11px] uppercase tracking-[0.18em] text-[#5A6B82]">Client retail - Abidjan</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }

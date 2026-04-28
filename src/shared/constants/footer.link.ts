@@ -8,9 +8,11 @@ export const FOOTER_LINKS = {
     { label: "Concept façade", href: "/savoir-faire/facades" },
   ],
   produits: [
+    { label: "Stands sur mesure", href: "/produits/stands-sur-mesure" },
     { label: "Enseignes LED", href: "/produits/enseignes-led" },
     { label: "Totems & pylônes", href: "/produits/totems" },
-    { label: "Kakémono & roll-up", href: "/produits/kakemono" },
+    { label: "Habillage véhicule", href: "/produits/habillage-vehicule" },
+    { label: "Habillage de façade", href: "/produits/revetement-facade" },
     { label: "Bâches & banderoles", href: "/produits/baches" },
     { label: "Vitrines & adhésifs", href: "/produits/vitrines" },
   ],

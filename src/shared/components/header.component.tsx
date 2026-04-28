@@ -1,70 +1,78 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import HeaderStyle from "./header.style";
 import { ChevronDown } from "lucide-react";
 import Logo from "./logo";
 import { NAV_ITEMS } from "../constants/header.link";
+import { CONTACT } from "../constants/contact.info";
+import type { NavItem } from "../types/shared.type";
+
+/* On retire "/devis" du menu principal — il est déjà présent en bouton CTA */
+const PRIMARY_NAV: NavItem[] = NAV_ITEMS.filter((i) => i.href !== "/devis");
+
+function isActive(pathname: string, item: NavItem): boolean {
+  if (item.href === "/") return pathname === "/";
+  if (pathname === item.href) return true;
+  if (pathname.startsWith(`${item.href}/`)) return true;
+  return (
+    item.children?.some(
+      (c) => pathname === c.href || pathname.startsWith(`${c.href}/`),
+    ) ?? false
+  );
+}
 
 export default function HeaderView() {
+  const pathname = usePathname() ?? "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [openMobileGroup, setOpenMobileGroup] = useState<string | null>(null);
-  const headerRef = useRef<HTMLElement | null>(null);
-  const closeDropdownTimerRef = useRef<number | null>(null);
 
-  const clearCloseDropdownTimer = () => {
-    if (closeDropdownTimerRef.current !== null) {
-      window.clearTimeout(closeDropdownTimerRef.current);
-      closeDropdownTimerRef.current = null;
-    }
-  };
-
-  const scheduleDropdownClose = () => {
-    clearCloseDropdownTimer();
-    closeDropdownTimerRef.current = window.setTimeout(() => {
-      setOpenDropdown(null);
-      closeDropdownTimerRef.current = null;
-    }, 180);
-  };
-
+  /* Ombre au scroll */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* close mobile menu on resize */
+  /* Fermer le mobile au resize desktop */
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth > 1024) setMobileOpen(false); };
+    const onResize = () => {
+      if (window.innerWidth > 1024) setMobileOpen(false);
+    };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  /* Fermer au changement de route */
   useEffect(() => {
-    const onPointerDown = (event: MouseEvent) => {
-      if (!headerRef.current) return;
-      if (!headerRef.current.contains(event.target as Node)) {
-        setOpenDropdown(null);
-      }
-    };
+    setMobileOpen(false);
+    setOpenDropdown(null);
+  }, [pathname]);
 
-    const onEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpenDropdown(null);
-        setMobileOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", onPointerDown);
-    document.addEventListener("keydown", onEscape);
+  /* Scroll lock quand drawer mobile ouvert */
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      clearCloseDropdownTimer();
-      document.removeEventListener("mousedown", onPointerDown);
-      document.removeEventListener("keydown", onEscape);
+      document.body.style.overflow = original;
     };
+  }, [mobileOpen]);
+
+  /* Échap ferme tout */
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        setOpenDropdown(null);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   return (
@@ -72,156 +80,157 @@ export default function HeaderView() {
       {/* ── Top bar ── */}
       <div className="sp-topbar">
         <div className="container sp-topbar__inner">
-          <span>📍 Abidjan, Côte d&apos;Ivoire</span>
+          <span>📍 {CONTACT.address.short}</span>
           <span className="sp-topbar__divider" />
-          <a href="tel:+2250000000000">📞 +225 00 00 00 00</a>
+          <a href={CONTACT.phone.href}>📞 {CONTACT.phone.label}</a>
           <span className="sp-topbar__divider" />
-          <a href="mailto:contact@signprod.com">✉ contact@signprod.com</a>
+          <a href={CONTACT.email.href}>✉ {CONTACT.email.label}</a>
         </div>
       </div>
 
-      {/* ── Main header ── */}
-      <header ref={headerRef} className={`sp-header ${scrolled ? "sp-header--scrolled" : ""}`}>
+      {/* ── Header principal ── */}
+      <header className={`sp-header ${scrolled ? "sp-header--scrolled" : ""}`}>
         <div className="container sp-header__inner">
-
-          {/* Logo */}
           <Logo />
 
           {/* Desktop nav */}
           <nav className="sp-nav" aria-label="Navigation principale">
-            {NAV_ITEMS.map((item) => (
-              <div
-                key={item.label}
-                className="sp-nav__item"
-                onMouseEnter={() => {
-                  clearCloseDropdownTimer();
-                  if (item.children) setOpenDropdown(item.label);
-                }}
-                onMouseLeave={() => {
-                  if (item.children) scheduleDropdownClose();
-                }}
-              >
-                <div className="sp-nav__link-wrap">
+            {PRIMARY_NAV.map((item) => {
+              const active = isActive(pathname, item);
+              const hasChildren = !!item.children?.length;
+              const isOpen = openDropdown === item.label;
+
+              return (
+                <div
+                  key={item.label}
+                  className="sp-nav__item"
+                  onMouseEnter={() => hasChildren && setOpenDropdown(item.label)}
+                  onMouseLeave={() => hasChildren && setOpenDropdown(null)}
+                >
                   <Link
                     href={item.href}
-                    className={`sp-nav__link ${item.href === "/devis" ? "sp-nav__link--cta" : ""}`}
-                    onClick={() => setOpenDropdown(null)}
+                    className="sp-nav__link"
+                    aria-current={active ? "page" : undefined}
+                    aria-haspopup={hasChildren ? "menu" : undefined}
+                    aria-expanded={hasChildren ? isOpen : undefined}
                   >
                     {item.label}
+                    {hasChildren && <ChevronDown />}
                   </Link>
-                  {item.children && (
-                    <button
-                      type="button"
-                      className={`sp-nav__toggle ${openDropdown === item.label ? "sp-nav__toggle--open" : ""}`}
-                      aria-label={`Afficher les sous-menus de ${item.label}`}
-                      aria-expanded={openDropdown === item.label}
-                      onClick={() => setOpenDropdown((prev) => (prev === item.label ? null : item.label))}
+
+                  {hasChildren && (
+                    <div
+                      role="menu"
+                      aria-label={item.label}
+                      className={`sp-dropdown ${
+                        isOpen ? "sp-dropdown--open" : ""
+                      }`}
                     >
-                      <ChevronDown className="sp-chevron" />
-                    </button>
+                      <div className="sp-dropdown__grid">
+                        {item.children!.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            role="menuitem"
+                            className="sp-dropdown__link"
+                          >
+                            <span className="sp-dropdown__arrow">→</span>
+                            <span>
+                              <strong>{child.label}</strong>
+                              {child.desc && <em>{child.desc}</em>}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
-
-                {/* Dropdown */}
-                {item.children && (
-                  <div
-                    className={`sp-dropdown ${openDropdown === item.label ? "sp-dropdown--open" : ""}`}
-                    onMouseEnter={clearCloseDropdownTimer}
-                    onMouseLeave={scheduleDropdownClose}
-                  >
-                    <div className="sp-dropdown__grid">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          className="sp-dropdown__link"
-                          onClick={() => setOpenDropdown(null)}
-                        >
-                          <span className="sp-dropdown__arrow">→</span>
-                          <span>
-                            <strong>{child.label}</strong>
-                            {child.desc && <em>{child.desc}</em>}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </nav>
 
           {/* CTA Desktop */}
-          <a href="/devis" className="btn btn-primary sp-header__cta-btn">
+          <Link href="/devis" className="sp-header__cta-btn">
             Devis Gratuit
-          </a>
+          </Link>
 
           {/* Burger */}
           <button
+            type="button"
             className={`sp-burger ${mobileOpen ? "sp-burger--open" : ""}`}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menu"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={mobileOpen}
             aria-controls="sp-mobile-nav"
           >
-            <span /><span /><span />
+            <span />
+            <span />
+            <span />
           </button>
         </div>
 
         {/* ── Mobile nav ── */}
-        <div id="sp-mobile-nav" className={`sp-mobile-nav ${mobileOpen ? "sp-mobile-nav--open" : ""}`}>
-          {NAV_ITEMS.map((item) => (
-            <div key={item.label} className="sp-mobile-nav__group">
-              <div className="sp-mobile-nav__row">
+        <div
+          id="sp-mobile-nav"
+          className={`sp-mobile-nav ${mobileOpen ? "sp-mobile-nav--open" : ""}`}
+        >
+          {PRIMARY_NAV.map((item) => {
+            const active = isActive(pathname, item);
+            return (
+              <div key={item.label} className="sp-mobile-nav__group">
                 <Link
                   href={item.href}
                   className="sp-mobile-nav__link"
-                  onClick={() => {
-                    setMobileOpen(false);
-                    setOpenMobileGroup(null);
-                  }}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
                 </Link>
                 {item.children && (
-                  <button
-                    type="button"
-                    className={`sp-mobile-nav__toggle ${openMobileGroup === item.label ? "sp-mobile-nav__toggle--open" : ""}`}
-                    aria-label={`Afficher les sous-menus de ${item.label}`}
-                    aria-expanded={openMobileGroup === item.label}
-                    onClick={() => setOpenMobileGroup((prev) => (prev === item.label ? null : item.label))}
-                  >
-                    <ChevronDown className="sp-mobile-nav__toggle-icon" />
-                  </button>
+                  <div className="sp-mobile-nav__children">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.label}
+                        href={child.href}
+                        className="sp-mobile-nav__child"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
                 )}
               </div>
-              {item.children && (
-                <div className={`sp-mobile-nav__children ${openMobileGroup === item.label ? "sp-mobile-nav__children--open" : ""}`}>
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.label}
-                      href={child.href}
-                      className="sp-mobile-nav__child"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setOpenMobileGroup(null);
-                      }}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-          <a href="/devis" className="btn btn-primary" style={{ margin: "1rem 1.5rem" }}>
+            );
+          })}
+          <Link
+            href="/devis"
+            onClick={() => setMobileOpen(false)}
+            className="sp-header__cta-btn"
+            style={{ display: "block", margin: "1.25rem 1.5rem", textAlign: "center" }}
+          >
             Devis Gratuit
-          </a>
+          </Link>
         </div>
       </header>
 
-      {/* ── Header styles ── */}
-      <HeaderStyle/>
+      {/* Backdrop mobile */}
+      {mobileOpen && (
+        <div
+          onClick={() => setMobileOpen(false)}
+          aria-hidden
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(20, 32, 44, 0.55)",
+            backdropFilter: "blur(2px)",
+            zIndex: 35,
+          }}
+        />
+      )}
+
+      {/* Header styles */}
+      <HeaderStyle />
     </>
   );
 }

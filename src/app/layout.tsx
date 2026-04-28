@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -9,9 +9,17 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Signprod",
-  description: "Signprod - Enseignes, signaletique et communication visuelle",
+  title: "SignProd – Communication visuelle à Abidjan",
+  description:
+    "Conception, fabrication et pose de solutions d'enseigne et de signalétique sur mesure à Abidjan.",
 };
 
 export default function RootLayout({
@@ -21,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${poppins.variable} antialiased`}>
+      <body className={`${poppins.variable} ${montserrat.variable} antialiased`}>
         {children}
       </body>
     </html>
