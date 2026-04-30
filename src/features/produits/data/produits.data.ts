@@ -108,7 +108,7 @@ export const PRODUITS: ProduitItem[] = [
       "Transport et montage simplifié",
       "Adaptation à l’espace alloué et à la marque",
     ],
-    image: "/asset/produit/display.png",
+    image: "/asset/STAND/standsurmesur.JPG",
   },
   {
     slug: "kakemono",
@@ -124,7 +124,7 @@ export const PRODUITS: ProduitItem[] = [
       "Housses de transport",
       "Compatibilité stand / hall",
     ],
-    image: "/asset/produit/standplv.png",
+    image: "/asset/STAND/standevenementiel.jpg",
   },
   {
     slug: "impression-3d-foam",

@@ -4,7 +4,7 @@ import SavoirFaireOverviewView from "@/features/savoir-faire/views/savoir-faire-
 export const metadata: Metadata = {
   title: "Notre Savoir-Faire | SignProd",
   description:
-    "Cinq expertises en communication visuelle : enseignes, signalétique intérieure et extérieure, impression grand format, concept façade. Présentation illustrée et fiches détaillées.",
+    "Cinq expertises : enseignes lumineuses, concept façade, signalétique, stands sur mesure, impression grand format. Une équipe, un savoir-faire, un contrôle total — Abidjan.",
 };
 
 export default function Page() {

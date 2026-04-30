@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 
 export interface BreadcrumbItem {
@@ -10,7 +11,7 @@ export interface PageHeroProps {
   eyebrow?: string;
   title: string;
   highlight?: string;
-  description?: string;
+  description?: ReactNode;
   breadcrumbs?: BreadcrumbItem[];
 }
 
@@ -80,9 +81,9 @@ export default function PageHero({
         </h1>
 
         {description && (
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 md:text-base">
+          <div className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 md:text-base">
             {description}
-          </p>
+          </div>
         )}
       </div>
     </section>

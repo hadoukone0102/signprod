@@ -91,21 +91,23 @@ export default function SavoirFaireDetailView({ slug }: SavoirFaireDetailViewPro
             <ScrollReveal variant="fade-left" delay={150} as="aside" className="lg:col-span-5">
               <div className="sticky top-24 flex flex-col gap-5">
                 {/* Applications */}
-                <div className="border border-slate-200 bg-[#F8FAFC] p-6">
-                  <h3 className="text-xs font-bold uppercase tracking-[2px] text-[#0097B2]">
-                    Applications typiques
-                  </h3>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {item.applications.map((a) => (
-                      <li
-                        key={a}
-                        className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700"
-                      >
-                        {a}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {item.applications.length > 0 && (
+                  <div className="border border-slate-200 bg-[#F8FAFC] p-6">
+                    <h3 className="text-xs font-bold uppercase tracking-[2px] text-[#0097B2]">
+                      Applications typiques
+                    </h3>
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {item.applications.map((a) => (
+                        <li
+                          key={a}
+                          className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700"
+                        >
+                          {a}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* CTA Devis */}
                 <div className="relative overflow-hidden border border-[#0097B2] bg-[#0a1628] p-6 text-white">
@@ -128,6 +130,12 @@ export default function SavoirFaireDetailView({ slug }: SavoirFaireDetailViewPro
                     className="relative mt-5 inline-flex items-center gap-2 rounded-[2px] bg-[#1abcbc] px-5 py-3 text-xs font-bold uppercase tracking-wide text-[#0a1628] transition hover:gap-3 hover:bg-[#22d8d8]"
                   >
                     Demander un devis <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href={item.relatedProductHref}
+                    className="relative mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[#1abcbc] transition hover:gap-3 hover:underline"
+                  >
+                    Voir la gamme produit associée <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </div>

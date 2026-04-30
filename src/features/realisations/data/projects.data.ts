@@ -264,6 +264,46 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "stand-sur-mesure",
+    kind: "dossier",
+    client: "Stand sur mesure",
+    shortName: "ST",
+    tagline: "PLV, linéaires & présentoirs",
+    sector: "Stands sur mesure",
+    year: "2024",
+    cover: {
+      label: "S",
+      accent: "from-[#2b6cb0] to-[#1a365d]",
+      image: "/asset/STAND/standsurmesur.JPG",
+    },
+    summary:
+      "Conception et réalisation de stands et mobilier d’exposition sur mesure pour retail et points de vente : structures, habillage graphique et mise en scène produit.",
+    realisations: [
+      { title: "Linéaires et présentoirs retail", type: "PLV sur mesure", year: "2024" },
+      { title: "Habillage et signalétique d’accompagnement", type: "Branding", year: "2024" },
+    ],
+  },
+  {
+    slug: "stand-evenementiel",
+    kind: "dossier",
+    client: "Stand événementiel",
+    shortName: "EV",
+    tagline: "Salons, roadshows & halls",
+    sector: "Stands événementiel",
+    year: "2024",
+    cover: {
+      label: "E",
+      accent: "from-[#0891b2] to-[#164e63]",
+      image: "/asset/STAND/standevenementiel.jpg",
+    },
+    summary:
+      "Solutions légères et modulaires pour salons professionnels et opérations événementielles : roll-up, murs visuels, stands démontables et transportables.",
+    realisations: [
+      { title: "Stands modulaires hall & salon", type: "Événementiel", year: "2024" },
+      { title: "Visuels et structures express", type: "Montage rapide", year: "2024" },
+    ],
+  },
+  {
     slug: "realisation-3d",
     kind: "dossier",
     client: "Réalisation 3D",
@@ -341,7 +381,7 @@ export const PROJECTS: Project[] = [
     cover: {
       label: "S",
       accent: "from-[#0097B2] to-[#0a1a1f]",
-      image: ("/asset/realisation/signaletique-interieure/SIGNALETIQUE 1.png"),
+      image: "/asset/produit/signaletique.jpg",
     },
     gallery: [
       ("/asset/realisation/signaletique-interieure/SIGNALETIQUE.png"),

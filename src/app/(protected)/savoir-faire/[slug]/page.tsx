@@ -1,9 +1,9 @@
 const LABELS: Record<string, string> = {
   enseignes: "Enseignes lumineuses",
-  "signaletique-interieure": "Signaletique interieure",
-  "signaletique-exterieure": "Signaletique exterieure",
-  impression: "Impression grand format",
   facades: "Concept facade",
+  signaletique: "Signalétique",
+  "stands-sur-mesure": "Stands sur mesure",
+  impression: "Impression grand format",
 };
 
 type Params = { slug: string };

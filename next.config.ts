@@ -15,6 +15,21 @@ const nextConfig: NextConfig = {
         destination: "/produits/revetement",
         permanent: true,
       },
+      {
+        source: "/savoir-faire/signaletique-interieure",
+        destination: "/savoir-faire/signaletique",
+        permanent: true,
+      },
+      {
+        source: "/savoir-faire/signaletique-exterieure",
+        destination: "/savoir-faire/signaletique",
+        permanent: true,
+      },
+      {
+        source: "/savoir-faire/stands-evenementiel",
+        destination: "/savoir-faire/stands-sur-mesure",
+        permanent: true,
+      },
     ];
   },
 };

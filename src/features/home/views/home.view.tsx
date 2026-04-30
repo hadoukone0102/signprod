@@ -25,7 +25,7 @@ const SERVICES = [
     title: "Signalétique",
     desc: "Intérieure, extérieure, totems et orientation.",
     image: "/asset/produit/signaletique.jpg",
-    href: "/savoir-faire/signaletique-interieure",
+    href: "/savoir-faire/signaletique",
   },
   {
     title: "Habillage de façade",
