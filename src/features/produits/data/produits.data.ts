@@ -24,6 +24,8 @@ export interface ProduitItem {
   longDesc: string;
   highlights: string[];
   image: string;
+  /** Visuels complémentaires (fiche détail uniquement) */
+  gallery?: string[];
 }
 
 /**
@@ -44,7 +46,19 @@ export const PRODUITS: ProduitItem[] = [
       "Transport et montage simplifié",
       "Adaptation à l’espace alloué et à la marque",
     ],
-    image: "/asset/STAND/standsurmesur.JPG",
+    image: "/asset/produit/standsurmesur.png",
+    gallery: [
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 2.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 4.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 5.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 6.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 7.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 9.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 10.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 11.png",
+    ],
   },
   {
     slug: "kakemono",
@@ -60,7 +74,7 @@ export const PRODUITS: ProduitItem[] = [
       "Housses de transport",
       "Compatibilité stand / hall",
     ],
-    image: "/asset/STAND/standevenementiel.jpg",
+    image: "/asset/produit/standevenementiel.jpg",
   },
   {
     slug: "revetement-facades",

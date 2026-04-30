@@ -10,6 +10,10 @@ export interface ProduitsDetailViewProps {
   slug: string;
 }
 
+function publicImageSrc(path: string) {
+  return encodeURI(path);
+}
+
 export default function ProduitsDetailView({ slug }: ProduitsDetailViewProps) {
   const item = PRODUITS.find((p) => p.slug === slug);
   if (!item) notFound();
@@ -71,7 +75,7 @@ export default function ProduitsDetailView({ slug }: ProduitsDetailViewProps) {
                 {/* Vraie image produit en haut */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#F4F7FA]">
                   <Image
-                    src={item.image}
+                    src={publicImageSrc(item.image)}
                     alt={item.title}
                     fill
                     priority
@@ -120,6 +124,38 @@ export default function ProduitsDetailView({ slug }: ProduitsDetailViewProps) {
         </div>
       </section>
 
+      {item.gallery && item.gallery.length > 0 && (
+        <section className="border-t border-slate-100 bg-white py-12 md:py-16">
+          <div className="container">
+            <h2
+              className="text-xl font-black uppercase tracking-tight text-[#0a1628] md:text-2xl"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              Exemples de réalisations
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600 md:text-[15px]">
+              Aperçu de stands et espaces d’exposition confectionnés en atelier.
+            </p>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {item.gallery.map((src) => (
+                <div
+                  key={src}
+                  className="relative aspect-[4/3] overflow-hidden border border-slate-200 bg-[#F4F7FA] shadow-sm"
+                >
+                  <Image
+                    src={publicImageSrc(src)}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Vous aimerez aussi ── */}
       <section className="bg-[#F4F7FA] py-14 md:py-20">
         <div className="container">
@@ -143,7 +179,7 @@ export default function ProduitsDetailView({ slug }: ProduitsDetailViewProps) {
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-[#F4F7FA]">
                     <Image
-                      src={o.image}
+                      src={publicImageSrc(o.image)}
                       alt={o.title}
                       fill
                       sizes="(min-width: 1024px) 33vw, 100vw"

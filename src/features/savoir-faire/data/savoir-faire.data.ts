@@ -68,7 +68,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
     featureVariant: "bullet",
     closingLine: "Un stand pensé pour attirer, engager et convertir.",
     applications: ["Salons professionnels", "Roadshows", "Retail", "Lancements produit", "Showrooms"],
-    image: "/asset/STAND/standsurmesur.JPG",
+    image: "/asset/produit/standsurmesur.png",
   },
   {
     slug: "facades",

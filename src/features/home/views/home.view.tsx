@@ -25,7 +25,7 @@ const SERVICES = [
   {
     title: "Stand sur mesure",
     desc: "Linéaires, présentoirs et stands pour retail et points de vente.",
-    image: "/asset/STAND/standsurmesur.JPG",
+    image: "/asset/produit/standsurmesur.png",
     href: "/produits/stands-sur-mesure",
   },
   {

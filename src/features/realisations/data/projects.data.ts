@@ -231,7 +231,7 @@ export const PROJECTS: Project[] = [
     cover: {
       label: "S",
       accent: "from-[#2b6cb0] to-[#1a365d]",
-      image: "/asset/STAND/standsurmesur.JPG",
+      image: "/asset/produit/standsurmesur.png",
     },
     summary:
       "Conception et réalisation de stands et mobilier d’exposition sur mesure pour retail et points de vente : structures, habillage graphique et mise en scène produit.",
@@ -344,7 +344,7 @@ export const PROJECTS: Project[] = [
     cover: {
       label: "E",
       accent: "from-[#0891b2] to-[#164e63]",
-      image: "/asset/STAND/standevenementiel.jpg",
+      image: "/asset/produit/standevenementiel.jpg",
     },
     summary:
       "Solutions légères et modulaires pour salons professionnels et opérations événementielles : roll-up, murs visuels, stands démontables et transportables.",
