@@ -28,10 +28,10 @@ const SLIDES: HeroSlide[] = [
   /* ── 1 · PITCH PRINCIPAL — promesse de marque ── */
   {
     eyebrow: "Communication visuelle • Abidjan",
-    title: "Votre marque mérite",
-    highlight: "d'être vue.",
+    title: "Votre marque mérite plus qu'être vue.",
+    highlight: "Elle doit marquer les esprits.",
     description:
-      "Enseignes lumineuses, signalétique et façades sur mesure — conçues, fabriquées et posées par nos équipes en Côte d'Ivoire.",
+      "Conception, fabrication et installation de stands sur mesure, enseignes lumineuses, revêtements de façades et décors visuel 3D Foam en Côte d'Ivoire.",
     primaryCta: { label: "Demander un devis gratuit", href: "/devis" },
     secondaryCta: { label: "Nous appeler", href: CONTACT.phone.href },
     stats: [...BANNER_SLIDE1_STATS],

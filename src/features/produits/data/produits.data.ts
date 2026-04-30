@@ -10,6 +10,7 @@ import {
   Store,
   Sparkles,
   Fuel,
+  Box,
   type LucideIcon,
 } from "lucide-react";
 
@@ -26,12 +27,12 @@ export interface ProduitItem {
 }
 
 /**
- * Ordre et intitulés alignés sur la gamme SignProd.
+ * Ordre aligné sur le menu principal (Nos produits).
  */
 export const PRODUITS: ProduitItem[] = [
   {
     slug: "revetement-facades",
-    href: "/savoir-faire/facades",
+    href: "/produits/revetement",
     icon: Building2,
     category: "Façades",
     title: "Revêtement de Façades",
@@ -82,7 +83,7 @@ export const PRODUITS: ProduitItem[] = [
     href: "/produits/totems",
     icon: Flag,
     category: "Extérieur",
-    title: "Totems et Drapeaux",
+    title: "Totem",
     shortDesc: "Repères d’accès, identité bâtiment, drapeaux et haute visibilité.",
     longDesc:
       "Totems publicitaires, pylônes, mâts et drapeaux. Structure acier ou aluminium, éclairage option, dimensions et visuels sur mesure. Étude d’implantation et cadrage avec votre site.",
@@ -94,59 +95,60 @@ export const PRODUITS: ProduitItem[] = [
     image: "/asset/produit/totem.png",
   },
   {
-    slug: "vitrines",
-    href: "/produits/vitrines",
-    icon: PaintBucket,
-    category: "Espaces",
-    title: "Agencement et Décoration",
-    shortDesc: "Aménagement, vitrines, habillages d’espace, identité d’intérieur.",
-    longDesc:
-      "Finitions murales, agencement, vitrines, zones d’accueil. Coordination des matériaux, couleurs et adhésifs haute finition pour un parcours client clair et valorisant.",
-    highlights: [
-      "Finitions adaptées trafic et lumière",
-      "Habillages modulables et entretien maîtrisé",
-      "Cohérence enseigne / bâtiment",
-    ],
-    image: "/asset/produit/agence et decorations.png",
-  },
-  {
-    slug: "branding-vehicules",
-    href: "/devis",
-    icon: Car,
-    category: "Flotte",
-    title: "Branding Véhicules",
-    shortDesc: "Adhésifs, covering et flotte alignée sur votre charte.",
-    longDesc:
-      "Habillages utilitaires, flottes commerciales, covering partiel ou total. Adhésifs haute performance et pose pour tenue en extérieur.",
-    highlights: [
-      "Déclinaison charte sur tous modèles",
-      "Finitions mat, satin ou brillance ciblée",
-      "Délais d’exécution adaptés à l’opération",
-    ],
-    image: "/asset/produit/brandingvehicule.jpg",
-  },
-  {
-    slug: "display",
-    href: "/devis",
+    slug: "stands-sur-mesure",
+    href: "/produits/stands-sur-mesure",
     icon: LayoutGrid,
     category: "Point de vente",
-    title: "Display",
+    title: "Stands sur mesure",
     shortDesc: "Présentation produit, comptoirs, linéaires et PLV en point de vente.",
     longDesc:
-      "Stands, présentoirs, linéaires et mises en scène retail. Mise en forme, second signal visuel, solutions réutilisables selon vos campagnes.",
+      "Stands, présentoirs, linéaires et mises en scène retail sur mesure. Mise en forme, signalétique d’accompagnement, solutions réutilisables selon vos campagnes et contraintes d’espace.",
     highlights: [
       "Configurations modulaires",
       "Transport et montage simplifié",
-      "Adaptation à l’espace alloué",
+      "Adaptation à l’espace alloué et à la marque",
     ],
     image: "/asset/produit/display.png",
+  },
+  {
+    slug: "kakemono",
+    href: "/produits/kakemono",
+    icon: Store,
+    category: "PLV & salon",
+    title: "Stands événementiel",
+    shortDesc: "Roll-up, murs visuels, solutions légères pour salon et temporaire.",
+    longDesc:
+      "Kakémono, roll-up, murs d’image, PLV légère pour commerces, salons, roadshows et opérations événementielles. Accessoires de transport et montage rapide.",
+    highlights: [
+      "Structures aluminium ou textile tendu",
+      "Housses de transport",
+      "Compatibilité stand / hall",
+    ],
+    image: "/asset/produit/standplv.png",
+  },
+  {
+    slug: "impression-3d-foam",
+    href: "/produits/impression-3d-foam",
+    icon: Box,
+    category: "Volume & relief",
+    title: "Impression 3D foam",
+    shortDesc:
+      "Lettres et logos en mousse rigide : relief, légèreté et impact visuel intérieur ou vitrine.",
+    longDesc:
+      "Découpe et mise en forme de panneaux foam (XPS, PVC expansé équivalent) pour lettres bloc, logos relief, décors scéniques ou signalétique décorative. Finitions peinture ou cover, formats sur cote, pose en atelier.",
+    highlights: [
+      "Relief fort pour enseigne, stand ou événement",
+      "Poids maîtrisé, fixations adaptées murs et suspensions",
+      "Couleurs et formes sur plan ou fichier vectoriel",
+    ],
+    image: "/asset/produit/enseigne.png",
   },
   {
     slug: "baches",
     href: "/produits/baches",
     icon: Printer,
     category: "Impression",
-    title: "Impression Grand format",
+    title: "Impression grand format",
     shortDesc: "Bâches, banderoles, visuels en impression large gamme de supports.",
     longDesc:
       "Bâches PVC, micro-perforés, bannières, affiches grand format outdoor et indoor. Finitions œillets, ourlets, encres UV et usage intensif.",
@@ -158,24 +160,40 @@ export const PRODUITS: ProduitItem[] = [
     image: "/asset/produit/impressiongrandformat.jpg",
   },
   {
-    slug: "kakemono",
-    href: "/produits/kakemono",
-    icon: Store,
-    category: "PLV & salon",
-    title: "Stands et PLV",
-    shortDesc: "Roll-up, murs visuels, solutions légères pour salon et temporaire.",
+    slug: "branding-vehicules",
+    href: "/produits/branding-vehicules",
+    icon: Car,
+    category: "Flotte",
+    title: "Branding véhicule",
+    shortDesc: "Adhésifs, covering et flotte alignée sur votre charte.",
     longDesc:
-      "Kakémono, roll-up, murs d’image, PLV légère pour commerces, salons, roadshows. Accessoires de transport et montage rapide.",
+      "Habillages utilitaires, flottes commerciales, covering partiel ou total. Adhésifs haute performance et pose pour tenue en extérieur.",
     highlights: [
-      "Structures aluminium ou textile tendu",
-      "Housses de transport",
-      "Compatibilité stand / hall",
+      "Déclinaison charte sur tous modèles",
+      "Finitions mat, satin ou brillance ciblée",
+      "Délais d’exécution adaptés à l’opération",
     ],
-    image: "/asset/produit/standplv.png",
+    image: "/asset/produit/brandingvehicule.jpg",
+  },
+  {
+    slug: "vitrines",
+    href: "/produits/vitrines",
+    icon: PaintBucket,
+    category: "Espaces",
+    title: "Agencement et décoration",
+    shortDesc: "Aménagement, vitrines, habillages d’espace, identité d’intérieur.",
+    longDesc:
+      "Finitions murales, agencement, vitrines, zones d’accueil. Coordination des matériaux, couleurs et adhésifs haute finition pour un parcours client clair et valorisant.",
+    highlights: [
+      "Finitions adaptées trafic et lumière",
+      "Habillages modulables et entretien maîtrisé",
+      "Cohérence enseigne / bâtiment",
+    ],
+    image: "/asset/produit/agence et decorations.png",
   },
   {
     slug: "cover-style",
-    href: "/contact",
+    href: "/produits/cover-style",
     icon: Sparkles,
     category: "Finition",
     title: "Cover Style",
@@ -191,10 +209,10 @@ export const PRODUITS: ProduitItem[] = [
   },
   {
     slug: "stations-services",
-    href: "/contact",
+    href: "/produits/stations-services",
     icon: Fuel,
     category: "Métier",
-    title: "Stations Services",
+    title: "Stations services",
     shortDesc: "Signalétique, identité et dispositifs adaptés au réseau station.",
     longDesc:
       "Accompagnement signalétique, totems, habillage pompes, accroches marque, contraintes de circulation. Déploiement monosite ou réseau.",

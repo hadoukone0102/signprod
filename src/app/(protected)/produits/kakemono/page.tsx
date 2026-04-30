@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ProduitsDetailView from "@/features/produits/views/produits-detail.view";
 
 export const metadata: Metadata = {
-  title: "Kakémono & roll-up | SignProd",
-  description: "Roll-up et kakémonos pour vos stands, salons et événements professionnels.",
+  title: "Stands événementiel & roll-up | SignProd",
+  description: "Roll-up, kakémonos et murs visuels pour salons, roadshows et opérations événementielles.",
 };
 
 export default function Page() {

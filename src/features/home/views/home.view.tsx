@@ -31,7 +31,7 @@ const SERVICES = [
     title: "Habillage de façade",
     desc: "Concept façade, bardage et lettres relief.",
     image: "/asset/produit/revetement1.jpg",
-    href: "/savoir-faire/facades",
+    href: "/produits/revetement",
   },
   {
     title: "Impression grand format",

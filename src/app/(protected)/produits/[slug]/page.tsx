@@ -1,10 +1,17 @@
 const LABELS: Record<string, string> = {
+  revetement: "Revêtement de façades",
+  "revetement-facades": "Revêtement de façades",
   "enseignes-led": "Enseignes LED",
   totems: "Totems et pylones",
   vitrines: "Vitrines et adhesifs",
   kakemono: "Kakemono et roll-up",
   baches: "Baches et banderoles",
   "signaletique-routiere": "Signaletique routiere",
+  "branding-vehicules": "Branding véhicule",
+  "stands-sur-mesure": "Stands sur mesure",
+  "impression-3d-foam": "Impression 3D foam",
+  "cover-style": "Cover Style",
+  "stations-services": "Stations services",
 };
 
 type Params = { slug: string };
