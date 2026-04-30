@@ -26,7 +26,7 @@ export const LEGAL_PAGES: Record<string, LegalPageData> = {
         paragraphs: [
           "Le site signprod.com est édité par SignProd, entreprise spécialisée dans la communication visuelle.",
           `Siège social : ${CONTACT.address.short}, ${CONTACT.address.country}.`,
-          `Téléphone : ${CONTACT.phone.label} — Email : ${CONTACT.email.label}`,
+          `Téléphone : ${CONTACT.phone.label} / ${CONTACT.phoneSecondary.label} — Email : ${CONTACT.email.label}`,
           `Horaires : ${CONTACT.hours.full.join(" ; ")}.`,
         ],
       },

@@ -22,8 +22,10 @@ const COORDONNEES = [
   {
     icon: Phone,
     title: "Téléphone",
-    lines: [CONTACT.phone.label],
-    href: CONTACT.phone.href,
+    linkLines: [
+      { label: CONTACT.phone.label, href: CONTACT.phone.href },
+      { label: CONTACT.phoneSecondary.label, href: CONTACT.phoneSecondary.href },
+    ],
   },
   {
     icon: Mail,
@@ -36,7 +38,9 @@ const COORDONNEES = [
     title: "Horaires",
     lines: [...CONTACT.hours.compact],
   },
-];
+] as const;
+
+type ContactCoordBlock = (typeof COORDONNEES)[number];
 
 export default function ContactView() {
   const [submitted, setSubmitted] = useState(false);
@@ -62,7 +66,7 @@ export default function ContactView() {
       <section className="bg-white py-14 md:py-20">
         <div className="container">
           <ScrollReveal stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {COORDONNEES.map((c) => {
+            {COORDONNEES.map((c: ContactCoordBlock) => {
               const Icon = c.icon;
               const Inner = (
                 <>
@@ -72,14 +76,23 @@ export default function ContactView() {
                   <h3 className="mt-4 text-xs font-bold uppercase tracking-[2px] text-[#0097B2]">
                     {c.title}
                   </h3>
-                  {c.lines.map((line) => (
-                    <p key={line} className="mt-1 text-sm font-semibold text-[#0a1628]">
-                      {line}
-                    </p>
-                  ))}
+                  {"linkLines" in c
+                    ? c.linkLines.map(({ label, href }) => (
+                        <p key={label} className="mt-1 text-sm font-semibold text-[#0a1628]">
+                          <a href={href} className="transition-colors hover:text-[#0097B2]">
+                            {label}
+                          </a>
+                        </p>
+                      ))
+                    : "lines" in c &&
+                      c.lines.map((line) => (
+                        <p key={line} className="mt-1 text-sm font-semibold text-[#0a1628]">
+                          {line}
+                        </p>
+                      ))}
                 </>
               );
-              return c.href ? (
+              return "href" in c && c.href ? (
                 <a
                   key={c.title}
                   href={c.href}
@@ -90,7 +103,7 @@ export default function ContactView() {
               ) : (
                 <div
                   key={c.title}
-                  className="group border border-slate-200 bg-white p-6 transition-all hover:border-[#0097B2]"
+                  className="group border border-slate-200 bg-white p-6 transition-all hover:-translate-y-1 hover:border-[#0097B2] hover:shadow-md"
                 >
                   {Inner}
                 </div>

@@ -21,7 +21,14 @@ export const CONTACT = {
     /** Format E.164 pour href="tel:" */
     href: "tel:+2252721353521",
     /** Libellé court (ex : top bar) */
-    short: "+225 27 21 35 35 21",
+    short: "(+225) 27 21 35 35 21",
+  },
+
+  /** Second numéro (ex. mobile / permanence) */
+  phoneSecondary: {
+    label: "(+225) 07 02 25 97 47",
+    href: "tel:+2250702259747",
+    short: "(+225) 07 02 25 97 47",
   },
 
   email: {
