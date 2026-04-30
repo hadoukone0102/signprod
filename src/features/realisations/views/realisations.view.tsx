@@ -12,7 +12,7 @@ import {
 import PageHero from "@/shared/components/page-hero.component";
 import Modal from "@/shared/components/modal.component";
 import { SITE_PROJECTS_LIVRES_SHORT } from "@/shared/constants/site-stats";
-import { PROJECTS, type Project } from "../data/projects.data";
+import type { Project } from "../data/projects.data";
 
 /** Chemins publics avec espaces → URI valide pour `next/image`. */
 function publicImageSrc(path: string) {
@@ -21,45 +21,48 @@ function publicImageSrc(path: string) {
 
 type TypeFilter = "tous" | "societe" | "thematique";
 
-export default function RealisationsView() {
+export interface RealisationsViewProps {
+  projects: Project[];
+}
+
+export default function RealisationsView({ projects }: RealisationsViewProps) {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [typeFilter, setTypeFilter] = useState<TypeFilter>("tous");
 
   const countSocietes = useMemo(
-    () => PROJECTS.filter((p) => p.kind === "societe").length,
-    [],
+    () => projects.filter((p) => p.kind === "societe").length,
+    [projects],
   );
   const projectsToShow = useMemo(() => {
     if (typeFilter === "societe")
-      return PROJECTS.filter((p) => p.kind === "societe");
+      return projects.filter((p) => p.kind === "societe");
     if (typeFilter === "thematique")
-      return PROJECTS.filter((p) => p.kind === "dossier");
-    // Tous : sociétés d’abord, puis fiches thématiques, une seule grille
-    const marques = PROJECTS.filter((p) => p.kind === "societe");
-    const thematique = PROJECTS.filter((p) => p.kind === "dossier");
+      return projects.filter((p) => p.kind === "dossier");
+    const marques = projects.filter((p) => p.kind === "societe");
+    const thematique = projects.filter((p) => p.kind === "dossier");
     return [...marques, ...thematique];
-  }, [typeFilter]);
+  }, [typeFilter, projects]);
 
   const totalRealisations = useMemo(
-    () => PROJECTS.reduce((acc, p) => acc + p.realisations.length, 0),
-    [],
+    () => projects.reduce((acc, p) => acc + p.realisations.length, 0),
+    [projects],
   );
 
   const countDossiers = useMemo(
-    () => PROJECTS.filter((p) => p.kind === "dossier").length,
-    [],
+    () => projects.filter((p) => p.kind === "dossier").length,
+    [projects],
   );
 
   /** Visuels uniques par référence (couverture + galerie, sans doublon). */
   const totalVisuels = useMemo(
     () =>
-      PROJECTS.reduce((acc, p) => {
+      projects.reduce((acc, p) => {
         const urls = new Set<string>();
         if (p.cover.image) urls.add(p.cover.image);
         for (const u of p.gallery ?? []) urls.add(u);
         return acc + urls.size;
       }, 0),
-    [],
+    [projects],
   );
 
   return (

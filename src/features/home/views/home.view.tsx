@@ -14,6 +14,13 @@ import BannierView from "@/shared/components/bannier.component";
 import ScrollReveal from "@/shared/components/scroll-reveal";
 import { HOME_HERO_STATS } from "@/shared/constants/site-stats";
 
+/** Bloc « Réalisation à la une — BBR » : `1.png` en une principale, puis `2.png`, puis coup de projecteur complémentaire. */
+const BBR_HOME_IMAGES = [
+  { src: "/asset/realisation/BBR/1.png", alt: "Réalisation BBR — vue principale" },
+  { src: "/asset/realisation/BBR/2.png", alt: "Réalisation BBR — détail" },
+  { src: "/asset/realisation/BBR/BBR0.jpeg", alt: "Réalisation BBR — site et façade" },
+] as const;
+
 const SERVICES = [
   {
     title: "Enseignes lumineuses",
@@ -401,8 +408,8 @@ export default function HomeView() {
               <div className="grid grid-cols-12 gap-4">
                 <div className="relative col-span-12 aspect-[4/3] overflow-hidden md:col-span-8 md:row-span-2 md:aspect-auto">
                   <Image
-                    src="/asset/realisation/BBR/BBR1.JPG"
-                    alt="Réalisation BBR — façade"
+                    src={BBR_HOME_IMAGES[0].src}
+                    alt={BBR_HOME_IMAGES[0].alt}
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     className="object-cover"
@@ -410,8 +417,8 @@ export default function HomeView() {
                 </div>
                 <div className="relative col-span-6 aspect-square overflow-hidden md:col-span-4">
                   <Image
-                    src="/asset/realisation/BBR/BBR2.JPG"
-                    alt="Réalisation BBR — détail"
+                    src={BBR_HOME_IMAGES[1].src}
+                    alt={BBR_HOME_IMAGES[1].alt}
                     fill
                     sizes="(min-width: 1024px) 20vw, 50vw"
                     className="object-cover"
@@ -419,8 +426,8 @@ export default function HomeView() {
                 </div>
                 <div className="relative col-span-6 aspect-square overflow-hidden md:col-span-4">
                   <Image
-                    src="/asset/realisation/BBR/BBR3.JPG"
-                    alt="Réalisation BBR — détail"
+                    src={BBR_HOME_IMAGES[2].src}
+                    alt={BBR_HOME_IMAGES[2].alt}
                     fill
                     sizes="(min-width: 1024px) 20vw, 50vw"
                     className="object-cover"

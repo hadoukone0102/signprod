@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PROJECTS } from "@/features/realisations/data/projects.data";
+import { projectsWithExistingImages } from "@/features/realisations/lib/filter-public-images";
 import RealisationsView from "@/features/realisations/views/realisations.view";
 
 export const metadata: Metadata = {
@@ -8,5 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <RealisationsView />;
+  const projects = projectsWithExistingImages(PROJECTS);
+  return <RealisationsView projects={projects} />;
 }
