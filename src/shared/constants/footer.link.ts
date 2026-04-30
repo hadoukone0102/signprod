@@ -2,9 +2,9 @@
 export const FOOTER_LINKS = {
   services: [
     { label: "Enseignes lumineuses", href: "/savoir-faire/enseignes" },
+    { label: "Stands sur mesure", href: "/savoir-faire/stands-sur-mesure" },
     { label: "Concept façade", href: "/savoir-faire/facades" },
     { label: "Signalétique", href: "/savoir-faire/signaletique" },
-    { label: "Stands sur mesure", href: "/savoir-faire/stands-sur-mesure" },
     { label: "Impression grand format", href: "/savoir-faire/impression" },
   ],
   produits: [

@@ -23,6 +23,12 @@ const BBR_HOME_IMAGES = [
 
 const SERVICES = [
   {
+    title: "Stand sur mesure",
+    desc: "Linéaires, présentoirs et stands pour retail et points de vente.",
+    image: "/asset/STAND/standsurmesur.JPG",
+    href: "/produits/stands-sur-mesure",
+  },
+  {
     title: "Enseignes lumineuses",
     desc: "LED, néon, caissons rétroéclairés et lettres relief.",
     image: "/asset/produit/enseigne.png",
@@ -50,12 +56,6 @@ const SERVICES = [
     title: "Habillage véhicule",
     desc: "Covering, marquage et flotte d'entreprise.",
     image: "/asset/produit/brandingvehicule.jpg",
-    href: "/produits",
-  },
-  {
-    title: "Stands & PLV",
-    desc: "Stands sur mesure, displays et signalétique événementielle.",
-    image: "/asset/produit/standplv.png",
     href: "/produits",
   },
 ];

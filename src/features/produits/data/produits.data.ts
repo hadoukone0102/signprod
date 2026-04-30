@@ -27,9 +27,41 @@ export interface ProduitItem {
 }
 
 /**
- * Ordre aligné sur le menu principal (Nos produits).
+ * Stands en tête, puis les autres familles de produits.
  */
 export const PRODUITS: ProduitItem[] = [
+  {
+    slug: "stands-sur-mesure",
+    href: "/produits/stands-sur-mesure",
+    icon: LayoutGrid,
+    category: "Point de vente",
+    title: "Stands sur mesure",
+    shortDesc: "Présentation produit, comptoirs, linéaires et PLV en point de vente.",
+    longDesc:
+      "Stands, présentoirs, linéaires et mises en scène retail sur mesure. Mise en forme, signalétique d’accompagnement, solutions réutilisables selon vos campagnes et contraintes d’espace.",
+    highlights: [
+      "Configurations modulaires",
+      "Transport et montage simplifié",
+      "Adaptation à l’espace alloué et à la marque",
+    ],
+    image: "/asset/STAND/standsurmesur.JPG",
+  },
+  {
+    slug: "kakemono",
+    href: "/produits/kakemono",
+    icon: Store,
+    category: "PLV & salon",
+    title: "Stands événementiel",
+    shortDesc: "Roll-up, murs visuels, solutions légères pour salon et temporaire.",
+    longDesc:
+      "Kakémono, roll-up, murs d’image, PLV légère pour commerces, salons, roadshows et opérations événementielles. Accessoires de transport et montage rapide.",
+    highlights: [
+      "Structures aluminium ou textile tendu",
+      "Housses de transport",
+      "Compatibilité stand / hall",
+    ],
+    image: "/asset/STAND/standevenementiel.jpg",
+  },
   {
     slug: "revetement-facades",
     href: "/produits/revetement",
@@ -93,38 +125,6 @@ export const PRODUITS: ProduitItem[] = [
       "Ancrages et contraintes météo dimensionnés",
     ],
     image: "/asset/produit/totem.png",
-  },
-  {
-    slug: "stands-sur-mesure",
-    href: "/produits/stands-sur-mesure",
-    icon: LayoutGrid,
-    category: "Point de vente",
-    title: "Stands sur mesure",
-    shortDesc: "Présentation produit, comptoirs, linéaires et PLV en point de vente.",
-    longDesc:
-      "Stands, présentoirs, linéaires et mises en scène retail sur mesure. Mise en forme, signalétique d’accompagnement, solutions réutilisables selon vos campagnes et contraintes d’espace.",
-    highlights: [
-      "Configurations modulaires",
-      "Transport et montage simplifié",
-      "Adaptation à l’espace alloué et à la marque",
-    ],
-    image: "/asset/STAND/standsurmesur.JPG",
-  },
-  {
-    slug: "kakemono",
-    href: "/produits/kakemono",
-    icon: Store,
-    category: "PLV & salon",
-    title: "Stands événementiel",
-    shortDesc: "Roll-up, murs visuels, solutions légères pour salon et temporaire.",
-    longDesc:
-      "Kakémono, roll-up, murs d’image, PLV légère pour commerces, salons, roadshows et opérations événementielles. Accessoires de transport et montage rapide.",
-    highlights: [
-      "Structures aluminium ou textile tendu",
-      "Housses de transport",
-      "Compatibilité stand / hall",
-    ],
-    image: "/asset/STAND/standevenementiel.jpg",
   },
   {
     slug: "impression-3d-foam",

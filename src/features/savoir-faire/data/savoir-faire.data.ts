@@ -52,6 +52,25 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
     image: "/asset/produit/enseigne.png",
   },
   {
+    slug: "stands-sur-mesure",
+    href: "/savoir-faire/stands-sur-mesure",
+    relatedProductHref: "/produits/stands-sur-mesure",
+    icon: LayoutGrid,
+    title: "Stands sur mesure",
+    shortDesc: "Créez une expérience, pas juste un stand.",
+    longDesc:
+      "Un stand efficace ne se contente pas d’occuper un emplacement : il raconte votre offre et déclenche l’échange. Nous enchaînons conception 3D, fabrication en atelier et installation clé en main pour les salons et événements, avec un objectif clair : attirer, engager et convertir.",
+    features: [
+      "Conception 3D & design personnalisé",
+      "Fabrication sur mesure en atelier",
+      "Installation clé en main pour salons & événements",
+    ],
+    featureVariant: "bullet",
+    closingLine: "Un stand pensé pour attirer, engager et convertir.",
+    applications: ["Salons professionnels", "Roadshows", "Retail", "Lancements produit", "Showrooms"],
+    image: "/asset/STAND/standsurmesur.JPG",
+  },
+  {
     slug: "facades",
     href: "/savoir-faire/facades",
     relatedProductHref: "/produits/revetement",
@@ -89,25 +108,6 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
     closingLine: "Une communication visuelle fluide et professionnelle.",
     applications: ["Sites industriels", "Centres commerciaux", "Hôpitaux", "Grands marchés", "Tertiaire"],
     image: "/asset/produit/signaletique.jpg",
-  },
-  {
-    slug: "stands-sur-mesure",
-    href: "/savoir-faire/stands-sur-mesure",
-    relatedProductHref: "/produits/stands-sur-mesure",
-    icon: LayoutGrid,
-    title: "Stands sur mesure",
-    shortDesc: "Créez une expérience, pas juste un stand.",
-    longDesc:
-      "Un stand efficace ne se contente pas d’occuper un emplacement : il raconte votre offre et déclenche l’échange. Nous enchaînons conception 3D, fabrication en atelier et installation clé en main pour les salons et événements, avec un objectif clair : attirer, engager et convertir.",
-    features: [
-      "Conception 3D & design personnalisé",
-      "Fabrication sur mesure en atelier",
-      "Installation clé en main pour salons & événements",
-    ],
-    featureVariant: "bullet",
-    closingLine: "Un stand pensé pour attirer, engager et convertir.",
-    applications: ["Salons professionnels", "Roadshows", "Retail", "Lancements produit", "Showrooms"],
-    image: "/asset/STAND/standsurmesur.JPG",
   },
   {
     slug: "impression",

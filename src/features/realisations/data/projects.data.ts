@@ -162,8 +162,84 @@ export const PROJECTS: Project[] = [
       { title: "Signalétique d'accompagnement", type: "Signalétique", year: "2024" },
     ],
   },
+  {
+    slug: "stade-de-bouake",
+    kind: "societe",
+    client: "Stade de Bouaké",
+    shortName: "BOU",
+    tagline: "Signalétique & identité du site",
+    sector: "Infrastructures sportives",
+    location: "Bouaké",
+    year: "2024 — 2025",
+    cover: {
+      label: "SB",
+      accent: "from-[#b45309] to-[#78350f]",
+      image: "/asset/realisation/stade-de-bouake/STADE DE BOUAKE.png",
+    },
+    gallery: [
+      "/asset/realisation/stade-de-bouake/STADE DE BOUAKE.png",
+      "/asset/realisation/stade-de-bouake/STADE DE BOUAKE copie 10.png",
+      "/asset/realisation/stade-de-bouake/STADE DE BOUAKE copie 11.png",
+      "/asset/realisation/stade-de-bouake/STADE DE BOUAKE copie 13.png",
+      "/asset/realisation/stade-de-bouake/STADE DE BOUAKE copie 17.png",
+    ],
+    summary:
+      "Mise en valeur de l'équipement : dispositifs d'identification, signalétique d'accès et habillages visuels adaptés aux flux du stade.",
+    realisations: [
+      { title: "Enseignes et repères façade", type: "Enseigne / identité", year: "2025" },
+      { title: "Parcours visiteurs & signalétique", type: "Signalétique", year: "2024" },
+    ],
+  },
+  {
+    slug: "stade-yamoussoukro",
+    kind: "societe",
+    client: "Stade de Yamoussoukro",
+    shortName: "YAM",
+    tagline: "Grands équipements, même exigence",
+    sector: "Infrastructures sportives",
+    location: "Yamoussoukro",
+    year: "2024 — 2025",
+    cover: {
+      label: "SY",
+      accent: "from-[#047857] to-[#064e3b]",
+      image: "/asset/realisation/stade-yamoussoukro/STADE YAMOUSSOUKRO.png",
+    },
+    gallery: [
+      "/asset/realisation/stade-yamoussoukro/STADE YAMOUSSOUKRO.png",
+      "/asset/realisation/stade-yamoussoukro/STADE YAMOUSSOUKRO 1 copie 7.png",
+      "/asset/realisation/stade-yamoussoukro/STADE YAMOUSSOUKRO 1 copie 8.png",
+      "/asset/realisation/stade-yamoussoukro/STADE YAMOUSSOUKRO 1 copie 9.png",
+      "/asset/realisation/stade-yamoussoukro/STADE YAMOUSSOUKRO 1 copie 13.png",
+    ],
+    summary:
+      "Accompagnement visuel du site : lisibilité de l'enceinte, marquage des accès et cohérence avec l'environnement urbain.",
+    realisations: [
+      { title: "Identité visible du complexe", type: "Habillage / enseigne", year: "2025" },
+      { title: "Repères et orientation", type: "Signalétique", year: "2024" },
+    ],
+  },
 
   // ── Dossiers thématiques (regroupement de réalisations pour divers clients) ──
+  {
+    slug: "stand-sur-mesure",
+    kind: "dossier",
+    client: "Stand sur mesure",
+    shortName: "ST",
+    tagline: "PLV, linéaires & présentoirs",
+    sector: "Stands sur mesure",
+    year: "2024",
+    cover: {
+      label: "S",
+      accent: "from-[#2b6cb0] to-[#1a365d]",
+      image: "/asset/STAND/standsurmesur.JPG",
+    },
+    summary:
+      "Conception et réalisation de stands et mobilier d’exposition sur mesure pour retail et points de vente : structures, habillage graphique et mise en scène produit.",
+    realisations: [
+      { title: "Linéaires et présentoirs retail", type: "PLV sur mesure", year: "2024" },
+      { title: "Habillage et signalétique d’accompagnement", type: "Branding", year: "2024" },
+    ],
+  },
   {
     slug: "enseignes",
     kind: "dossier",
@@ -258,26 +334,6 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "stand-sur-mesure",
-    kind: "dossier",
-    client: "Stand sur mesure",
-    shortName: "ST",
-    tagline: "PLV, linéaires & présentoirs",
-    sector: "Stands sur mesure",
-    year: "2024",
-    cover: {
-      label: "S",
-      accent: "from-[#2b6cb0] to-[#1a365d]",
-      image: "/asset/STAND/standsurmesur.JPG",
-    },
-    summary:
-      "Conception et réalisation de stands et mobilier d’exposition sur mesure pour retail et points de vente : structures, habillage graphique et mise en scène produit.",
-    realisations: [
-      { title: "Linéaires et présentoirs retail", type: "PLV sur mesure", year: "2024" },
-      { title: "Habillage et signalétique d’accompagnement", type: "Branding", year: "2024" },
-    ],
-  },
-  {
     slug: "stand-evenementiel",
     kind: "dossier",
     client: "Stand événementiel",
@@ -295,6 +351,69 @@ export const PROJECTS: Project[] = [
     realisations: [
       { title: "Stands modulaires hall & salon", type: "Événementiel", year: "2024" },
       { title: "Visuels et structures express", type: "Montage rapide", year: "2024" },
+    ],
+  },
+  {
+    slug: "stand-d-exposition",
+    kind: "dossier",
+    client: "Stand d'exposition",
+    shortName: "EX",
+    tagline: "Salons, foires & halls",
+    sector: "Stands d'exposition",
+    year: "2024 — 2025",
+    cover: {
+      label: "E",
+      accent: "from-[#0d9488] to-[#134e4a]",
+      image: "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION.png",
+    },
+    gallery: [
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 2.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 4.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 5.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 6.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 7.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 9.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 10.png",
+      "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 11.png",
+    ],
+    summary:
+      "Réalisations terrain pour espaces d'exposition : structures d'accueil, murs graphiques et scénographie pour capter l'attention sur le salon.",
+    realisations: [
+      { title: "Stands photo & halls", type: "Exposition", year: "2025" },
+      { title: "Habillage et mise en lumière", type: "Scénographie", year: "2024" },
+    ],
+  },
+  {
+    slug: "totem",
+    kind: "dossier",
+    client: "Totem",
+    shortName: "TO",
+    tagline: "Repérage & impact au sol",
+    sector: "Totems & pylônes",
+    year: "2023 — 2025",
+    cover: {
+      label: "T",
+      accent: "from-[#475569] to-[#0f172a]",
+      image: "/asset/realisation/totem/TOTEM copie.png",
+    },
+    gallery: [
+      "/asset/realisation/totem/TOTEM copie.png",
+      "/asset/realisation/totem/TOTEM copie 2.png",
+      "/asset/realisation/totem/TOTEM copie 3.png",
+      "/asset/realisation/totem/TOTEM copie 4.png",
+      "/asset/realisation/totem/TOTEM copie 5.png",
+      "/asset/realisation/totem/TOTEM copie 7.png",
+      "/asset/realisation/totem/TOTEM copie 9.png",
+      "/asset/realisation/totem/TOTEM copie 10.png",
+      "/asset/realisation/totem/TOTEM copie 12.png",
+    ],
+    summary:
+      "Sélection de totems posés pour l'identification de sites, parkings et entrées : volumes lisibles de jour comme de nuit.",
+    realisations: [
+      { title: "Totems double face & éclairage", type: "Totem", year: "2024" },
+      { title: "Identification d'accès & parkings", type: "Signalétique", year: "2023" },
     ],
   },
   {
