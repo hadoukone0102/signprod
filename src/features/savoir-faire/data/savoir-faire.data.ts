@@ -82,7 +82,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
       "Un bâtiment remarquable renforce la confiance et la mémorisation de marque. Nous pilotons la conception 3D, le choix des matériaux et la mise en œuvre jusqu’à la pose en hauteur, pour une façade à la fois esthétique, durable et adaptée au climat local.",
     features: [
       "Conception 3D & étude technique sur mesure",
-      "Façades aluminium, composite & verre architectural",
+      "Façades aluminium, composite ",
       "Solutions esthétiques, durables et adaptées au climat",
     ],
     featureVariant: "check",
