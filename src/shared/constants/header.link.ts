@@ -11,7 +11,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "Enseignes", href: "/produits/enseignes-led", desc: "LED, caissons, lettres" },
       { label: "Signalétique", href: "/produits/signaletique-routiere", desc: "Parcours, accès" },
       { label: "Totem", href: "/produits/totems", desc: "Totems, drapeaux" },
-      { label: "Stands sur mesure", href: "/produits/stands-sur-mesure", desc: "Levier d’attraction — 3D, atelier, installation" },
+      { label: "Stands sur mesure", href: "/produits/stands-sur-mesure", desc: "exposition salons événements" },
       { label: "Stands événementiel", href: "/produits/kakemono", desc: "Salon, foire : roll-up & kits légers" },
       { label: "Impression 3D foam", href: "/produits/impression-3d-foam", desc: "Lettres volume, logos relief" },
       { label: "Impression grand format", href: "/produits/baches", desc: "Bâches, banderoles" },
