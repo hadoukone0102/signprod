@@ -49,7 +49,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
     featureVariant: "bullet",
     closingLine: "Attirez, marquez, dominez votre environnement.",
     applications: ["Commerces", "Restaurants", "Hôtels", "Pharmacies", "Stations-service"],
-    image: "/asset/produit/enseigne.png",
+    image: "/asset/produit/enseigne.png?v=20260501",
   },
   {
     slug: "stands-sur-mesure",

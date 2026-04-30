@@ -48,14 +48,14 @@ export default function ProduitsDetailView({ slug }: ProduitsDetailViewProps) {
               </h2>
               <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-slate-600 md:text-base">
                 <p>{item.shortDesc}</p>
-                <p>{item.longDesc}</p>
+                {item.longDesc.trim() ? <p>{item.longDesc}</p> : null}
               </div>
 
               <h3
                 className="mt-10 text-xl font-bold uppercase tracking-tight text-[#0a1628]"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
-                Points forts
+                {item.highlightsHeading ?? "Points forts"}
               </h3>
               <ul className="mt-5 space-y-3">
                 {item.highlights.map((h) => (
@@ -76,7 +76,7 @@ export default function ProduitsDetailView({ slug }: ProduitsDetailViewProps) {
                 {/* Vraie image produit en haut */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#F4F7FA]">
                   <Image
-                    src={publicImageSrc(item.image)}
+                    src={publicImageSrc(item.ficheImage ?? item.image)}
                     alt={item.title}
                     fill
                     priority

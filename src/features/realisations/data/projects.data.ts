@@ -265,7 +265,7 @@ export const PROJECTS: Project[] = [
     cover: {
       label: "S",
       accent: "from-[#2b6cb0] to-[#1a365d]",
-      image: "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION.png",
+      image: "/asset/realisation/standsevenementiels/1.jpg",
     },
     gallery: [
       "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION.png",
@@ -285,6 +285,38 @@ export const PROJECTS: Project[] = [
       { title: "Design 3D personnalisé", type: "Conception", year: "2024" },
       { title: "Fabrication sur mesure en atelier", type: "Production", year: "2024" },
       { title: "Installation clé en main", type: "Pose", year: "2025" },
+    ],
+  },
+  {
+    slug: "stands-evenementiels",
+    kind: "dossier",
+    client: "Stands événementiels",
+    shortName: "ÉV",
+    tagline: "Salons, roadshows et espaces scéniques",
+    sector: "Stands événementiels",
+    year: "2024 — 2026",
+    cover: {
+      label: "É",
+      accent: "from-[#1a365d] to-[#0f2942]",
+      image: "/asset/realisation/standsevenementiels/1.jpg",
+    },
+    gallery: [
+      "/asset/realisation/standsevenementiels/1.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-53-55.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-53-56.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-53-57.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-55-56.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-55-59.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-04-12-22-24-4.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-04-12-22-24-44.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-04-18-18-46-49.jpg",
+    ],
+    summary:
+      "Stands et espaces événementiels conçus pour capter l’attention sur salon : volumes, signalétique intégrée et finitions atelier, de la maquette à la pose.",
+    realisations: [
+      { title: "Scénographie & impact visiteurs", type: "Stand salon", year: "2025" },
+      { title: "Fabrication atelier & finitions", type: "Production", year: "2025" },
+      { title: "Montage & démontage terrain", type: "Pose", year: "2024" },
     ],
   },
   {

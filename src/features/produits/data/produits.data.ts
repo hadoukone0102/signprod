@@ -22,8 +22,12 @@ export interface ProduitItem {
   title: string;
   shortDesc: string;
   longDesc: string;
+  /** Remplace « Points forts » sur la fiche détail si défini */
+  highlightsHeading?: string;
   highlights: string[];
   image: string;
+  /** Image héro fiche détail (liste / grille : `image`) */
+  ficheImage?: string;
   /** Visuels complémentaires (fiche détail uniquement) */
   gallery?: string[];
 }
@@ -66,16 +70,27 @@ export const PRODUITS: ProduitItem[] = [
     icon: Store,
     category: "PLV & salon",
     title: "Stands événementiel",
-    shortDesc:
-      "Kakémono, roll-up et murs nomades : visibilité sur salon, foire ou tournée, sans lourd agencement.",
+    shortDesc: "Gagnez en visibilité, même sur des formats temporaires.",
     longDesc:
-      "Pour une présence temporaire — salon professionnel, foire, roadshow ou animation en magasin — nous proposons des kits légers et démontables : roll-ups, kakémonos, murs d’image tendus, caissons portables. Priorité à la logistique (transport, montage rapide) et aux visuels interchangeables d’une date à l’autre, sans confondre avec les linéaires et stands fixes du point de vente.",
+      "Nous concevons des solutions légères et efficaces pour créer un espace attractif, rapide à mettre en place et parfaitement adapté à vos événements.",
     highlights: [
       "Encombrement et poids maîtrisés pour le déplacement",
       "Installation et démontage courts sur site",
       "Visuels modulables selon l’événement ou la campagne",
     ],
-    image: "/asset/produit/standevenementiel.jpg",
+    image: "/asset/produit/standsevenementiel.png",
+    ficheImage: "/asset/realisation/standsevenementiels/1.jpg",
+    gallery: [
+      "/asset/realisation/standsevenementiels/1.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-53-55.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-53-56.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-53-57.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-55-56.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-03-24-14-55-59.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-04-12-22-24-4.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-04-12-22-24-44.jpg",
+      "/asset/realisation/standsevenementiels/PHOTO-2026-04-18-18-46-49.jpg",
+    ],
   },
   {
     slug: "revetement-facades",
@@ -107,7 +122,7 @@ export const PRODUITS: ProduitItem[] = [
       "Finitions adaptées intérieur / extérieur",
       "Garanties pièces et main-d’œuvre sur demande",
     ],
-    image: "/asset/produit/enseigne.png",
+    image: "/asset/produit/enseigne.png?v=20260501",
   },
   {
     slug: "signaletique-routiere",
@@ -156,17 +171,18 @@ export const PRODUITS: ProduitItem[] = [
     href: "/produits/impression-3d-foam",
     icon: Box,
     category: "Volume & relief",
-    title: "Impression 3D foam",
+    title: "Sculpture 3D sur mesure en Foam",
     shortDesc:
-      "Lettres et logos en mousse rigide : relief, légèreté et impact visuel intérieur ou vitrine.",
-    longDesc:
-      "Découpe et mise en forme de panneaux foam (XPS, PVC expansé équivalent) pour lettres bloc, logos relief, décors scéniques ou signalétique décorative. Finitions peinture ou cover, formats sur cote, pose en atelier.",
+      "Chaque pièce est conçue en modélisation 3D, puis usinée avec précision avant d’être travaillée et finie à la main pour un rendu réaliste et haut de gamme.",
+    longDesc: "",
+    highlightsHeading: "Idéal pour",
     highlights: [
-      "Relief fort pour enseigne, stand ou événement",
-      "Poids maîtrisé, fixations adaptées murs et suspensions",
-      "Couleurs et formes sur plan ou fichier vectoriel",
+      "Stands événementiels",
+      "Décors immersifs",
+      "Scénographie",
+      "Signalétique grand format",
     ],
-    image: "/asset/produit/enseigne.png",
+    image: "/asset/produit/realisation3D.jpg",
   },
   {
     slug: "baches",

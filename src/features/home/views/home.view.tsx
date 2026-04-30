@@ -31,7 +31,7 @@ const SERVICES = [
   {
     title: "Enseignes lumineuses",
     desc: "LED, néon, caissons rétroéclairés et lettres relief.",
-    image: "/asset/produit/enseigne.png",
+    image: "/asset/produit/enseigne.png?v=20260501",
     href: "/savoir-faire/enseignes",
   },
   {
