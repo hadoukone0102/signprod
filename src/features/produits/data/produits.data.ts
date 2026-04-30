@@ -123,7 +123,7 @@ export const PRODUITS: ProduitItem[] = [
       "Cohabitation avec l’agencement et la décoration",
       "Normes d’accès et de visibilité prises en compte",
     ],
-    image: "/asset/realisation/signaletique-interieure/SIGNALETIQUE.png",
+    image: "/asset/produit/signaletique.jpg?v=20260430",
     gallery: [
       "/asset/realisation/signaletique-interieure/SIGNALETIQUE.png",
       "/asset/realisation/signaletique-interieure/SIGNALETIQUE 1.png",

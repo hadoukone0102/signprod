@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
+  images: {
+    // Fichiers dans public/asset ; sans clé `search`, les query (?v=…) restent autorisées (cache-bust).
+    localPatterns: [{ pathname: "/asset/**" }],
+  },
   async redirects() {
     return [
       {

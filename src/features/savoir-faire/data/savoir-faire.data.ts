@@ -107,7 +107,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
     featureVariant: "bullet",
     closingLine: "Une communication visuelle fluide et professionnelle.",
     applications: ["Sites industriels", "Centres commerciaux", "Hôpitaux", "Grands marchés", "Tertiaire"],
-    image: "/asset/realisation/signaletique-interieure/SIGNALETIQUE.png",
+    image: "/asset/produit/signaletique.jpg?v=20260430",
   },
   {
     slug: "impression",
