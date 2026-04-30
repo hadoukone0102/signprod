@@ -4,7 +4,7 @@ import RealisationsView from "@/features/realisations/views/realisations.view";
 export const metadata: Metadata = {
   title: "Nos Réalisations | SignProd",
   description:
-    "Plus de 500 projets réalisés : enseignes lumineuses, signalétique, façades et impressions grand format à Abidjan.",
+    "Plus de 100 projets livrés : enseignes, signalétique, façades, marques partenaires et dossiers thématiques à Abidjan.",
 };
 
 export default function Page() {

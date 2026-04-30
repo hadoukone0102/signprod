@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { CONTACT } from "@/shared/constants/contact.info";
+import { BANNER_SLIDE1_STATS } from "@/shared/constants/site-stats";
 
 /* ─────────────────────────────────────────
    SLIDES — modifier / ajouter ici
@@ -33,11 +34,7 @@ const SLIDES: HeroSlide[] = [
       "Enseignes lumineuses, signalétique et façades sur mesure — conçues, fabriquées et posées par nos équipes en Côte d'Ivoire.",
     primaryCta: { label: "Demander un devis gratuit", href: "/devis" },
     secondaryCta: { label: "Nous appeler", href: CONTACT.phone.href },
-    stats: [
-      { num: "+100", label: "Projets livrés" },
-      { num: "10+", label: "Années d'expertise" },
-      { num: "24h", label: "Devis garanti" },
-    ],
+    stats: [...BANNER_SLIDE1_STATS],
   },
 
   /* ── 2 · INTÉGRATION VERTICALE — différenciation ── */

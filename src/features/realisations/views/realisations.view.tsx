@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import PageHero from "@/shared/components/page-hero.component";
 import Modal from "@/shared/components/modal.component";
+import { SITE_PROJECTS_LIVRES_SHORT } from "@/shared/constants/site-stats";
 import { PROJECTS, type Project } from "../data/projects.data";
 
 /** Chemins publics avec espaces → URI valide pour `next/image`. */
@@ -44,13 +45,30 @@ export default function RealisationsView() {
     [],
   );
 
+  const countDossiers = useMemo(
+    () => PROJECTS.filter((p) => p.kind === "dossier").length,
+    [],
+  );
+
+  /** Visuels uniques par référence (couverture + galerie, sans doublon). */
+  const totalVisuels = useMemo(
+    () =>
+      PROJECTS.reduce((acc, p) => {
+        const urls = new Set<string>();
+        if (p.cover.image) urls.add(p.cover.image);
+        for (const u of p.gallery ?? []) urls.add(u);
+        return acc + urls.size;
+      }, 0),
+    [],
+  );
+
   return (
     <div>
       <PageHero
         eyebrow="Nos réalisations"
         title="Nos clients,"
         highlight="leurs projets."
-        description={`${PROJECTS.length} références, ${countSocietes} marques partenaires, ${totalRealisations} prestations listées. Cliquez sur un aperçu pour le détail.`}
+        description={`${SITE_PROJECTS_LIVRES_SHORT} (chiffre cohérent avec l’accueil). Cette galerie : ${countSocietes} marques partenaires, ${countDossiers} dossiers thématiques, ${totalRealisations} prestations illustrées, ${totalVisuels} visuels. Cliquez sur un aperçu pour découvrir le détail des prestations.`}
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "Nos Réalisations" },

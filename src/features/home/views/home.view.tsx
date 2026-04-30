@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import BannierView from "@/shared/components/bannier.component";
 import ScrollReveal from "@/shared/components/scroll-reveal";
+import { HOME_HERO_STATS } from "@/shared/constants/site-stats";
 
 const SERVICES = [
   {
@@ -50,13 +51,6 @@ const SERVICES = [
     image: "/asset/produit/standplv.png",
     href: "/produits",
   },
-];
-
-const STATS = [
-  { num: "100+", label: "Projets livrés" },
-  { num: "10+", label: "Ans d'expertise" },
-  { num: "24h", label: "Délai de devis" },
-  { num: "100%", label: "Sur mesure" },
 ];
 
 const STEPS = [
@@ -105,7 +99,7 @@ export default function HomeView() {
             stagger
             className="grid grid-cols-2 divide-x divide-slate-200 md:grid-cols-4"
           >
-            {STATS.map((s) => (
+            {HOME_HERO_STATS.map((s) => (
               <div key={s.label} className="px-6 py-6 text-center md:py-9">
                 <p className="text-3xl font-bold tracking-tight text-[#0097B2] md:text-4xl lg:text-5xl">
                   {s.num}
