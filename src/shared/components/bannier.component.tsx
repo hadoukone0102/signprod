@@ -43,7 +43,7 @@ const SLIDES: HeroSlide[] = [
     title: "De l'idée graphique",
     highlight: "à la pose finale.",
     description:
-      "Étude graphique, fabrication LED, impression grand format, habillage façade : un seul partenaire pilote votre projet de A à Z, sans sous-traitance.",
+      "De l'étude à la conception 3D jusqu'à l'impression,nous structurons vos projets pour un résultat précis et impactant.",
     primaryCta: { label: "Voir nos savoir-faire", href: "/savoir-faire" },
     secondaryCta: { label: "Découvrir nos produits", href: "/produits" },
     stats: [
