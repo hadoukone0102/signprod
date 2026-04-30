@@ -389,7 +389,7 @@ export default function BannierView() {
       </div>
 
       {/* ── CATEGORY CARDS (statiques) ── */}
-      <div className="grid grid-cols-2 border-t border-[rgba(26,188,188,0.2)] md:grid-cols-4">
+      <div className="grid grid-cols-2 border-t border-[rgba(26,188,188,0.2)] md:grid-cols-5">
         {[
           {
             icon: (
@@ -400,6 +400,18 @@ export default function BannierView() {
             ),
             label: "Intérieur & Extérieur",
             title: "Enseignes\nLumineuses",
+          },
+          {
+            icon: (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1abcbc" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+            ),
+            label: "PLV & Exposition",
+            title: "Stands sur\nmesure",
           },
           {
             icon: (

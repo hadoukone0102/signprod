@@ -163,6 +163,36 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "west",
+    kind: "societe",
+    client: "West",
+    shortName: "WE",
+    tagline: "Identité & point de vente",
+    sector: "Retail & marque",
+    location: "Abidjan",
+    year: "2024",
+    cover: {
+      label: "WE",
+      accent: "from-[#4338ca] to-[#1e1b4b]",
+      image: "/asset/realisation/west/WEST.png",
+    },
+    gallery: [
+      "/asset/realisation/west/WEST.png",
+      "/asset/realisation/west/WEST copie.png",
+      "/asset/realisation/west/WEST copie 4.png",
+      "/asset/realisation/west/WEST copie 6.png",
+      "/asset/realisation/west/WEST copie 7.png",
+      "/asset/realisation/west/WEST copie 8.png",
+      "/asset/realisation/west/WEST copie 9.png",
+    ],
+    summary:
+      "Accompagnement West : enseignes, habillages et dispositifs de visibilité alignés sur la charte et les espaces de vente.",
+    realisations: [
+      { title: "Enseigne et signalétique point de vente", type: "Enseigne", year: "2024" },
+      { title: "Habillage & branding mural", type: "Branding intérieur / extérieur", year: "2024" },
+    ],
+  },
+  {
     slug: "stade-de-bouake",
     kind: "societe",
     client: "Stade de Bouaké",
@@ -251,6 +281,34 @@ export const PROJECTS: Project[] = [
       { title: "Linéaires et présentoirs retail", type: "PLV sur mesure", year: "2024" },
       { title: "Stands modulaires hall & salon", type: "Événementiel", year: "2024" },
       { title: "Habillage, signalétique et mise en lumière", type: "Scénographie", year: "2025" },
+    ],
+  },
+  {
+    slug: "tableau-sur-mesure",
+    kind: "dossier",
+    client: "Tableau sur mesure",
+    shortName: "TB",
+    tagline: "Affichage & décoration murale",
+    sector: "Tableaux sur mesure",
+    year: "2024",
+    cover: {
+      label: "TA",
+      accent: "from-[#57534e] to-[#1c1917]",
+      image: "/asset/realisation/tableau-sur-mesure/TABLEAU 1.png",
+    },
+    gallery: [
+      "/asset/realisation/tableau-sur-mesure/TABLEAU 1.png",
+      "/asset/realisation/tableau-sur-mesure/TABLEAU 1 copie.png",
+      "/asset/realisation/tableau-sur-mesure/TABLEAU 1 copie 2.png",
+      "/asset/realisation/tableau-sur-mesure/TABLEAU 1 copie 3.png",
+      "/asset/realisation/tableau-sur-mesure/TABLEAU 1 copie 4.png",
+      "/asset/realisation/tableau-sur-mesure/TABLEAU 1 copie 5.png",
+    ],
+    summary:
+      "Tableaux et panneaux décoratifs sur cote : formats, cadres, finitions et pose pour bureaux, commerces et espaces d’accueil.",
+    realisations: [
+      { title: "Grands formats & compositions murales", type: "Tableau / cadre", year: "2024" },
+      { title: "Supports d’affichage sur mesure", type: "Fabrication atelier", year: "2024" },
     ],
   },
   {
