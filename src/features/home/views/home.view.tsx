@@ -23,8 +23,8 @@ const BBR_HOME_IMAGES = [
 
 const SERVICES = [
   {
-    title: "Stand sur mesure",
-    desc: "Linéaires, présentoirs et stands pour retail et points de vente.",
+    title: "Stands sur mesure",
+    desc: "Îlots, linéaires et corners qui valorisent l’offre en point de vente.",
     image: "/asset/produit/standsurmesur.png",
     href: "/produits/stands-sur-mesure",
   },

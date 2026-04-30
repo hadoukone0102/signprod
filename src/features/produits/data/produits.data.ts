@@ -38,13 +38,14 @@ export const PRODUITS: ProduitItem[] = [
     icon: LayoutGrid,
     category: "Point de vente",
     title: "Stands sur mesure",
-    shortDesc: "Présentation produit, comptoirs, linéaires et PLV en point de vente.",
+    shortDesc:
+      "Linéaires, îlots et corners sur mesure : votre offre mise en valeur en magasin ou en showroom.",
     longDesc:
-      "Stands, présentoirs, linéaires et mises en scène retail sur mesure. Mise en forme, signalétique d’accompagnement, solutions réutilisables selon vos campagnes et contraintes d’espace.",
+      "Nous créons des présentoirs et agencements pensés pour le retail : comptoirs, îlots, linéaires et zones d’animation où la marque et le produit sont lisibles en un coup d’œil. Étude des flux, fabrication en atelier, habillage graphique et signalétique coordonnés, puis pose sur site — pour un rendu durable et professionnel, à la différence du matériel nomade dédié aux salons.",
     highlights: [
-      "Configurations modulaires",
-      "Transport et montage simplifié",
-      "Adaptation à l’espace alloué et à la marque",
+      "Sur cote : linéaires, îlots, corners, zones promo et mises en avant",
+      "Finitions et matériaux adaptés au passage client et à votre positionnement",
+      "Chaîne complète atelier → pose ; solutions réutilisables ou évolutives",
     ],
     image: "/asset/produit/standsurmesur.png",
     gallery: [
@@ -66,13 +67,14 @@ export const PRODUITS: ProduitItem[] = [
     icon: Store,
     category: "PLV & salon",
     title: "Stands événementiel",
-    shortDesc: "Roll-up, murs visuels, solutions légères pour salon et temporaire.",
+    shortDesc:
+      "Kakémono, roll-up et murs nomades : visibilité sur salon, foire ou tournée, sans lourd agencement.",
     longDesc:
-      "Kakémono, roll-up, murs d’image, PLV légère pour commerces, salons, roadshows et opérations événementielles. Accessoires de transport et montage rapide.",
+      "Pour une présence temporaire — salon professionnel, foire, roadshow ou animation en magasin — nous proposons des kits légers et démontables : roll-ups, kakémonos, murs d’image tendus, caissons portables. Priorité à la logistique (transport, montage rapide) et aux visuels interchangeables d’une date à l’autre, sans confondre avec les linéaires et stands fixes du point de vente.",
     highlights: [
-      "Structures aluminium ou textile tendu",
-      "Housses de transport",
-      "Compatibilité stand / hall",
+      "Encombrement et poids maîtrisés pour le déplacement",
+      "Installation et démontage courts sur site",
+      "Visuels modulables selon l’événement ou la campagne",
     ],
     image: "/asset/produit/standevenementiel.jpg",
   },

@@ -57,17 +57,18 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
     relatedProductHref: "/produits/stands-sur-mesure",
     icon: LayoutGrid,
     title: "Stands sur mesure",
-    shortDesc: "Créez une expérience, pas juste un stand.",
+    shortDesc:
+      "Des linéaires et îlots qui mettent vos produits en scène — et le parcours d’achat en confiance.",
     longDesc:
-      "Un stand efficace ne se contente pas d’occuper un emplacement : il raconte votre offre et déclenche l’échange. Nous enchaînons conception 3D, fabrication en atelier et installation clé en main pour les salons et événements, avec un objectif clair : attirer, engager et convertir.",
+      "En point de vente ou en showroom, la présentation fait la différence sur le panier moyen et l’image de marque. Nous concevons des agencements sur mesure — linéaires, îlots, comptoirs, corners et zones mises en avant — puis les réalisons en atelier et les posons sur site : volumes étudiés, matériaux adaptés au public, graphisme et signalétique dans la continuité de votre univers. Le résultat : un espace lisible, valorisant et pensé pour durer — pas un kit jetable réservé au salon.",
     features: [
-      "Conception 3D & design personnalisé",
-      "Fabrication sur mesure en atelier",
-      "Installation clé en main pour salons & événements",
+      "Agencement retail sur cote : linéaires, îlots, comptoirs, zones promo",
+      "Habillage graphique, éclairage d’accent et repères de parcours",
+      "Fabrication en atelier, pose qualifiée, évolutions possibles selon vos campagnes",
     ],
     featureVariant: "bullet",
-    closingLine: "Un stand pensé pour attirer, engager et convertir.",
-    applications: ["Salons professionnels", "Roadshows", "Retail", "Lancements produit", "Showrooms"],
+    closingLine: "Mieux présenter, c’est mieux vendre — avec un environnement à votre image.",
+    applications: ["Retail", "Showrooms", "Grande distribution", "Lancements produit", "Concept stores"],
     image: "/asset/produit/standsurmesur.png",
   },
   {

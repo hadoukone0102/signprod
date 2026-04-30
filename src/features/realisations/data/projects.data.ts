@@ -188,8 +188,9 @@ export const PROJECTS: Project[] = [
     summary:
       "Accompagnement West : enseignes, habillages et dispositifs de visibilité alignés sur la charte et les espaces de vente.",
     realisations: [
-      { title: "Enseigne et signalétique point de vente", type: "Enseigne", year: "2024" },
-      { title: "Habillage & branding mural", type: "Branding intérieur / extérieur", year: "2024" },
+      { title: "Enseigne et identité de façade", type: "Enseigne", year: "2024", description: "Visibilité de la marque en entrée et sur linéaire." },
+      { title: "Habillage & branding mural", type: "Branding intérieur / extérieur", year: "2024", description: "Décors et renforcement de charte dans l’espace de vente." },
+      { title: "Signalétique d’accompagnement", type: "Signalétique", year: "2024", description: "Repères, orientation et cohérence avec le parcours client." },
     ],
   },
   {
@@ -216,8 +217,11 @@ export const PROJECTS: Project[] = [
     summary:
       "Mise en valeur de l'équipement : dispositifs d'identification, signalétique d'accès et habillages visuels adaptés aux flux du stade.",
     realisations: [
-      { title: "Enseignes et repères façade", type: "Enseigne / identité", year: "2025" },
-      { title: "Parcours visiteurs & signalétique", type: "Signalétique", year: "2024" },
+      { title: "Enseignes et repères de façade", type: "Enseigne / identité", year: "2025", description: "Identité du complexe visible depuis l’extérieur et les accès principaux." },
+      { title: "Signalétique tribunes & circulations", type: "Signalétique", year: "2025", description: "Orientation des publics sur le parcours et les zones d’assise." },
+      { title: "Totems et repères d’entrée", type: "Totem", year: "2024", description: "Marquage des accès, parkings et points de contrôle." },
+      { title: "Parcours visiteurs & pictogrammique", type: "Signalétique", year: "2024", description: "Repères clairs pour les flux jour de match et événements." },
+      { title: "Habillages graphiques zones clés", type: "Habillage", year: "2024", description: "Mise en valeur d’espaces techniques et zones d’accueil." },
     ],
   },
   {
