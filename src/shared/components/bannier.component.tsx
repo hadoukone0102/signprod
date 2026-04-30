@@ -34,7 +34,7 @@ const SLIDES: HeroSlide[] = [
     primaryCta: { label: "Demander un devis gratuit", href: "/devis" },
     secondaryCta: { label: "Nous appeler", href: CONTACT.phone.href },
     stats: [
-      { num: "+200", label: "Projets livrés" },
+      { num: "+100", label: "Projets livrés" },
       { num: "10+", label: "Années d'expertise" },
       { num: "24h", label: "Devis garanti" },
     ],

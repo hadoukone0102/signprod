@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,16 +11,33 @@ import {
 } from "lucide-react";
 import PageHero from "@/shared/components/page-hero.component";
 import Modal from "@/shared/components/modal.component";
-import { PROJECTS, SECTORS, type Project } from "../data/projects.data";
+import { PROJECTS, type Project } from "../data/projects.data";
+
+/** Chemins publics avec espaces → URI valide pour `next/image`. */
+function publicImageSrc(path: string) {
+  return encodeURI(path);
+}
+
+type TypeFilter = "tous" | "societe" | "thematique";
 
 export default function RealisationsView() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
-  const [sectorFilter, setSectorFilter] = useState<string>("Tous");
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>("tous");
 
-  const filtered = useMemo(() => {
-    if (sectorFilter === "Tous") return PROJECTS;
-    return PROJECTS.filter((p) => p.sector === sectorFilter);
-  }, [sectorFilter]);
+  const countSocietes = useMemo(
+    () => PROJECTS.filter((p) => p.kind === "societe").length,
+    [],
+  );
+  const projectsToShow = useMemo(() => {
+    if (typeFilter === "societe")
+      return PROJECTS.filter((p) => p.kind === "societe");
+    if (typeFilter === "thematique")
+      return PROJECTS.filter((p) => p.kind === "dossier");
+    // Tous : sociétés d’abord, puis fiches thématiques, une seule grille
+    const marques = PROJECTS.filter((p) => p.kind === "societe");
+    const thematique = PROJECTS.filter((p) => p.kind === "dossier");
+    return [...marques, ...thematique];
+  }, [typeFilter]);
 
   const totalRealisations = useMemo(
     () => PROJECTS.reduce((acc, p) => acc + p.realisations.length, 0),
@@ -33,7 +50,7 @@ export default function RealisationsView() {
         eyebrow="Nos réalisations"
         title="Nos clients,"
         highlight="leurs projets."
-        description={`${PROJECTS.length} clients accompagnés, ${totalRealisations}+ réalisations livrées. Cliquez sur un aperçu pour découvrir le détail des prestations.`}
+        description={`${PROJECTS.length} références, ${countSocietes} marques partenaires, ${totalRealisations} prestations listées. Cliquez sur un aperçu pour le détail.`}
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "Nos Réalisations" },
@@ -45,30 +62,35 @@ export default function RealisationsView() {
         <div className="container">
           <div className="flex flex-wrap items-center gap-2">
             <span className="mr-2 text-[10px] font-medium uppercase tracking-[3px] text-[#14202C]/50">
-              Filtrer
+              Affichage
             </span>
-            {["Tous", ...SECTORS].map((s) => (
+            {(
+              [
+                ["Tous", "tous" as const],
+                ["Sociétés", "societe" as const],
+                ["Thématique", "thematique" as const],
+              ] as const
+            ).map(([label, value]) => (
               <button
-                key={s}
+                key={value}
                 type="button"
-                onClick={() => setSectorFilter(s)}
+                onClick={() => setTypeFilter(value)}
                 className={`px-4 py-2 text-xs font-medium uppercase tracking-[1.5px] transition ${
-                  sectorFilter === s
+                  typeFilter === value
                     ? "bg-[#14202C] text-white"
                     : "border border-[#14202C]/15 bg-white text-[#14202C]/70 hover:border-[#0097B2] hover:text-[#0097B2]"
                 }`}
               >
-                {s}
+                {label}
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Grille projets style portfolio (full-bleed) ── */}
       <section className="bg-white py-10 md:py-12">
         <div className="grid grid-cols-1 gap-px bg-[#0F1A24] sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((p) => (
+          {projectsToShow.map((p) => (
             <ProjectCard
               key={p.slug}
               project={p}
@@ -77,10 +99,10 @@ export default function RealisationsView() {
           ))}
         </div>
 
-        {filtered.length === 0 && (
+        {projectsToShow.length === 0 && (
           <div className="container">
             <p className="mt-10 text-center text-sm text-[#14202C]/60">
-              Aucun projet pour ce secteur pour le moment.
+              Aucun projet pour ce filtre pour le moment.
             </p>
           </div>
         )}
@@ -152,7 +174,7 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
       {/* Image ou fallback dégradé + monogramme */}
       {hasImage ? (
         <Image
-          src={project.cover.image as string}
+          src={publicImageSrc(project.cover.image as string)}
           alt={`${project.client} — réalisation SignProd`}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
@@ -191,8 +213,16 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
 
       {/* Contenu centré */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-10 text-center md:px-8">
-        {/* Étiquette client */}
+        {/* Étiquette client / dossier */}
         <div className="mb-7">
+          {project.kind === "dossier" && (
+            <span
+              className="mb-1 block text-[10px] font-semibold uppercase tracking-[3px] text-[#1abcbc]/95"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}
+            >
+              Dossier thématique
+            </span>
+          )}
           <span
             className="text-xs font-bold uppercase tracking-[4px] text-white"
             style={{ textShadow: "0 1px 4px rgba(0,0,0,0.65)" }}
@@ -204,18 +234,6 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
             aria-hidden
           />
         </div>
-
-        {/* Titre éditorial */}
-        <h3
-          className="max-w-[14ch] text-3xl font-extrabold uppercase leading-[0.98] tracking-tight text-white md:text-[2.4rem] lg:text-[2.6rem]"
-          style={{
-            letterSpacing: "-0.005em",
-            textShadow:
-              "0 2px 8px rgba(0,0,0,0.75), 0 1px 2px rgba(0,0,0,0.6)",
-          }}
-        >
-          {project.tagline}
-        </h3>
 
         {/* CTA bouton */}
         <span className="mt-7 inline-flex items-center justify-center bg-[#0097B2] px-6 py-2.5 text-[11px] font-bold uppercase tracking-[3px] text-white shadow-lg transition-transform duration-300 group-hover:translate-y-[-2px] group-hover:bg-[#00b4d4]">
@@ -241,52 +259,56 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
 /* ───────────────── Contenu du popup ───────────────── */
 
 function ProjectModalContent({ project }: { project: Project }) {
-  const [activeImage, setActiveImage] = useState<string | null>(
-    project.cover.image ?? project.gallery?.[0] ?? null,
-  );
-  const allImages = [
-    ...(project.cover.image ? [project.cover.image] : []),
-    ...(project.gallery ?? []),
-  ];
+  const allImages = useMemo(() => {
+    const raw = [
+      ...(project.cover.image ? [project.cover.image] : []),
+      ...(project.gallery ?? []),
+    ];
+    const seen = new Set<string>();
+    return raw.filter((u) => (seen.has(u) ? false : (seen.add(u), true)));
+  }, [project]);
+
+  const [activeImage, setActiveImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setActiveImage(allImages[0] ?? null);
+  }, [project.slug, allImages]);
 
   return (
     <div>
-      {/* Header — image ou bandeau dégradé */}
-      <div className="relative h-64 overflow-hidden bg-[#0F1A24] md:h-80">
-        {activeImage ? (
-          <Image
-            src={activeImage}
-            alt={`${project.client} — visuel principal`}
-            fill
-            sizes="(min-width: 1024px) 1024px, 100vw"
-            className="object-cover"
-          />
-        ) : (
-          <div className={`absolute inset-0 bg-gradient-to-br ${project.cover.accent}`}>
-            <span
-              className="absolute inset-0 flex items-center justify-center text-[8rem] font-light text-white/20"
-              aria-hidden
+      {/* Visuel : image entière (pas de rognage type cover sur hauteur fixe) + infos sous l’image */}
+      <div className="bg-[#0F1A24]">
+        <div className="flex min-h-[200px] w-full items-center justify-center px-3 py-4 md:min-h-[240px] md:px-8 md:py-6">
+          {activeImage ? (
+            <Image
+              src={publicImageSrc(activeImage)}
+              alt={`${project.client} — visuel principal`}
+              width={1920}
+              height={1200}
+              className="h-auto max-h-[min(52vh,520px)] w-full max-w-full object-contain object-center"
+              sizes="(min-width: 1280px) 1024px, 100vw"
+            />
+          ) : (
+            <div
+              className={`flex h-[200px] w-full max-w-3xl items-center justify-center bg-gradient-to-br ${project.cover.accent} md:h-64`}
             >
-              {project.cover.label}
-            </span>
-          </div>
-        )}
+              <span className="text-8xl font-light text-white/20 md:text-[8rem]" aria-hidden>
+                {project.cover.label}
+              </span>
+            </div>
+          )}
+        </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
-
-        <div className="absolute inset-x-0 bottom-0 px-6 pb-6 text-white md:px-10 md:pb-8">
+        <div className="px-6 pb-6 pt-1 text-white md:px-10">
           <span className="inline-flex items-center gap-2">
             <span className="h-px w-6 bg-[#1abcbc]" aria-hidden />
             <span className="text-[10px] font-medium uppercase tracking-[3px] text-white/80">
-              Client
+              {project.kind === "dossier" ? "Dossier thématique" : "Marque"}
             </span>
           </span>
-          <h2 className="mt-2 text-3xl font-bold uppercase leading-tight tracking-tight md:text-5xl">
+          <h2 className="mt-2 text-3xl font-bold uppercase leading-tight tracking-tight md:text-4xl">
             {project.client}
           </h2>
-          <p className="mt-1 text-sm font-light italic text-white/80 md:text-base">
-            {project.tagline}
-          </p>
 
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/80">
             <span className="inline-flex items-center gap-1.5">
@@ -324,7 +346,7 @@ function ProjectModalContent({ project }: { project: Project }) {
                 }`}
               >
                 <Image
-                  src={img}
+                  src={publicImageSrc(img)}
                   alt=""
                   fill
                   sizes="160px"
