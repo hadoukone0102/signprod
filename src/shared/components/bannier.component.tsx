@@ -69,19 +69,19 @@ const SLIDES: HeroSlide[] = [
     ],
   },
 
-  /* ── 4 · ÉTUDE DE CAS BBR — preuve sociale ── */
+  /* ── 4 · ÉTUDE DE CAS ECOBANK — preuve sociale ── */
   {
-    eyebrow: "Étude de cas — BBR",
-    title: "5 sites,",
-    highlight: "une identité partagée.",
+    eyebrow: "Étude de cas — Ecobank",
+    title: "Identité bancaire,",
+    highlight: "visible dès l'arrivée.",
     description:
-      "Programme complet pour Brassivoire : enseignes du siège, signalétique de sécurité et habillage de façade — déployé sur 24 mois avec un seul interlocuteur.",
+      "Pour le siège d'Ecobank à Abidjan, nous avons déployé un dispositif cohérent : enseigne, habillage des vitrines et signalétique d'orientation — le bon niveau d'exigence pour accueillir le public et porter la marque avec clarté.",
     primaryCta: { label: "Voir nos réalisations", href: "/realisations" },
     secondaryCta: { label: "Démarrer mon projet", href: "/devis" },
     stats: [
-      { num: "5+", label: "Prestations" },
-      { num: "24m", label: "De façade" },
-      { num: "2024", label: "Démarrage" },
+      { num: "3", label: "Volets livrés" },
+      { num: "2023", label: "Lancement" },
+      { num: "1", label: "Projet clé en main" },
     ],
   },
 ];
