@@ -164,7 +164,7 @@ export const PRODUITS: ProduitItem[] = [
       "Simple ou double face, option lumineuse",
       "Ancrages et contraintes météo dimensionnés",
     ],
-    image: "/asset/produit/totem.png",
+    image: "/asset/produit/totem.png?v=20260502",
   },
   {
     slug: "impression-3d-foam",
