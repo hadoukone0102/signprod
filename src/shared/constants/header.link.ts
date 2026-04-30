@@ -2,17 +2,7 @@ import { NavItem } from "../types/shared.type";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Accueil", href: "/" },
-  {
-    label: "Notre Savoir-Faire",
-    href: "/savoir-faire",
-    children: [
-      { label: "Enseignes lumineuses", href: "/savoir-faire/enseignes", desc: "LED, néon, caissons" },
-      { label: "Signalétique intérieure", href: "/savoir-faire/signaletique-interieure", desc: "Bureaux, commerces, hôtels" },
-      { label: "Signalétique extérieure", href: "/savoir-faire/signaletique-exterieure", desc: "Panneaux, totem, pylônes" },
-      { label: "Impression grand format", href: "/savoir-faire/impression", desc: "Bâches, visuels, adhésifs" },
-      { label: "Concept façade", href: "/savoir-faire/facades", desc: "Habillage & revêtement" },
-    ],
-  },
+  { label: "Notre Savoir-Faire", href: "/savoir-faire" },
   {
     label: "Nos Produits",
     href: "/produits",

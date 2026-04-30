@@ -4,7 +4,7 @@ import SavoirFaireOverviewView from "@/features/savoir-faire/views/savoir-faire-
 export const metadata: Metadata = {
   title: "Notre Savoir-Faire | SignProd",
   description:
-    "Découvrez les expertises SignProd : enseignes lumineuses, signalétique intérieure et extérieure, impression grand format et concept façade.",
+    "Cinq expertises en communication visuelle : enseignes, signalétique intérieure et extérieure, impression grand format, concept façade. Présentation illustrée et fiches détaillées.",
 };
 
 export default function Page() {
