@@ -546,9 +546,10 @@ export const PROJECTS: Project[] = [
     cover: {
       label: "S",
       accent: "from-[#0097B2] to-[#0a1a1f]",
-      image: "/asset/produit/signaletique.jpg?v=20260430",
+      image: "/asset/realisation/signaletique-interieure/1.jpg",
     },
     gallery: [
+      "/asset/realisation/signaletique-interieure/1.jpg",
       ("/asset/realisation/signaletique-interieure/SIGNALETIQUE.png"),
       ("/asset/realisation/signaletique-interieure/SIGNALETIQUE 1.png"),
       ("/asset/realisation/signaletique-interieure/SIGNALETIQUE 1 copie.png"),
