@@ -482,9 +482,10 @@ export const PROJECTS: Project[] = [
     cover: {
       label: "3D",
       accent: "from-[#4c51bf] to-[#1a1e4d]",
-      image: "/asset/realisation/realisation 3D/3D 1.png",
+      image: "/asset/realisation/realisation 3D/1.jpg",
     },
     gallery: [
+      "/asset/realisation/realisation 3D/1.jpg",
       "/asset/realisation/realisation 3D/3D 1.png",
       "/asset/realisation/realisation 3D/3D 2.png",
       "/asset/realisation/realisation 3D/3D 3.png",
@@ -492,6 +493,8 @@ export const PROJECTS: Project[] = [
       "/asset/realisation/realisation 3D/3Dl 3 copie.png",
       "/asset/realisation/realisation 3D/PHOTO-2025-10-16-16-15-04.jpg",
       "/asset/realisation/realisation 3D/PHOTO-2025-12-20-13-13-21.jpg",
+      "/asset/realisation/realisation 3D/PHOTO-2026-04-19-13-49-03.jpg",
+      "/asset/realisation/realisation 3D/PHOTO-2026-04-19-13-49-04.jpg",
     ],
     summary:
       "Dossier visuel 3D et perspectives pour validation de projets (projet BBR et plans divers) : projection avant réalisation terrain.",

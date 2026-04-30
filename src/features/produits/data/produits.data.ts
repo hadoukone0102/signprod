@@ -40,7 +40,7 @@ export const PRODUITS: ProduitItem[] = [
     slug: "stands-sur-mesure",
     href: "/produits/stands-sur-mesure",
     icon: LayoutGrid,
-    category: "Point de vente",
+    category: "Stand sur mesure",
     title: "Stands sur mesure",
     shortDesc: "Faites de votre stand un véritable levier d’attraction.",
     longDesc:
@@ -68,7 +68,7 @@ export const PRODUITS: ProduitItem[] = [
     slug: "kakemono",
     href: "/produits/kakemono",
     icon: Store,
-    category: "PLV & salon",
+    category: "Stand événementiel",
     title: "Stands événementiel",
     shortDesc: "Gagnez en visibilité, même sur des formats temporaires.",
     longDesc:
