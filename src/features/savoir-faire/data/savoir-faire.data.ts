@@ -57,17 +57,16 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
     relatedProductHref: "/produits/stands-sur-mesure",
     icon: LayoutGrid,
     title: "Stands sur mesure",
-    shortDesc:
-      "Des linéaires et îlots qui mettent vos produits en scène — et le parcours d’achat en confiance.",
+    shortDesc: "Faites de votre stand un véritable levier d’attraction.",
     longDesc:
-      "En point de vente ou en showroom, la présentation fait la différence sur le panier moyen et l’image de marque. Nous concevons des agencements sur mesure — linéaires, îlots, comptoirs, corners et zones mises en avant — puis les réalisons en atelier et les posons sur site : volumes étudiés, matériaux adaptés au public, graphisme et signalétique dans la continuité de votre univers. Le résultat : un espace lisible, valorisant et pensé pour durer — pas un kit jetable réservé au salon.",
+      "Conception, design et fabrication de stands qui attirent, marquent et engagent vos visiteurs.",
     features: [
-      "Agencement retail sur cote : linéaires, îlots, comptoirs, zones promo",
-      "Habillage graphique, éclairage d’accent et repères de parcours",
-      "Fabrication en atelier, pose qualifiée, évolutions possibles selon vos campagnes",
+      "Design 3D personnalisé",
+      "Fabrication sur mesure en atelier",
+      "Installation clé en main",
     ],
     featureVariant: "bullet",
-    closingLine: "Mieux présenter, c’est mieux vendre — avec un environnement à votre image.",
+    closingLine: "Design 3D personnalisé, fabrication en atelier, installation clé en main.",
     applications: ["Retail", "Showrooms", "Grande distribution", "Lancements produit", "Concept stores"],
     image: "/asset/produit/standsurmesur.png",
   },
@@ -108,7 +107,7 @@ export const SAVOIR_FAIRE: SavoirFaireItem[] = [
     featureVariant: "bullet",
     closingLine: "Une communication visuelle fluide et professionnelle.",
     applications: ["Sites industriels", "Centres commerciaux", "Hôpitaux", "Grands marchés", "Tertiaire"],
-    image: "/asset/produit/signaletique.jpg",
+    image: "/asset/realisation/signaletique-interieure/SIGNALETIQUE.png",
   },
   {
     slug: "impression",

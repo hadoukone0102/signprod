@@ -38,14 +38,13 @@ export const PRODUITS: ProduitItem[] = [
     icon: LayoutGrid,
     category: "Point de vente",
     title: "Stands sur mesure",
-    shortDesc:
-      "Linéaires, îlots et corners sur mesure : votre offre mise en valeur en magasin ou en showroom.",
+    shortDesc: "Faites de votre stand un véritable levier d’attraction.",
     longDesc:
-      "Nous créons des présentoirs et agencements pensés pour le retail : comptoirs, îlots, linéaires et zones d’animation où la marque et le produit sont lisibles en un coup d’œil. Étude des flux, fabrication en atelier, habillage graphique et signalétique coordonnés, puis pose sur site — pour un rendu durable et professionnel, à la différence du matériel nomade dédié aux salons.",
+      "Conception, design et fabrication de stands qui attirent, marquent et engagent vos visiteurs.",
     highlights: [
-      "Sur cote : linéaires, îlots, corners, zones promo et mises en avant",
-      "Finitions et matériaux adaptés au passage client et à votre positionnement",
-      "Chaîne complète atelier → pose ; solutions réutilisables ou évolutives",
+      "Design 3D personnalisé",
+      "Fabrication sur mesure en atelier",
+      "Installation clé en main",
     ],
     image: "/asset/produit/standsurmesur.png",
     gallery: [
@@ -124,7 +123,17 @@ export const PRODUITS: ProduitItem[] = [
       "Cohabitation avec l’agencement et la décoration",
       "Normes d’accès et de visibilité prises en compte",
     ],
-    image: "/asset/produit/signaletique.jpg",
+    image: "/asset/realisation/signaletique-interieure/SIGNALETIQUE.png",
+    gallery: [
+      "/asset/realisation/signaletique-interieure/SIGNALETIQUE.png",
+      "/asset/realisation/signaletique-interieure/SIGNALETIQUE 1.png",
+      "/asset/realisation/signaletique-interieure/SIGNALETIQUE 1 copie.png",
+      "/asset/realisation/signaletique-interieure/SIGNALETIQUE 1 copie 2.png",
+      "/asset/realisation/signaletique-interieure/SIGNALETIQUE 1 copie 3.png",
+      "/asset/realisation/signaletique-interieure/SIGNALETIQUE 1 copie 4.png",
+      "/asset/realisation/signaletique-interieure/SIGNALETIQUE 1 copie 5.png",
+      "/asset/realisation/signaletique-interieure/SIGNALETIQUE 1 copie 6.png",
+    ],
   },
   {
     slug: "totems",

@@ -55,9 +55,16 @@ export default function ProduitsOverviewView() {
                     >
                       {p.title}
                     </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
-                      {p.shortDesc}
-                    </p>
+                    <div className="mt-2 flex flex-1 flex-col gap-2">
+                      <p className="text-sm leading-relaxed text-slate-600">
+                        {p.shortDesc}
+                      </p>
+                      {p.slug === "stands-sur-mesure" && (
+                        <p className="text-sm leading-relaxed text-slate-600">
+                          {p.longDesc}
+                        </p>
+                      )}
+                    </div>
                     <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[2px] text-[#0097B2] transition-all group-hover:gap-3">
                       Voir le produit <ArrowRight className="h-4 w-4" />
                     </span>

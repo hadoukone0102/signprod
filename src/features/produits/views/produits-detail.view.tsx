@@ -46,9 +46,10 @@ export default function ProduitsDetailView({ slug }: ProduitsDetailViewProps) {
               >
                 Description du produit
               </h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-slate-600 md:text-base">
-                {item.longDesc}
-              </p>
+              <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-slate-600 md:text-base">
+                <p>{item.shortDesc}</p>
+                <p>{item.longDesc}</p>
+              </div>
 
               <h3
                 className="mt-10 text-xl font-bold uppercase tracking-tight text-[#0a1628]"

@@ -257,9 +257,9 @@ export const PROJECTS: Project[] = [
   {
     slug: "stand-sur-mesure",
     kind: "dossier",
-    client: "Stand sur mesure",
+    client: "Stands sur mesure",
     shortName: "ST",
-    tagline: "Retail, salons & foires",
+    tagline: "Levier d’attraction pour vos visiteurs",
     sector: "Stands sur mesure",
     year: "2024 — 2025",
     cover: {
@@ -280,11 +280,11 @@ export const PROJECTS: Project[] = [
       "/asset/realisation/stand-d-exposition/STAND D'EXPOSITION copie 11.png",
     ],
     summary:
-      "Stands et espaces d’exposition sur mesure : linéaires retail, halls de salon et scénographies — structures, habillage graphique et mise en lumière.",
+      "Faites de votre stand un véritable levier d’attraction. Conception, design et fabrication de stands qui attirent, marquent et engagent vos visiteurs.",
     realisations: [
-      { title: "Linéaires et présentoirs retail", type: "PLV sur mesure", year: "2024" },
-      { title: "Stands modulaires hall & salon", type: "Événementiel", year: "2024" },
-      { title: "Habillage, signalétique et mise en lumière", type: "Scénographie", year: "2025" },
+      { title: "Design 3D personnalisé", type: "Conception", year: "2024" },
+      { title: "Fabrication sur mesure en atelier", type: "Production", year: "2024" },
+      { title: "Installation clé en main", type: "Pose", year: "2025" },
     ],
   },
   {
@@ -511,7 +511,7 @@ export const PROJECTS: Project[] = [
     cover: {
       label: "S",
       accent: "from-[#0097B2] to-[#0a1a1f]",
-      image: "/asset/produit/signaletique.jpg",
+      image: "/asset/realisation/signaletique-interieure/SIGNALETIQUE.png",
     },
     gallery: [
       ("/asset/realisation/signaletique-interieure/SIGNALETIQUE.png"),

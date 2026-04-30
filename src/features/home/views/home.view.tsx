@@ -24,7 +24,7 @@ const BBR_HOME_IMAGES = [
 const SERVICES = [
   {
     title: "Stands sur mesure",
-    desc: "Îlots, linéaires et corners qui valorisent l’offre en point de vente.",
+    desc: "Faites de votre stand un véritable levier d’attraction. Conception, design et fabrication qui attirent, marquent et engagent.",
     image: "/asset/produit/standsurmesur.png",
     href: "/produits/stands-sur-mesure",
   },
@@ -37,7 +37,7 @@ const SERVICES = [
   {
     title: "Signalétique",
     desc: "Intérieure, extérieure, totems et orientation.",
-    image: "/asset/produit/signaletique.jpg",
+    image: "/asset/realisation/signaletique-interieure/SIGNALETIQUE.png",
     href: "/savoir-faire/signaletique",
   },
   {
