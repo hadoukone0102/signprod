@@ -11,12 +11,14 @@ export default function SavoirFaireOverviewView() {
     <div>
       <PageHero
         eyebrow="Notre savoir-faire"
-        title="Cinq expertises"
+        title="Un atelier,"
+        highlight="plusieurs métiers"
         description={
-          <>
-            Une seule équipe. Un seul savoir-faire.{" "}
-            <span className="font-bold text-[#1abcbc]">Un contrôle total</span>.
-          </>
+          <p className="text-[15px] leading-relaxed text-white/70 md:text-base">
+            De l’enseigne lumineuse à l’habillage de façade, de la signalétique à l’impression grand format
+            jusqu’aux stands d’exposition sur mesure, nous concevons et réalisons des solutions complètes
+            pour valoriser votre image et maximiser votre visibilité.
+          </p>
         }
         breadcrumbs={[
           { label: "Accueil", href: "/" },
@@ -27,8 +29,9 @@ export default function SavoirFaireOverviewView() {
       {/* Socle méthodo — cohérent avec la suite « Méthodologie » */}
       <section className="border-b border-slate-200/80 bg-white">
         <div className="container py-6 md:py-8">
-          <p className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[3px] text-slate-500">
-            De la conception à la pose
+          <p className="mb-5 text-center text-base font-bold leading-snug text-[#0a1628] md:text-lg">
+            Une seule équipe. Un seul savoir-faire.{" "}
+            <span className="text-[#0097B2]">Un contrôle total</span>.
           </p>
           <div className="grid gap-4 md:grid-cols-3">
             {EXPERTISE_PILLARS.map((pillar) => {
