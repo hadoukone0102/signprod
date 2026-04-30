@@ -4,7 +4,7 @@ import ProduitsOverviewView from "@/features/produits/views/produits-overview.vi
 export const metadata: Metadata = {
   title: "Nos Produits | SignProd",
   description:
-    "Enseignes LED, totems, vitrines, kakémonos, bâches et signalétique routière : découvrez tous les produits SignProd.",
+    "Revêtement de façades, enseignes lumineuses, signalétique, totems, agencement, branding véhicules, display, impression grand format, stands PLV, cover style, stations services.",
 };
 
 export default function Page() {

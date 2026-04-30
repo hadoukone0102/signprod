@@ -33,11 +33,11 @@ export default function PageHero({
       <div className="absolute -top-32 -right-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(26,188,188,0.18)_0%,transparent_70%)]" />
       <div className="absolute -bottom-24 -left-24 h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(26,188,188,0.10)_0%,transparent_70%)]" />
 
-      <div className="container relative z-10 py-16 md:py-20 lg:py-24">
+      <div className="container relative z-10 py-10 md:py-12 lg:py-14">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav
             aria-label="Fil d'Ariane"
-            className="mb-6 flex flex-wrap items-center gap-1 text-xs uppercase tracking-[2px] text-white/55"
+            className="mb-4 flex flex-wrap items-center gap-1 text-xs uppercase tracking-[2px] text-white/55"
           >
             {breadcrumbs.map((crumb, i) => (
               <span key={`${crumb.label}-${i}`} className="flex items-center gap-1">
@@ -60,7 +60,7 @@ export default function PageHero({
         )}
 
         {eyebrow && (
-          <div className="mb-6 inline-flex items-center gap-2 rounded-[2px] border border-[rgba(26,188,188,0.4)] bg-[rgba(26,188,188,0.15)] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[2px] text-[#1abcbc]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-[2px] border border-[rgba(26,188,188,0.4)] bg-[rgba(26,188,188,0.15)] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[2px] text-[#1abcbc]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#1abcbc]" aria-hidden />
             {eyebrow}
           </div>
@@ -80,7 +80,7 @@ export default function PageHero({
         </h1>
 
         {description && (
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/70 md:text-base">
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 md:text-base">
             {description}
           </p>
         )}
